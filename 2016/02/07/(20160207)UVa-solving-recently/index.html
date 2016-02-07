@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="NaiveRed's Blog">
 <meta property="og:description" content="前言想說趁著寒假有空的幾天來把題數寫到200題，雖說沒有很多(當然不是從0)，對實力貧弱的我來說，也還是花了不少時間，先把 CPE的選題 補完，途中也解了不少水題來騙題數，話雖如此收獲也還是不少，真是感謝了沒放棄的自己。  
 接著是題目的部分，如果一題一題貼顯得沒甚麼意義，嘛~其實是嫌麻煩就是了，再者幾乎網路上也都有不少答案，所以索性統整在這一篇，再加上一些小小的筆記，或許可以幫到一些有相同疑問的">
-<meta property="og:updated_time" content="2016-02-07T15:58:52.801Z">
+<meta property="og:updated_time" content="2016-02-07T16:27:11.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVa 解題近況">
 <meta name="twitter:description" content="前言想說趁著寒假有空的幾天來把題數寫到200題，雖說沒有很多(當然不是從0)，對實力貧弱的我來說，也還是花了不少時間，先把 CPE的選題 補完，途中也解了不少水題來騙題數，話雖如此收獲也還是不少，真是感謝了沒放棄的自己。  
@@ -114,20 +114,20 @@
 <p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/900%20-%20Brick%20Wall%20Patterns.cpp" target="_blank" rel="external">900 - Brick Wall Patterns</a><br>費式數列</p>
 <h3 id="Others_3A"><a href="#Others_3A" class="headerlink" title="Others:"></a>Others:</h3><p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11349%20-%20Symmetric%20Matrix.c" target="_blank" rel="external">11349 - Symmetric Matrix</a><br>存成一維陣列，如果對稱，將會是迴文，有負數即為不對稱(題目定義)  </p>
 <p><a href="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/">10093 - An Easy Problem!</a> (文章)</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11005%20-%20Cheapest%20Base.cpp" target="_blank" rel="external">11005 Cheapest Base</a><br>每一種Base都去試試看即可</p>
+<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11005%20-%20Cheapest%20Base.cpp" target="_blank" rel="external">11005 - Cheapest Base</a><br>每一種Base都去試試看即可</p>
 <p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/1584%20-%20Circular%20Sequence.cpp" target="_blank" rel="external">1584 - Circular Sequence</a><br>找從哪裡起始的字典序會最小</p>
 <p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/1339%20-%20Ancient%20Cipher.cpp" target="_blank" rel="external">1339 - Ancient Cipher</a><br>判斷兩字串中 “不同字母的數量” 的遞增數列是否相同</p>
 <p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10474%20-%20Where%20is%20the%20Marble.cpp" target="_blank" rel="external">10474 - Where is the Marble</a><br>Binary search</p>
 <p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/572%20-%20Oil%20Deposits.cpp" target="_blank" rel="external">572 - Oil Deposits</a><br>Recursive</p>
 <p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/156%20-%20Ananagrams.cpp" target="_blank" rel="external">156 - Ananagrams</a><br>將每個 word 轉成小寫後做排序，這樣就可以統計有多少個 ananagram</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/12096%20-%20The%20SetStack%20Computer.cpp" target="_blank" rel="external">12096 - The SetStack Computer</a><br>STL的一些操作，這裡要提的是 <code>std::inserter</code>，以前沒用過，不曉得它的用途，稍微查了一下<a href="/#note">1</a>， 大致理解是 <code>std::inserter</code> 他會回傳 <code>std::insert_iterator</code> ，而它可以幫助本來無法配置記憶體空間的 function (ex. <code>set_union</code>) 來進行增長，它會呼叫各 container 的 <code>std::insert</code> 來進行插入</p>
+<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/12096%20-%20The%20SetStack%20Computer.cpp" target="_blank" rel="external">12096 - The SetStack Computer</a><br>STL的一些操作，這裡要提的是 <code>std::inserter</code>，以前沒用過，不曉得它的用途，稍微查了一下[<a href="/#note">1</a>]， 大致理解是 <code>std::inserter</code> 他會回傳 <code>std::insert_iterator</code> ，而它可以幫助本來無法配置記憶體空間的 function (ex. <code>set_union</code>) 來進行增長，它會呼叫各 container 的 <code>std::insert</code> 來進行插入。</p>
 <hr>
 <p><span id="note"><strong>[1] 參考資料</strong></span><br><a href="http://en.cppreference.com/w/cpp/iterator/inserter" target="_blank" rel="external">http://en.cppreference.com/w/cpp/iterator/inserter</a><br><a href="http://en.cppreference.com/w/cpp/iterator/insert_iterator" target="_blank" rel="external">http://en.cppreference.com/w/cpp/iterator/insert_iterator</a><br><a href="https://icoderme.wordpress.com/2010/01/28/insert_iterator-and-nserter-in-stl/" target="_blank" rel="external">https://icoderme.wordpress.com/2010/01/28/insert_iterator-and-nserter-in-stl/</a><br><a href="http://blog.csdn.net/effective_coder/article/details/8733853" target="_blank" rel="external">http://blog.csdn.net/effective_coder/article/details/8733853</a>  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/07/(20160207)UVa-solving-recently/" data-id="cikcpgaam0000307k2b4xu3ac" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/07/(20160207)UVa-solving-recently/" data-id="cikcr8rfs000odc7k0gza3qk5" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/07/(20160207)UVa-solving-recently/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -141,7 +141,7 @@
 <nav id="article-nav">
   
   
-    <a href="/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/01/25/UVa-10093-An-Easy-Problem/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">UVa 10093 - An Easy Problem!</div>
     </a>
@@ -172,11 +172,11 @@
           </li>
         
           <li>
-            <a href="/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/">UVa 10093 - An Easy Problem!</a>
+            <a href="/2016/01/25/UVa-10093-An-Easy-Problem/">UVa 10093 - An Easy Problem!</a>
           </li>
         
           <li>
-            <a href="/2016/01/20/(20160120)UVa-120-Stacks-of-Flapjacks/">UVa 120 - Stacks of Flapjacks</a>
+            <a href="/2016/01/20/UVa-120-Stacks-of-Flapjacks/">UVa 120 - Stacks of Flapjacks</a>
           </li>
         
           <li>
