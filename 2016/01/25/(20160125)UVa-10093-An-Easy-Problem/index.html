@@ -11,13 +11,13 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
 估計是跟同餘定理有關，剛好上學期才修了離散數學也有教到同餘。有查到這個 解釋，但沒找到很詳細的說明，大概是我餵狗技能沒點滿，如果有錯或是更好的說明還請讓我知道!這裡先試著解釋看看:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UVa 10093 - An Easy Problem!">
-<meta property="og:url" content="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/index.html">
+<meta property="og:url" content="http://naivered.github.io/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/index.html">
 <meta property="og:site_name" content="NaiveRed's Blog">
 <meta property="og:description" content="Problem題目網址中文網址找出最小的 N ，使得某整數 R 在 N 進位時，可被 N-1 整除。
 Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 進位時可被 N - 1 整除。
 
 估計是跟同餘定理有關，剛好上學期才修了離散數學也有教到同餘。有查到這個 解釋，但沒找到很詳細的說明，大概是我餵狗技能沒點滿，如果有錯或是更好的說明還請讓我知道!這裡先試著解釋看看:">
-<meta property="og:updated_time" content="2016-01-26T14:35:23.355Z">
+<meta property="og:updated_time" content="2016-02-07T15:27:04.083Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVa 10093 - An Easy Problem!">
 <meta name="twitter:description" content="Problem題目網址中文網址找出最小的 N ，使得某整數 R 在 N 進位時，可被 N-1 整除。
@@ -70,9 +70,9 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UVa-10093-An-Easy-Problem" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-(20160125)UVa-10093-An-Easy-Problem" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/01/25/UVa-10093-An-Easy-Problem/" class="article-date">
+    <a href="/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/" class="article-date">
   <time datetime="2016-01-25T14:28:53.000Z" itemprop="datePublished">2016-01-25</time>
 </a>
     
@@ -96,8 +96,8 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><p><a href="https://uva.onlinejudge.org/external/100/10093.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q10093.htm" target="_blank" rel="external">中文網址</a><br>找出最小的 N ，使得某整數 R 在 N 進位時，可被 N-1 整除。</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><blockquote><p>若 N - 1 可以將某數 <strong>每個位數的總和</strong> 整除，則此數在 N 進位時可被 N - 1 整除。</p>
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/100/10093.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q10093.htm" target="_blank" rel="external">中文網址</a><br>找出最小的 N ，使得某整數 R 在 N 進位時，可被 N-1 整除。</p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><blockquote><p>若 N - 1 可以將某數 <strong>每個位數的總和</strong> 整除，則此數在 N 進位時可被 N - 1 整除。</p>
 </blockquote>
 <p>估計是跟同餘定理有關，剛好上學期才修了離散數學也有教到同餘。<br>有查到這個 <a href="http://blog.sciencenet.cn/blog-310206-825640.html" target="_blank" rel="external">解釋</a>，但沒找到很詳細的說明，大概是我餵狗技能沒點滿，如果有錯或是更好的說明還請讓我知道!<br>這裡先試著解釋看看:  </p>
 <p>首先假設某數 $X$ 有 $n$ 個位數，每個位數的總和為 $k$ 的倍數，而 $X$ 為 $B$ 進位，且 $B = k + 1$ </p>
@@ -125,13 +125,13 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
 <p>可以得到 $X$:</p>
 <p>$<br>X \equiv a_1 \times 10^{3} + a_2 \times {10^{2}} + a_3 \times 10^{1} + a_4 \equiv 0 \ (mod\ k)<br>$</p>
 <p>不同的進位制亦如此，但須注意相加時的進位等等不同處。<br>(以上大概是不嚴謹的證明就是了…)</p>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><figure class="highlight cpp"><figcaption><span>UVa 10093</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10093%20-%20An%20Easy%20Problem!.cpp" target="_blank" rel="external">UVa 10093 - An Easy Problem!</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">findBase</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">int</span>&amp; sum)</span></span>;<span class="comment">//找出數字每一位中最大的(待會的初始基底不可小於它)，並相加每一位數</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (gets(str))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">int</span> max = findBase(str, sum) , i;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = max; i &lt; <span class="number">62</span>; i++)</span><br><span class="line">            <span class="keyword">if</span> (!(sum%i))</span><br><span class="line">            &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">62</span>)</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"such number is impossible!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findBase</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">int</span>&amp; sum)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i, max = <span class="number">1</span>, len = <span class="built_in">strlen</span>(str), temp;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str[i] &gt;= <span class="string">'0'</span>&amp;&amp;str[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = str[i] - <span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">if</span> (max &lt; temp)</span><br><span class="line">                max = temp;</span><br><span class="line">            sum += temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] &gt;= <span class="string">'A'</span>&amp;&amp;str[i] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = str[i] - <span class="string">'A'</span> + <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span> (max &lt; temp)</span><br><span class="line">                max = temp;</span><br><span class="line">            sum += temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] &gt;= <span class="string">'a'</span>&amp;&amp;str[i] &lt;= <span class="string">'z'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = str[i] - <span class="string">'a'</span> + <span class="number">36</span>;</span><br><span class="line">            <span class="keyword">if</span> (max &lt; temp)</span><br><span class="line">                max = temp;</span><br><span class="line">            sum += temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10093</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10093%20-%20An%20Easy%20Problem!.cpp" target="_blank" rel="external">UVa 10093 - An Easy Problem!</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">findBase</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">int</span>&amp; sum)</span></span>;<span class="comment">//找出數字每一位中最大的(待會的初始基底不可小於它)，並相加每一位數</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> str[<span class="number">10001</span>];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (gets(str))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">int</span> max = findBase(str, sum) , i;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = max; i &lt; <span class="number">62</span>; i++)</span><br><span class="line">            <span class="keyword">if</span> (!(sum%i))</span><br><span class="line">            &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (i == <span class="number">62</span>)</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"such number is impossible!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findBase</span><span class="params">(<span class="keyword">char</span> *str, <span class="keyword">int</span>&amp; sum)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> i, max = <span class="number">1</span>, len = <span class="built_in">strlen</span>(str), temp;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (str[i] &gt;= <span class="string">'0'</span>&amp;&amp;str[i] &lt;= <span class="string">'9'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = str[i] - <span class="string">'0'</span>;</span><br><span class="line">            <span class="keyword">if</span> (max &lt; temp)</span><br><span class="line">                max = temp;</span><br><span class="line">            sum += temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] &gt;= <span class="string">'A'</span>&amp;&amp;str[i] &lt;= <span class="string">'Z'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = str[i] - <span class="string">'A'</span> + <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span> (max &lt; temp)</span><br><span class="line">                max = temp;</span><br><span class="line">            sum += temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (str[i] &gt;= <span class="string">'a'</span>&amp;&amp;str[i] &lt;= <span class="string">'z'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            temp = str[i] - <span class="string">'a'</span> + <span class="number">36</span>;</span><br><span class="line">            <span class="keyword">if</span> (max &lt; temp)</span><br><span class="line">                max = temp;</span><br><span class="line">            sum += temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/" data-id="cik851kk90000wo7k6z2oxxpl" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/" data-id="cikcpfbzu0007p47kzzsj8a0v" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/不同進位制的整除判斷/">不同進位制的整除判斷</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/同餘/">同餘</a></li></ul>
@@ -142,8 +142,17 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
     
 <nav id="article-nav">
   
+    <a href="/2016/02/07/(20160207)UVa-solving-recently/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          UVa 解題近況
+        
+      </div>
+    </a>
   
-    <a href="/2016/01/20/UVa-120-Stacks-of-Flapjacks/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2016/01/20/(20160120)UVa-120-Stacks-of-Flapjacks/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">UVa 120 - Stacks of Flapjacks</div>
     </a>
@@ -170,15 +179,19 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
       <ul>
         
           <li>
-            <a href="/2016/01/25/UVa-10093-An-Easy-Problem/">UVa 10093 - An Easy Problem!</a>
+            <a href="/2016/02/07/(20160207)UVa-solving-recently/">UVa 解題近況</a>
           </li>
         
           <li>
-            <a href="/2016/01/20/UVa-120-Stacks-of-Flapjacks/">UVa 120 - Stacks of Flapjacks</a>
+            <a href="/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/">UVa 10093 - An Easy Problem!</a>
           </li>
         
           <li>
-            <a href="/2016/01/17/start_hexo/">來吧 ! Hexo !</a>
+            <a href="/2016/01/20/(20160120)UVa-120-Stacks-of-Flapjacks/">UVa 120 - Stacks of Flapjacks</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/17/(20160107)start_hexo/">來吧 ! Hexo !</a>
           </li>
         
       </ul>
@@ -210,7 +223,7 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li></ul>
     </div>
   </div>
 
@@ -240,7 +253,7 @@ Solution若 N - 1 可以將某數 每個位數的總和 整除，則此數在 N 
 <script>
   var disqus_shortname = 'naivered';
   
-  var disqus_url = 'http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/';
+  var disqus_url = 'http://naivered.github.io/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/';
   
   (function(){
     var dsq = document.createElement('script');

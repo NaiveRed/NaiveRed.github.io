@@ -15,7 +15,7 @@ Github (因為我用github page)
 詳細的步驟官網都有，這裡只簡單紀錄。(He">
 <meta property="og:type" content="article">
 <meta property="og:title" content="來吧 ! Hexo !">
-<meta property="og:url" content="http://naivered.github.io/2016/01/17/start_hexo/index.html">
+<meta property="og:url" content="http://naivered.github.io/2016/01/17/(20160107)start_hexo/index.html">
 <meta property="og:site_name" content="NaiveRed's Blog">
 <meta property="og:description" content="前言本來是使用google blog的，後來想想似乎自己架一個網站也不錯，但有鑑於以往半途而廢的經驗，就先用在建置較為簡單的Github page上，又剛好看到有人在用Hexo，就決定趁這個寒假來碰碰它了。  
 稍微說一下安裝時我用到哪些東西，做個小小的筆記怕以後不會用XD  
@@ -25,7 +25,7 @@ Git
 Github (因為我用github page)
 
 詳細的步驟官網都有，這裡只簡單紀錄。(He">
-<meta property="og:updated_time" content="2016-01-27T11:31:04.156Z">
+<meta property="og:updated_time" content="2016-02-07T15:27:16.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="來吧 ! Hexo !">
 <meta name="twitter:description" content="前言本來是使用google blog的，後來想想似乎自己架一個網站也不錯，但有鑑於以往半途而廢的經驗，就先用在建置較為簡單的Github page上，又剛好看到有人在用Hexo，就決定趁這個寒假來碰碰它了。  
@@ -82,9 +82,9 @@ Github (因為我用github page)
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-start_hexo" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-(20160107)start_hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/01/17/start_hexo/" class="article-date">
+    <a href="/2016/01/17/(20160107)start_hexo/" class="article-date">
   <time datetime="2016-01-17T06:54:32.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     
@@ -108,7 +108,7 @@ Github (因為我用github page)
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h1><p>本來是使用google blog的，後來想想似乎自己架一個網站也不錯，但有鑑於以往半途而廢的經驗，<br>就先用在建置較為簡單的Github page上，又剛好看到有人在用Hexo，就決定趁這個寒假來碰碰它了。  </p>
+        <h2 id="u524D_u8A00"><a href="#u524D_u8A00" class="headerlink" title="前言"></a>前言</h2><p>本來是使用google blog的，後來想想似乎自己架一個網站也不錯，但有鑑於以往半途而廢的經驗，<br>就先用在建置較為簡單的Github page上，又剛好看到有人在用Hexo，就決定趁這個寒假來碰碰它了。  </p>
 <p>稍微說一下安裝時我用到哪些東西，做個小小的筆記怕以後不會用XD  </p>
 <ul>
 <li>node.js</li>
@@ -116,7 +116,7 @@ Github (因為我用github page)
 <li>Github (因為我用github page)</li>
 </ul>
 <p>詳細的步驟<a href="https://hexo.io/zh-tw/" target="_blank" rel="external">官網</a>都有，這裡只簡單紀錄。<br>(Hexo:3.1.1)</p>
-<h1 id="u5B89_u88DD"><a href="#u5B89_u88DD" class="headerlink" title="安裝"></a>安裝</h1><ol>
+<h2 id="u5B89_u88DD"><a href="#u5B89_u88DD" class="headerlink" title="安裝"></a>安裝</h2><ol>
 <li><p>安裝 Git 和 node.js</p>
 </li>
 <li><p>可以先試試利用 Git 上傳東西到其他 repo 試試(這裡我第一次用，所以碰到蠻多問題xD)<br>第一次使用的話要記得先設定識別資料。<br><code>git config --global user.name &quot;Your name&quot;</code><br><code>git config --global user.email &quot;Email&quot;</code><br>詳細 Git 教學網路上不及備載就不打了，我也沒有很會就是了…</p>
@@ -125,11 +125,11 @@ Github (因為我用github page)
 </li>
 </ol>
 <p>(我指令皆是在 Git bash 操作的)</p>
-<h1 id="u5EFA_u7F6E"><a href="#u5EFA_u7F6E" class="headerlink" title="建置"></a>建置</h1><pre><code>hexo init &lt;folder&gt;
+<h2 id="u5EFA_u7F6E"><a href="#u5EFA_u7F6E" class="headerlink" title="建置"></a>建置</h2><pre><code>hexo init &lt;folder&gt;
 cd &lt;folder&gt;
 npm install
 </code></pre><p>建立好需要的檔案後，可以利用 <code>hexo generate</code> or <code>hexo g</code> 來產生關聯的靜態檔案。<br>接著可以使用 <code>hexo serve</code> 來測試(<a href="http://localhost:4000/" target="_blank" rel="external">http://localhost:4000/</a>) </p>
-<h1 id="u653E_u5230Github_page"><a href="#u653E_u5230Github_page" class="headerlink" title="放到Github page"></a>放到Github page</h1><p>在佈署到 Github 上前，需先對資料夾內的 <code>_config.yml</code> 做一些修改。<br>以我的為例:</p>
+<h2 id="u653E_u5230Github_page"><a href="#u653E_u5230Github_page" class="headerlink" title="放到Github page"></a>放到Github page</h2><p>在佈署到 Github 上前，需先對資料夾內的 <code>_config.yml</code> 做一些修改。<br>以我的為例:</p>
 <pre><code>deploy:
   type: git
   repo: https://github.com/NaiveRed/NaiveRed.github.io.git
@@ -137,14 +137,14 @@ npm install
 </code></pre><p><code>:</code> 後需要空格。<br>然後安裝 hexo-deployer-git<br><code>npm install hexo-deployer-git --save</code></p>
 <p>最後再打 <code>hexo d</code> or <code>hexo deploy</code> 即可完成佈署(會將資料夾內<code>public</code>的東西push上github)，此時也會要你輸入 github 的帳號密碼。</p>
 <p>如果你是使用 github desktop(Windows) ，登入後可利用 Git Shell 則不須再打帳密了。 </p>
-<h1 id="u6700_u5F8C"><a href="#u6700_u5F8C" class="headerlink" title="最後"></a>最後</h1><p>差不多就是這樣，到時應該還會再記些碰到的問題和使用的相關心得。</p>
+<h2 id="u6700_u5F8C"><a href="#u6700_u5F8C" class="headerlink" title="最後"></a>最後</h2><p>差不多就是這樣，到時應該還會再記些碰到的問題和使用的相關心得。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/01/17/start_hexo/" data-id="cik851kl4000bwo7kyqhoui4p" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/01/17/(20160107)start_hexo/" data-id="cikcpfbyw0000p47kb9syhe8e" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/01/17/start_hexo/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/01/17/(20160107)start_hexo/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -155,7 +155,7 @@ npm install
     
 <nav id="article-nav">
   
-    <a href="/2016/01/20/UVa-120-Stacks-of-Flapjacks/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/20/(20160120)UVa-120-Stacks-of-Flapjacks/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
@@ -187,15 +187,19 @@ npm install
       <ul>
         
           <li>
-            <a href="/2016/01/25/UVa-10093-An-Easy-Problem/">UVa 10093 - An Easy Problem!</a>
+            <a href="/2016/02/07/(20160207)UVa-solving-recently/">UVa 解題近況</a>
           </li>
         
           <li>
-            <a href="/2016/01/20/UVa-120-Stacks-of-Flapjacks/">UVa 120 - Stacks of Flapjacks</a>
+            <a href="/2016/01/25/(20160125)UVa-10093-An-Easy-Problem/">UVa 10093 - An Easy Problem!</a>
           </li>
         
           <li>
-            <a href="/2016/01/17/start_hexo/">來吧 ! Hexo !</a>
+            <a href="/2016/01/20/(20160120)UVa-120-Stacks-of-Flapjacks/">UVa 120 - Stacks of Flapjacks</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/17/(20160107)start_hexo/">來吧 ! Hexo !</a>
           </li>
         
       </ul>
@@ -227,7 +231,7 @@ npm install
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a></li></ul>
     </div>
   </div>
 
@@ -257,7 +261,7 @@ npm install
 <script>
   var disqus_shortname = 'naivered';
   
-  var disqus_url = 'http://naivered.github.io/2016/01/17/start_hexo/';
+  var disqus_url = 'http://naivered.github.io/2016/01/17/(20160107)start_hexo/';
   
   (function(){
     var dsq = document.createElement('script');
