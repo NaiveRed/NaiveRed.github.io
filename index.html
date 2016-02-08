@@ -62,9 +62,9 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-(20160207)UVa-solving-recently" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-UVa-solving-recently" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/02/07/(20160207)UVa-solving-recently/" class="article-date">
+    <a href="/2016/02/07/UVa-solving-recently/" class="article-date">
   <time datetime="2016-02-07T06:54:48.000Z" itemprop="datePublished">2016-02-07</time>
 </a>
     
@@ -80,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/07/(20160207)UVa-solving-recently/">UVa 解題近況</a>
+      <a class="article-title" href="/2016/02/07/UVa-solving-recently/">UVa 解題近況</a>
     </h1>
   
 
@@ -92,42 +92,93 @@
 <p>接著是題目的部分，如果一題一題貼顯得沒甚麼意義，嘛~其實是嫌麻煩就是了，再者幾乎網路上也都有不少答案，所以索性統整在這一篇，再加上一些小小的筆記，或許可以幫到一些有相同疑問的人。</p>
 <p>在程式碼內多少有些註解，可以加減 <strong>參考</strong> 。</p>
 <h2 id="u984C_u76EE"><a href="#u984C_u76EE" class="headerlink" title="題目"></a>題目</h2><p>寫的 code 都丟進 <a href="https://github.com/NaiveRed/Problem-solving" target="_blank" rel="external">Repo</a> 裡了，這裡僅列出部分。</p>
-<h3 id="Stack__u7684_u76F8_u95DC_u64CD_u4F5C_3A"><a href="#Stack__u7684_u76F8_u95DC_u64CD_u4F5C_3A" class="headerlink" title="Stack 的相關操作:"></a>Stack 的相關操作:</h3><p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/127%20-%20Accordian%20Patience.cpp" target="_blank" rel="external">127 - “Accordian” Patience</a><br><a href="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/">120 - Stacks of Flapjacks</a> (文章)</p>
-<h3 id="Backtracking__u56DE_u6EAF_u6CD5_3A"><a href="#Backtracking__u56DE_u6EAF_u6CD5_3A" class="headerlink" title="Backtracking 回溯法:"></a>Backtracking 回溯法:</h3><p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/989%20-%20Su%20Doku.cpp" target="_blank" rel="external">989 - Su Doku</a>  </p>
-<h3 id="KMP_algorithm_3A"><a href="#KMP_algorithm_3A" class="headerlink" title="KMP algorithm:"></a>KMP algorithm:</h3><p><strong>關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/StringMatching.html#2" target="_blank" rel="external">KMP</a></strong></p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10298%20-%20Power%20Strings.cpp" target="_blank" rel="external">10298 - Power Strings</a><br><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/455%20-%20Periodic%20Strings.cpp" target="_blank" rel="external">455 - Periodic Strings</a>  </p>
-<h3 id="LIS_3A"><a href="#LIS_3A" class="headerlink" title="LIS:"></a>LIS:</h3><p><strong>關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/LongestIncreasingSubsequence.html#3" target="_blank" rel="external">LIS</a></strong></p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/497%20-%20Strategic%20Defense%20Initiative.cpp" target="_blank" rel="external">497 - Strategic Defense Initiative</a><br>$O(N^2)$</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/103%20-%20Stacking%20Boxes.cpp" target="_blank" rel="external">103 - Stacking Boxes</a><br>$O(N^2)$</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10131(1)%20-%20Is%20Bigger%20Smarter.cpp" title="Title" target="_blank" rel="external">10131(1) - Is Bigger Smarter</a><br><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10131(2)%20-%20Is%20Bigger%20Smarter.cpp" title="Title" target="_blank" rel="external">10131(2) - Is Bigger Smarter</a><br>$O(N^2)$</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/231%20-%20Testing%20the%20CATCHER.cpp" target="_blank" rel="external">231 - Testing the CATCHER</a><br>$O(N^2)$</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/481%20-%20What%20Goes%20Up.cpp" target="_blank" rel="external">481 - What Goes Up</a><br>用Binary search加速達到 $O(NlogL)$</p>
-<h3 id="LCS_3A"><a href="#LCS_3A" class="headerlink" title="LCS:"></a>LCS:</h3><p><strong>關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/LongestCommonSubsequence.html" target="_blank" rel="external">LCS</a></strong></p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/111%20-%20History%20Grading.cpp" target="_blank" rel="external">111 - History Grading</a><br>注意事件的相對順序和輸入的要再做處理</p>
-<h3 id="Disjoint_Sets__28_u4E26_u67E5_u96C6_29_3A"><a href="#Disjoint_Sets__28_u4E26_u67E5_u96C6_29_3A" class="headerlink" title="Disjoint Sets (並查集):"></a>Disjoint Sets (並查集):</h3><p><strong>關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/Set.html#8" target="_blank" rel="external">並查集</a></strong></p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/793(1)%20-%20Network%20Connections.cpp" title="Title" target="_blank" rel="external">793(1) - Network Connections</a><br><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/793(2)%20-%20Network%20Connections.cpp" title="Title" target="_blank" rel="external">793(2) - Network Connections</a> 多了按秩合併，但效果不顯著，要不就是我寫錯了…  </p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10608%20-%20Friends.cpp" target="_blank" rel="external">10608 - Friends</a><br><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10583%20-%20Ubiquitous%20Religions.cpp" target="_blank" rel="external">10583 - Ubiquitous Religions</a></p>
-<h3 id="u627E_u898F_u5F8B_3A"><a href="#u627E_u898F_u5F8B_3A" class="headerlink" title="找規律:"></a>找規律:</h3><p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10642%20-%20Can%20You%20Solve%20It.c" target="_blank" rel="external">10642 - Can You Solve It?</a><br><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11000%20-%20Bee.cpp" target="_blank" rel="external">11000 - Bee</a><br><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/846%20-%20Steps.cpp" target="_blank" rel="external">846 - Steps</a>  </p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10170(1)%20-%20The%20Hotel%20with%20Infinite%20Rooms.c" title="Title" target="_blank" rel="external">10170(1) - The Hotel with Infinite Rooms</a><br><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10170(2)%20-%20The%20Hotel%20with%20Infinite%20Rooms.c" title="Title" target="_blank" rel="external">10170(2) - The Hotel with Infinite Rooms</a> </p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/900%20-%20Brick%20Wall%20Patterns.cpp" target="_blank" rel="external">900 - Brick Wall Patterns</a><br>費式數列</p>
-<h3 id="Others_3A"><a href="#Others_3A" class="headerlink" title="Others:"></a>Others:</h3><p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11349%20-%20Symmetric%20Matrix.c" target="_blank" rel="external">11349 - Symmetric Matrix</a><br>存成一維陣列，如果對稱，將會是迴文，有負數即為不對稱(題目定義)  </p>
-<p><a href="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/">10093 - An Easy Problem!</a> (文章)</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11005%20-%20Cheapest%20Base.cpp" target="_blank" rel="external">11005 - Cheapest Base</a><br>每一種Base都去試試看即可</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/1584%20-%20Circular%20Sequence.cpp" target="_blank" rel="external">1584 - Circular Sequence</a><br>找從哪裡起始的字典序會最小</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/1339%20-%20Ancient%20Cipher.cpp" target="_blank" rel="external">1339 - Ancient Cipher</a><br>判斷兩字串中 “不同字母的數量” 的遞增數列是否相同</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10474%20-%20Where%20is%20the%20Marble.cpp" target="_blank" rel="external">10474 - Where is the Marble</a><br>Binary search</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/572%20-%20Oil%20Deposits.cpp" target="_blank" rel="external">572 - Oil Deposits</a><br>Recursive</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/156%20-%20Ananagrams.cpp" target="_blank" rel="external">156 - Ananagrams</a><br>將每個 word 轉成小寫後做排序，這樣就可以統計有多少個 ananagram</p>
-<p><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/12096%20-%20The%20SetStack%20Computer.cpp" target="_blank" rel="external">12096 - The SetStack Computer</a><br>STL的一些操作，這裡要提的是 <code>std::inserter</code>，以前沒用過，不曉得它的用途，稍微查了一下[<a href="/#note">1</a>]， 大致理解是 <code>std::inserter</code> 他會回傳 <code>std::insert_iterator</code> ，而它可以幫助本來無法配置記憶體空間的 function (ex. <code>set_union</code>) 來進行增長，它會呼叫各 container 的 <code>std::insert</code> 來進行插入。</p>
+<ul>
+<li><p><strong>Stack 的相關操作:</strong>  </p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/127%20-%20Accordian%20Patience.cpp" target="_blank" rel="external">127 - “Accordian” Patience</a><br>  <a href="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/">120 - Stacks of Flapjacks</a> (文章)</p>
+</li>
+<li><p><strong>Backtracking 回溯法:</strong></p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/989%20-%20Su%20Doku.cpp" target="_blank" rel="external">989 - Su Doku</a>  </p>
+</li>
+<li><p><strong>KMP algorithm:</strong></p>
+<p>  關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/StringMatching.html#2" target="_blank" rel="external">KMP</a></p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10298%20-%20Power%20Strings.cpp" target="_blank" rel="external">10298 - Power Strings</a><br>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/455%20-%20Periodic%20Strings.cpp" target="_blank" rel="external">455 - Periodic Strings</a>  </p>
+</li>
+<li><p><strong>LIS:</strong></p>
+<p>  關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/LongestIncreasingSubsequence.html#3" target="_blank" rel="external">LIS</a></p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/497%20-%20Strategic%20Defense%20Initiative.cpp" target="_blank" rel="external">497 - Strategic Defense Initiative</a> $O(N^2)$</p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/103%20-%20Stacking%20Boxes.cpp" target="_blank" rel="external">103 - Stacking Boxes</a> $O(N^2)$</p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10131(1)%20-%20Is%20Bigger%20Smarter.cpp" target="_blank" rel="external">10131(1) - Is Bigger Smarter</a><br>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10131(2)%20-%20Is%20Bigger%20Smarter.cpp" target="_blank" rel="external">10131(2) - Is Bigger Smarter</a> $O(N^2)$</p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/231%20-%20Testing%20the%20CATCHER.cpp" target="_blank" rel="external">231 - Testing the CATCHER</a> $O(N^2)$</p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/481%20-%20What%20Goes%20Up.cpp" target="_blank" rel="external">481 - What Goes Up</a>  </p>
+<blockquote>
+<p>用Binary search加速達到 $O(NlogL)$</p>
+</blockquote>
+</li>
+<li><p><strong>LCS:</strong></p>
+<p>  關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/LongestCommonSubsequence.html" target="_blank" rel="external">LCS</a></p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/111%20-%20History%20Grading.cpp" target="_blank" rel="external">111 - History Grading</a>  </p>
+<blockquote>
+<p>注意事件的相對順序和輸入的要再做處理</p>
+</blockquote>
+</li>
+<li><p><strong>Disjoint Sets (並查集):</strong>  </p>
+<p>  關於 <a href="http://www.csie.ntnu.edu.tw/~u91029/Set.html#8" target="_blank" rel="external">並查集</a>  </p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/793(1)%20-%20Network%20Connections.cpp" target="_blank" rel="external">793(1) - Network Connections</a><br>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/793(2)%20-%20Network%20Connections.cpp" target="_blank" rel="external">793(2) - Network Connections</a> (多了按秩合併，但效果不顯著，要不就是我寫錯了…)</p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10608%20-%20Friends.cpp" target="_blank" rel="external">10608 - Friends</a><br>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10583%20-%20Ubiquitous%20Religions.cpp" target="_blank" rel="external">10583 - Ubiquitous Religions</a></p>
+</li>
+<li><p><strong>找規律:</strong></p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10642%20-%20Can%20You%20Solve%20It.c" target="_blank" rel="external">10642 - Can You Solve It?</a><br>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11000%20-%20Bee.cpp" target="_blank" rel="external">11000 - Bee</a><br>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/846%20-%20Steps.cpp" target="_blank" rel="external">846 - Steps</a>  </p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10170(1)%20-%20The%20Hotel%20with%20Infinite%20Rooms.c" target="_blank" rel="external">10170(1) - The Hotel with Infinite Rooms</a><br>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10170(2)%20-%20The%20Hotel%20with%20Infinite%20Rooms.c" target="_blank" rel="external">10170(2) - The Hotel with Infinite Rooms</a></p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/900%20-%20Brick%20Wall%20Patterns.cpp" target="_blank" rel="external">900 - Brick Wall Patterns</a>  </p>
+<blockquote>
+<p>費式數列</p>
+</blockquote>
+</li>
+<li><p><strong>Others:</strong></p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11349%20-%20Symmetric%20Matrix.c" target="_blank" rel="external">11349 - Symmetric Matrix</a>  </p>
+<blockquote>
+<p>存成一維陣列，如果對稱，將會是迴文，有負數即為不對稱(題目定義)  </p>
+</blockquote>
+<p>  <a href="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/">10093 - An Easy Problem!</a> (文章)</p>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/11005%20-%20Cheapest%20Base.cpp" target="_blank" rel="external">11005 - Cheapest Base</a>  </p>
+<blockquote>
+<p>每一種Base都去試試看即可</p>
+</blockquote>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/1584%20-%20Circular%20Sequence.cpp" target="_blank" rel="external">1584 - Circular Sequence</a>  </p>
+<blockquote>
+<p>找從哪裡起始的字典序會最小</p>
+</blockquote>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/1339%20-%20Ancient%20Cipher.cpp" target="_blank" rel="external">1339 - Ancient Cipher</a>  </p>
+<blockquote>
+<p>判斷兩字串中 “不同字母的數量” 的遞增數列是否相同</p>
+</blockquote>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10474%20-%20Where%20is%20the%20Marble.cpp" target="_blank" rel="external">10474 - Where is the Marble</a>  </p>
+<blockquote>
+<p>Binary search</p>
+</blockquote>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/572%20-%20Oil%20Deposits.cpp" target="_blank" rel="external">572 - Oil Deposits</a>  </p>
+<blockquote>
+<p>Recursive</p>
+</blockquote>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/156%20-%20Ananagrams.cpp" target="_blank" rel="external">156 - Ananagrams</a>  </p>
+<blockquote>
+<p>將每個 word 轉成小寫後做排序，這樣就可以統計有多少個 ananagram</p>
+</blockquote>
+<p>  <a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/12096%20-%20The%20SetStack%20Computer.cpp" target="_blank" rel="external">12096 - The SetStack Computer</a>  </p>
+<blockquote>
+<p>STL的一些操作，這裡要提的是 <code>std::inserter</code>，以前沒用過，不曉得它的用途，稍微查了一下[<a href="/#note">1</a>]， 大致理解是 <code>std::inserter</code> 他會回傳 <code>std::insert_iterator</code> ，而它可以幫助本來無法配置記憶體空間的 function (ex. <code>set_union</code>) 來進行增長，它會呼叫各 container 的 <code>std::insert</code> 來進行插入。</p>
+</blockquote>
+</li>
+</ul>
 <hr>
 <p><span id="note"><strong>[1] 參考資料</strong></span><br><a href="http://en.cppreference.com/w/cpp/iterator/inserter" target="_blank" rel="external">http://en.cppreference.com/w/cpp/iterator/inserter</a><br><a href="http://en.cppreference.com/w/cpp/iterator/insert_iterator" target="_blank" rel="external">http://en.cppreference.com/w/cpp/iterator/insert_iterator</a><br><a href="https://icoderme.wordpress.com/2010/01/28/insert_iterator-and-nserter-in-stl/" target="_blank" rel="external">https://icoderme.wordpress.com/2010/01/28/insert_iterator-and-nserter-in-stl/</a><br><a href="http://blog.csdn.net/effective_coder/article/details/8733853" target="_blank" rel="external">http://blog.csdn.net/effective_coder/article/details/8733853</a>  </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/07/(20160207)UVa-solving-recently/" data-id="cikcr8rfs000odc7k0gza3qk5" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/07/UVa-solving-recently/" data-id="cikdg9orh0007207k39dr06qj" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/02/07/(20160207)UVa-solving-recently/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/02/07/UVa-solving-recently/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
@@ -198,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/" data-id="cikcr8rfm000gdc7kg7bycue9" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/" data-id="cikdg9ors000k207k7fk09nx6" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -260,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/" data-id="cikcr8rfh0007dc7ku3b52m7g" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/" data-id="cikdg9orp000e207kvw9womy3" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -274,9 +325,9 @@
 
 
   
-    <article id="post-(20160107)start_hexo" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-20160107-start_hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/01/17/(20160107)start_hexo/" class="article-date">
+    <a href="/2016/01/17/20160107-start_hexo/" class="article-date">
   <time datetime="2016-01-17T06:54:32.000Z" itemprop="datePublished">2016-01-17</time>
 </a>
     
@@ -292,7 +343,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/01/17/(20160107)start_hexo/">來吧 ! Hexo !</a>
+      <a class="article-title" href="/2016/01/17/20160107-start_hexo/">來吧 ! Hexo !</a>
     </h1>
   
 
@@ -334,9 +385,9 @@ npm install
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/01/17/(20160107)start_hexo/" data-id="cikcr8rf30000dc7kck03a1tf" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/01/17/20160107-start_hexo/" data-id="cikdg9oqe0000207kgqslcd9u" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/01/17/(20160107)start_hexo/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/01/17/20160107-start_hexo/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/">Hexo</a></li></ul>
@@ -360,7 +411,7 @@ npm install
       <ul>
         
           <li>
-            <a href="/2016/02/07/(20160207)UVa-solving-recently/">UVa 解題近況</a>
+            <a href="/2016/02/07/UVa-solving-recently/">UVa 解題近況</a>
           </li>
         
           <li>
@@ -372,7 +423,7 @@ npm install
           </li>
         
           <li>
-            <a href="/2016/01/17/(20160107)start_hexo/">來吧 ! Hexo !</a>
+            <a href="/2016/01/17/20160107-start_hexo/">來吧 ! Hexo !</a>
           </li>
         
       </ul>
