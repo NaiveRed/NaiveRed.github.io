@@ -549,7 +549,7 @@ body {
   -ms-transition: color 0.2s;
   transition: color 0.2s;
   border-bottom: 1px solid;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 a.article-title:hover {
   color: #2572b8;
