@@ -123,7 +123,7 @@ body,
   height: 100%;
 }
 body {
-  background: #eee;
+  background: #3e403e;
   font: 14px "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
@@ -174,7 +174,7 @@ body {
   -ms-transition: 0.2s ease-out;
   transition: 0.2s ease-out;
   z-index: 1;
-  background: #eee;
+  background: #3e403e;
 }
 .mobile-nav-on #wrap {
   left: 280px;
@@ -194,19 +194,18 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #999;
+  color: #e3e1e1;
   margin-bottom: 1em;
   margin-left: 5px;
   line-height: 1em;
-  text-shadow: 0 1px #fff;
   font-weight: bold;
 }
 .article-inner,
 .archive-article-inner {
   background: #fff;
-  -webkit-box-shadow: 1px 2px 3px #ddd;
-  box-shadow: 1px 2px 3px #ddd;
-  border: 1px solid #ddd;
+  -webkit-box-shadow: 1px 1px 3px #2f2f2f;
+  box-shadow: 1px 1px 3px #2f2f2f;
+  border: 1px solid #011324;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
@@ -237,7 +236,7 @@ body {
 }
 .article-entry hr,
 .widget hr {
-  border: 1px dashed #ddd;
+  border: 1px dashed #011324;
 }
 .article-entry strong,
 .widget strong {
@@ -309,9 +308,9 @@ body {
   font-weight: bold;
 }
 #header {
-  height: 300px;
+  height: 400px;
   position: relative;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #011324;
 }
 #header:before,
 #header:after {
@@ -357,11 +356,11 @@ body {
 }
 #header-title {
   text-align: center;
-  height: 40px;
+  height: 50px;
   position: absolute;
   top: 50%;
   left: 0;
-  margin-top: -20px;
+  margin-top: -25px;
 }
 #logo,
 #subtitle {
@@ -371,8 +370,8 @@ body {
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
 #logo {
-  font-size: 40px;
-  line-height: 40px;
+  font-size: 50px;
+  line-height: 50px;
   letter-spacing: 2px;
 }
 #subtitle {
@@ -482,7 +481,7 @@ body {
 .search-form-input {
   border: none;
   background: none;
-  color: #555;
+  color: #403e3e;
   width: 100%;
   font: 13px "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
   outline: none;
@@ -511,6 +510,7 @@ body {
 }
 .article-inner {
   overflow: hidden;
+  background: #fff;
 }
 .article-meta:before,
 .article-meta:after {
@@ -527,7 +527,6 @@ body {
   float: left;
   line-height: 1em;
   color: #ccc;
-  text-shadow: 0 1px #fff;
   margin-left: 8px;
 }
 .article-category:before {
@@ -543,18 +542,20 @@ body {
   text-decoration: none;
   font-size: 2em;
   font-weight: bold;
-  color: #555;
+  color: #403e3e;
   line-height: 1.1em;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   transition: color 0.2s;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
 }
 a.article-title:hover {
-  color: #258fb8;
+  color: #2572b8;
 }
 .article-entry {
-  color: #555;
+  color: #112413;
   padding: 0 20px;
 }
 .article-entry:before,
@@ -587,8 +588,11 @@ a.article-title:hover {
   line-height: 1.1em;
   margin: 1.1em 0;
 }
+.article-entry h2 {
+  color: #b28228;
+}
 .article-entry a {
-  color: #258fb8;
+  color: #2572b8;
   text-decoration: none;
 }
 .article-entry a:hover {
@@ -617,11 +621,11 @@ a.article-title:hover {
 }
 .article-entry th {
   font-weight: bold;
-  border-bottom: 3px solid #ddd;
+  border-bottom: 3px solid #011324;
   padding-bottom: 0.5em;
 }
 .article-entry td {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #011324;
   padding: 10px 0;
 }
 .article-entry blockquote {
@@ -684,21 +688,21 @@ a.article-title:hover {
   padding: 6px 15px;
   -webkit-border-radius: 15px;
   border-radius: 15px;
-  background: #eee;
+  background: #3e403e;
   color: #999;
   text-shadow: 0 1px #fff;
   text-decoration: none;
 }
 .article-more-link a:hover {
-  background: #258fb8;
+  background: #2572b8;
   color: #fff;
   text-decoration: none;
-  text-shadow: 0 1px #1e7293;
+  text-shadow: 0 1px #1e5b93;
 }
 .article-footer {
   font-size: 0.85em;
   line-height: 1.6em;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #011324;
   padding-top: 1.6em;
   margin: 0 20px 20px;
 }
@@ -715,7 +719,7 @@ a.article-title:hover {
   text-decoration: none;
 }
 .article-footer a:hover {
-  color: #555;
+  color: #403e3e;
 }
 .article-tag-list-item {
   float: left;
@@ -768,14 +772,13 @@ a.article-title:hover {
     content: "";
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    background: #ddd;
+    background: #011324;
     -webkit-box-shadow: 0 1px 2px #fff;
     box-shadow: 0 1px 2px #fff;
   }
 }
 .article-nav-link-wrap {
   text-decoration: none;
-  text-shadow: 0 1px #fff;
   color: #999;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -785,7 +788,7 @@ a.article-title:hover {
   display: block;
 }
 .article-nav-link-wrap:hover {
-  color: #555;
+  color: #403e3e;
 }
 @media screen and (min-width: 768px) {
   .article-nav-link-wrap {
@@ -810,7 +813,7 @@ a.article-title:hover {
 .article-nav-caption {
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #ddd;
+  color: #e3e1e1;
   line-height: 1em;
   font-weight: bold;
 }
@@ -818,6 +821,7 @@ a.article-title:hover {
   margin-right: -2px;
 }
 .article-nav-title {
+  color: #e3e1e1;
   font-size: 0.85em;
   line-height: 1.6em;
   margin-top: 0.5em;
@@ -845,16 +849,16 @@ a.article-title:hover {
   box-sizing: border-box;
   font: 14px "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
   padding: 0 15px;
-  color: #555;
+  color: #403e3e;
   outline: none;
-  border: 1px solid #ddd;
+  border: 1px solid #011324;
   -webkit-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
   height: 36px;
   line-height: 36px;
 }
 .article-share-links {
-  background: #eee;
+  background: #3e403e;
 }
 .article-share-links:before,
 .article-share-links:after {
@@ -954,13 +958,13 @@ a.article-title:hover {
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #011324;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   margin: 50px 0;
 }
 #comments a {
-  color: #258fb8;
+  color: #2572b8;
 }
 .archives-wrap {
   margin: 50px 0;
@@ -1008,7 +1012,7 @@ a.article-title:hover {
 .archive-article-title {
   text-decoration: none;
   font-weight: bold;
-  color: #555;
+  color: #403e3e;
   -webkit-transition: color 0.2s;
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
@@ -1016,7 +1020,7 @@ a.article-title:hover {
   line-height: 1.6em;
 }
 .archive-article-title:hover {
-  color: #258fb8;
+  color: #2572b8;
 }
 .archive-article-footer {
   margin-top: 1em;
@@ -1034,7 +1038,7 @@ a.article-title:hover {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
-  border: 1px solid #ddd;
+  border: 1px solid #011324;
   -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: center;
@@ -1078,20 +1082,20 @@ a.article-title:hover {
   }
 }
 #page-nav .current {
-  color: #555;
+  color: #403e3e;
   font-weight: bold;
 }
 #page-nav .space {
-  color: #ddd;
+  color: #011324;
 }
 #footer {
   background: #262a30;
   padding: 50px 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #011324;
   color: #999;
 }
 #footer a {
-  color: #258fb8;
+  color: #2572b8;
   text-decoration: none;
 }
 #footer a:hover {
@@ -1107,7 +1111,7 @@ a.article-title:hover {
   margin: 0 -20px;
   padding: 15px 20px;
   border-style: solid;
-  border-color: #ddd;
+  border-color: #011324;
   border-width: 1px 0;
   overflow: auto;
   color: #ccc;
@@ -1123,9 +1127,12 @@ a.article-title:hover {
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
 }
 .article-entry code {
-  background: #eee;
-  text-shadow: 0 1px #fff;
-  padding: 0 0.3em;
+  font-size: 90%;
+  color: #dfdede;
+  background-color: #4b4b4b;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  padding: 0.1em 0.2em;
 }
 .article-entry pre code {
   background: none;
@@ -1172,7 +1179,7 @@ a.article-title:hover {
 .article-entry .gist {
   margin: 0 -20px;
   border-style: solid;
-  border-color: #ddd;
+  border-color: #011324;
   border-width: 1px 0;
   background: #2d2d2d;
   padding: 15px 20px 15px 0;
@@ -1209,7 +1216,7 @@ a.article-title:hover {
   margin-left: 20px;
 }
 .article-entry .gist .gist-file .gist-meta a {
-  color: #258fb8;
+  color: #2572b8;
   font-weight: normal;
 }
 .article-entry .gist .gist-file .gist-meta a:hover {
@@ -1308,16 +1315,16 @@ pre .javascript .function {
 .widget {
   color: #777;
   text-shadow: 0 1px #fff;
-  background: #ddd;
-  -webkit-box-shadow: 0 -1px 4px #ccc inset;
-  box-shadow: 0 -1px 4px #ccc inset;
-  border: 1px solid #ccc;
+  background: #e7e7e7;
+  -webkit-box-shadow: 0 -1px 4px #011324 inset;
+  box-shadow: 0 -1px 4px #011324 inset;
+  border: 1px solid #011324;
   padding: 15px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 .widget a {
-  color: #258fb8;
+  color: #2572b8;
   text-decoration: none;
 }
 .widget a:hover {
