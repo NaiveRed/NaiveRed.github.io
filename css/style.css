@@ -124,7 +124,7 @@ body,
 }
 body {
   background: #3e403e;
-  font: 14px "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
+  font: 16px "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 .outer {
@@ -407,9 +407,9 @@ body {
 .nav-icon {
   font-family: FontAwesome;
   text-align: center;
-  font-size: 14px;
-  width: 14px;
-  height: 14px;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
   padding: 20px 15px;
   position: relative;
   cursor: pointer;
@@ -538,6 +538,10 @@ body {
 .article-header {
   padding: 20px 20px 0;
 }
+.article-header h1 {
+  border-bottom: 1px solid #403e3e;
+  padding-bottom: 5px;
+}
 .article-title {
   text-decoration: none;
   font-size: 2em;
@@ -637,7 +641,7 @@ a.article-title:hover {
   text-align: left;
 }
 .article-entry blockquote footer {
-  font-size: 14px;
+  font-size: 16px;
   margin: 1.6em 0;
   font-family: "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
 }
@@ -1115,7 +1119,7 @@ a.article-title:hover {
   border-width: 1px 0;
   overflow: auto;
   color: #ccc;
-  line-height: 22.400000000000002px;
+  line-height: 25.6px;
 }
 .article-entry .highlight .gutter pre,
 .article-entry .gist .gist-file .gist-data .line-numbers {
@@ -1174,7 +1178,7 @@ a.article-title:hover {
   padding-right: 20px;
 }
 .article-entry .highlight .line {
-  height: 22.400000000000002px;
+  height: 25.6px;
 }
 .article-entry .gist {
   margin: 0 -20px;
