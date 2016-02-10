@@ -540,7 +540,7 @@ body {
 }
 .article-header h1 {
   border-bottom: 1px solid #403e3e;
-  padding-bottom: 5px;
+  padding-bottom: 7px;
 }
 .article-title {
   text-decoration: none;
@@ -552,8 +552,6 @@ body {
   -moz-transition: color 0.2s;
   -ms-transition: color 0.2s;
   transition: color 0.2s;
-  border-bottom: 1px solid;
-  padding-bottom: 5px;
 }
 a.article-title:hover {
   color: #2572b8;
