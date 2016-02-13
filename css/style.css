@@ -526,7 +526,7 @@ body {
 .article-category {
   float: left;
   line-height: 1em;
-  color: #ccc;
+  color: #e3e1e1;
   margin-left: 8px;
 }
 .article-category:before {
@@ -691,8 +691,7 @@ a.article-title:hover {
   -webkit-border-radius: 15px;
   border-radius: 15px;
   background: #3e403e;
-  color: #999;
-  text-shadow: 0 1px #fff;
+  color: #fff;
   text-decoration: none;
 }
 .article-more-link a:hover {
