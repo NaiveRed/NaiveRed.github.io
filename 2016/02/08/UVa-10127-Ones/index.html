@@ -93,13 +93,22 @@ CodeUVa 10127UVa 10127 - Ones123456789101112131415161718192021#include&amp;lt;cs
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/101/10127.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://www3.tcgs.tc.edu.tw/~sagit/luckycat/q10127.htm" target="_blank" rel="external">中文網址</a></p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>直接硬除會溢位，為了避免使用大數，從 1 開始，判斷 n 是否可整除它，<br>如不行就將餘數乘10再加上1，然後繼續判斷，如此一來每次都只要處理2位數。</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10127</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10127%20-%20Ones.cpp" target="_blank" rel="external">UVa 10127 - Ones</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> ans, now;</span><br><span class="line">        <span class="keyword">int</span> remainder = n == <span class="number">1</span> ? <span class="number">0</span> : <span class="number">1</span>;<span class="comment">//每一次的餘數</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ans = <span class="number">1</span>; remainder; ans++)</span><br><span class="line">        &#123;</span><br><span class="line">            now = remainder * <span class="number">10</span> + <span class="number">1</span>;</span><br><span class="line">            remainder = now%n;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/08/UVa-10127-Ones/" data-id="cikntjy05001gcs7ku0sayk2s" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/08/UVa-10127-Ones/" data-id="cikqxtgbf001g787k8dhocf9r" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/08/UVa-10127-Ones/#disqus_thread" class="article-comment-link">Comments</a>
       

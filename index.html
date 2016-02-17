@@ -88,6 +88,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/129/12952.pdf" target="_blank" rel="external">題目網址</a></p>
 <p>給你兩張卡，找出較容易贏的卡。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>輸出兩個值中的最大值。</p>
@@ -95,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/15/UVa-12952-Tri-du/" data-id="cikntjxz9000ycs7kju0dc95h" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/15/UVa-12952-Tri-du/" data-id="cikqxtgal000y787k9efbb6pp" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/15/UVa-12952-Tri-du/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -135,6 +137,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/130/13012.pdf" target="_blank" rel="external">題目網址</a></p>
 <p>參加者要盲測茶的種類，給予正確答案和參加者的答案，輸出答案正確的人數。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>每次檢查一不一樣，並且計數即可。</p>
@@ -142,7 +146,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/15/UVa-13012-Identifying-tea/" data-id="cikntjxz4000ucs7kvm842nxi" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/15/UVa-13012-Identifying-tea/" data-id="cikqxtgah000u787kncglgv10" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/15/UVa-13012-Identifying-tea/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -182,6 +186,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/4/439.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://www3.tcgs.tc.edu.tw/~sagit/luckycat/q439.htm" target="_blank" rel="external">中文網址</a></p>
 <p>騎士要走多少步才能到目標的點</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>將 a~e 轉成位置後，用二維矩陣做棋盤並記下兩點，接著即可用 BFS 找最短路徑了。</p>
@@ -189,7 +195,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/15/UVa-439-Knight-Moves/" data-id="cikntjxyx000mcs7kz8aus9k7" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/15/UVa-439-Knight-Moves/" data-id="cikqxtga6000m787kjbtoecjv" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/15/UVa-439-Knight-Moves/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -229,13 +235,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/11/1124.pdf" target="_blank" rel="external">題目網址</a><br>放這題是因為這是最近寫到最簡單的一題了!</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>來甚麼就出去甚麼~</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 1124</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/1124%20-%20Celebrity%20jeopardy.c" target="_blank" rel="external">UVa 1124 - Celebrity jeopardy</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = getchar()) != EOF)</span><br><span class="line">        <span class="built_in">putchar</span>(c);</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/11/UVa-1124-Celebrity-jeopardy/" data-id="cikntjxzn0018cs7ksjitr4bb" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/11/UVa-1124-Celebrity-jeopardy/" data-id="cikqxtgb60018787kc9wlyfki" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/11/UVa-1124-Celebrity-jeopardy/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -275,13 +283,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/101/10127.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://www3.tcgs.tc.edu.tw/~sagit/luckycat/q10127.htm" target="_blank" rel="external">中文網址</a></p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>直接硬除會溢位，為了避免使用大數，從 1 開始，判斷 n 是否可整除它，<br>如不行就將餘數乘10再加上1，然後繼續判斷，如此一來每次都只要處理2位數。</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10127</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10127%20-%20Ones.cpp" target="_blank" rel="external">UVa 10127 - Ones</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> ans, now;</span><br><span class="line">        <span class="keyword">int</span> remainder = n == <span class="number">1</span> ? <span class="number">0</span> : <span class="number">1</span>;<span class="comment">//每一次的餘數</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ans = <span class="number">1</span>; remainder; ans++)</span><br><span class="line">        &#123;</span><br><span class="line">            now = remainder * <span class="number">10</span> + <span class="number">1</span>;</span><br><span class="line">            remainder = now%n;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/08/UVa-10127-Ones/" data-id="cikntjy05001gcs7ku0sayk2s" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/08/UVa-10127-Ones/" data-id="cikqxtgbf001g787k8dhocf9r" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/08/UVa-10127-Ones/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -321,13 +331,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/2/264.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q264.htm" target="_blank" rel="external">中文網址</a></p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>找出在哪一斜排，再判斷分子分母的數字順序即可</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 264</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/264%20-%20Count%20on%20Cantor.cpp" target="_blank" rel="external">UVa 264 - Count on Cantor</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> slash[<span class="number">4500</span>] = &#123; <span class="number">0</span>, <span class="number">1</span> &#125;;<span class="comment">//到每一斜排的數字個數</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; <span class="number">4500</span>; i++)</span><br><span class="line">        slash[i] = slash[i - <span class="number">1</span>] + i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s = <span class="number">0</span>;<span class="comment">//第幾斜排</span></span><br><span class="line">        <span class="keyword">for</span> (s = <span class="number">1</span>; n &gt; slash[s]; s++);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (s &amp; <span class="number">1</span>)<span class="comment">//偶數排時，由上到下</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"TERM %d IS %d/%d\n"</span>, n, slash[s] - n + <span class="number">1</span>, n - slash[s - <span class="number">1</span>]);</span><br><span class="line">        <span class="keyword">else</span><span class="comment">//奇數排時，由下到上</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"TERM %d IS %d/%d\n"</span>, n, n - slash[s - <span class="number">1</span>], slash[s] - n + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/08/UVa-264-Count-on-Cantor/" data-id="cikntjxz1000qcs7kqvfk6sjm" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/08/UVa-264-Count-on-Cantor/" data-id="cikqxtga9000q787kqia3thwb" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/08/UVa-264-Count-on-Cantor/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -367,12 +379,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/109/10921.pdf" target="_blank" rel="external">題目網址</a><br>一個一個對照過去而已…</p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10921</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10921%20-%20Find%20the%20Telephone.cpp" target="_blank" rel="external">UVa 10921 - Find the Telephone</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> <span class="built_in">map</span>[<span class="number">27</span>] = <span class="string">"22233344455566677778889999"</span>;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = getchar()) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="string">'\n'</span>)</span><br><span class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="string">'-'</span> || c == <span class="string">'1'</span> || c == <span class="string">'0'</span>)</span><br><span class="line">            <span class="built_in">putchar</span>(c);</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            <span class="built_in">putchar</span>(<span class="built_in">map</span>[c - <span class="string">'A'</span>]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/08/UVa-10921-Find the Telephone/" data-id="cikntjy02001ccs7ktg5t24pt" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/08/UVa-10921-Find the Telephone/" data-id="cikqxtgbc001c787kxhjch6q3" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/08/UVa-10921-Find the Telephone/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -423,7 +437,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/07/UVa-solving-recently/" data-id="cikntjxys000ics7kyllgt9js" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/07/UVa-solving-recently/" data-id="cikqxtga2000i787kddx3ecc7" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/07/UVa-solving-recently/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -463,6 +477,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/100/10093.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q10093.htm" target="_blank" rel="external">中文網址</a><br>找出最小的 N ，使得某整數 R 在 N 進位時，可被 N-1 整除。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><blockquote><p>若 N - 1 可以將某數 <strong>每個位數的總和</strong> 整除，則此數在 N 進位時可被 N - 1 整除。</p>
 </blockquote>
@@ -496,7 +512,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/" data-id="cikntjxyc0000cs7kmck4wfkr" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/" data-id="cikqxtg9g0000787kw17dflm5" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/01/25/UVa-10093-An-Easy-Problem/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -536,6 +552,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <!-- Table of Contents -->
+          
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/1/120.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://www3.tcgs.tc.edu.tw/~sagit/luckycat/q120.htm" target="_blank" rel="external">中文網址</a><br>利用翻轉數列來達到由小到大，4321 -&gt; 1234。</p>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>從最底層開始處理，依序push進stack(這裡我使用vector)</p>
 <p>ex.  </p>
@@ -558,7 +576,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/" data-id="cikntjxzd0012cs7kh6v6ksrj" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/" data-id="cikqxtgap0012787k56bzeetg" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/01/20/UVa-120-Stacks-of-Flapjacks/#disqus_thread" class="article-comment-link">Comments</a>
       
