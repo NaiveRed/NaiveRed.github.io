@@ -391,9 +391,9 @@ body {
 .nav-icon,
 .main-nav-link {
   float: left;
-  color: #fff;
   opacity: 0.6;
   text-decoration: none;
+  color: #000;
   text-shadow: 0 1px rgba(0,0,0,0.2);
   -webkit-transition: opacity 0.2s;
   -moz-transition: opacity 0.2s;
@@ -417,7 +417,7 @@ body {
   cursor: pointer;
 }
 .main-nav-link {
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 @media screen and (max-width: 479px) {
