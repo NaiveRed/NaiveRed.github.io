@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>UVa 13012 - Identifying tea | NaiveRed&#39;s Blog</title>
+  <title>UVa 357 - Let Me Count The Ways | NaiveRed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem題目網址
-參加者要盲測茶的種類，給予正確答案和參加者的答案，輸出答案正確的人數。">
+  <meta name="description" content="Problem題目網址中文網址
+求輸入的錢有多少種組合方式?">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVa 13012 - Identifying tea">
-<meta property="og:url" content="http://naivered.github.io/2016/02/15/UVa/UVa-13012-Identifying-tea/index.html">
+<meta property="og:title" content="UVa 357 - Let Me Count The Ways">
+<meta property="og:url" content="http://naivered.github.io/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/index.html">
 <meta property="og:site_name" content="NaiveRed's Blog">
-<meta property="og:description" content="Problem題目網址
-參加者要盲測茶的種類，給予正確答案和參加者的答案，輸出答案正確的人數。">
-<meta property="og:updated_time" content="2016-02-19T05:22:34.588Z">
+<meta property="og:description" content="Problem題目網址中文網址
+求輸入的錢有多少種組合方式?">
+<meta property="og:updated_time" content="2016-02-24T15:18:18.070Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UVa 13012 - Identifying tea">
-<meta name="twitter:description" content="Problem題目網址
-參加者要盲測茶的種類，給予正確答案和參加者的答案，輸出答案正確的人數。">
+<meta name="twitter:title" content="UVa 357 - Let Me Count The Ways">
+<meta name="twitter:description" content="Problem題目網址中文網址
+求輸入的錢有多少種組合方式?">
   
     <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
   
@@ -77,10 +77,10 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UVa/UVa-13012-Identifying-tea" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-UVa/UVa-357-Let-Me-Count-The-Ways" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/02/15/UVa/UVa-13012-Identifying-tea/" class="article-date">
-  <time datetime="2016-02-15T09:16:39.000Z" itemprop="datePublished">2016-02-15</time>
+    <a href="/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/" class="article-date">
+  <time datetime="2016-02-24T15:11:46.000Z" itemprop="datePublished">2016-02-24</time>
 </a>
     
   <div class="article-category">
@@ -95,7 +95,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      UVa 13012 - Identifying tea
+      UVa 357 - Let Me Count The Ways
     </h1>
   
 
@@ -112,19 +112,20 @@ ga('send', 'pageview');
               
             </div>
         
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/130/13012.pdf" target="_blank" rel="external">題目網址</a></p>
-<p>參加者要盲測茶的種類，給予正確答案和參加者的答案，輸出答案正確的人數。<br><a id="more"></a></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>每次檢查一不一樣，並且計數即可。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 13012</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/13012%20-%20Identifying%20tea.cpp" target="_blank" rel="external">UVa 13012 - Identifying tea</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> type;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> ((type = getchar()) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        getchar();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (getchar() == type)</span><br><span class="line">                    count++;</span><br><span class="line">            getchar();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/3/357.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q357.htm" target="_blank" rel="external">中文網址</a></p>
+<p>求輸入的錢有多少種組合方式?</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>DP<br><a href="http://www.csie.ntnu.edu.tw/~u91029/KnapsackProblem.html#6" target="_blank" rel="external">Coin Change Problem</a></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 357</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/357%20-%20Let%20Me%20Count%20The%20Ways.cpp" target="_blank" rel="external">UVa 357 - Let Me Count The Ways</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> N <span class="number">30001</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> price[<span class="number">5</span>] = &#123; <span class="number">1</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">25</span>, <span class="number">50</span> &#125;;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> cents[N] = &#123; <span class="number">1</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = price[i]; j &lt; N; j++)</span><br><span class="line">            cents[j] += cents[j - price[i]];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) != EOF)</span><br><span class="line">        <span class="keyword">if</span> (cents[n] == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"There is only 1 way to produce %d cents change.\n"</span>, n);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"There are %lld ways to produce %d cents change.\n"</span>, cents[n], n);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/15/UVa/UVa-13012-Identifying-tea/" data-id="cil0zk6tj00176c7klbvsxyye" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/" data-id="cil0zk6tb000x6c7k38a6ps2s" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/02/15/UVa/UVa-13012-Identifying-tea/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
 
     </footer>
   </div>
@@ -132,19 +133,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2016/02/15/UVa/UVa-12952-Tri-du/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          UVa 12952 - Tri-du
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/02/15/UVa/UVa-439-Knight-Moves/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/02/24/UVa/UVa-10397-Connect-the-Campus/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">UVa 439 - Knight Moves</div>
+      <div class="article-nav-title">UVa 10397 - Connect the Campus</div>
     </a>
   
 </nav>
@@ -257,7 +249,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'naivered';
   
-  var disqus_url = 'http://naivered.github.io/2016/02/15/UVa/UVa-13012-Identifying-tea/';
+  var disqus_url = 'http://naivered.github.io/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/';
   
   (function(){
     var dsq = document.createElement('script');
