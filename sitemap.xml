@@ -2,9 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://naivered.github.io/2016/02/27/UVa/UVa-10856-Recover-Factorial/</loc>
+    
+    <lastmod>2016-02-27T07:16:05.432Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/02/27/UVa/UVa-10842-Traffic-Flow/</loc>
+    
+    <lastmod>2016-02-27T07:12:29.853Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/02/23/UVa/UVa-10791-Minimum-Sum-LCM/</loc>
+    
+    <lastmod>2016-02-26T12:38:59.832Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://naivered.github.io/2016/02/25/UVa/UVa-10306-e-Coins/</loc>
     
-    <lastmod>2016-02-25T16:53:45.795Z</lastmod>
+    <lastmod>2016-02-26T10:58:59.134Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/</loc>
+    
+    <lastmod>2016-02-26T10:58:50.504Z</lastmod>
     
   </url>
   
@@ -12,13 +40,6 @@
     <loc>http://naivered.github.io/2016/02/25/UVa/UVa-12015-Google-is-Feeling-Lucky/</loc>
     
     <lastmod>2016-02-25T16:49:44.970Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/</loc>
-    
-    <lastmod>2016-02-25T16:03:01.046Z</lastmod>
     
   </url>
   
@@ -33,13 +54,6 @@
     <loc>http://naivered.github.io/2016/02/23/UVa/UVa-12820-Cool-Word/</loc>
     
     <lastmod>2016-02-23T09:02:17.825Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/02/23/UVa/UVa-10791-Minimum-Sum-LCM/</loc>
-    
-    <lastmod>2016-02-23T05:41:38.067Z</lastmod>
     
   </url>
   
