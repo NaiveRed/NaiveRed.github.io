@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="NaiveRed's Blog">
 <meta property="og:description" content="Problem題目網址中文網址
 給你某集合的最小公倍數，要你算出這個集合各元素相加的值，取總和最小的，集合內 至少 兩個元素。">
-<meta property="og:updated_time" content="2016-02-26T12:38:59.832Z">
+<meta property="og:updated_time" content="2016-03-19T06:26:11.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVa 10791 - Minimum Sum LCM">
 <meta name="twitter:description" content="Problem題目網址中文網址
@@ -25,7 +25,7 @@
     <link rel="icon" href="/img/favicon.png">
   
   <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 <!-- Google Analytics -->
 <script type="text/javascript">
@@ -122,11 +122,11 @@ ga('send', 'pageview');
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>用篩法建出質數表 <code>prime[ ]</code> 後，來做質因數分解:  </p>
 <ul>
 <li>$n$ 是 <strong>質數</strong><br>答案為 $1+n$</li>
-<li>$n$ 是 <strong>合成數</strong><br>質因數分解後互質的各項相加，因為:  <span>$$\begin{align}
+<li>$n$ 是 <strong>合成數</strong><br>質因數分解後互質的各項相加，因為:  <span>$$\begin{aligned}
 &amp;lcm(a,b) = {a \times b\over gcd(a,b)}\\\\
 &amp;gcd(a,b) = 1\\\\
 &amp;lcm(a,b) = a \times b
-\end{align}$$</span><!-- Has MathJax -->  
+\end{aligned}$$</span><!-- Has MathJax -->  
 如果 $a$ 和 $b$ 都大於$1$的話，$a \times b &gt; a + b$ ，所以相加比都乘在一起小。</li>
 </ul>
 <p>$INT\_MAX = 2^{31}-1$<br>只需要找 $sqrt(INT\_MAX)$ (以下簡稱 $sqrt$ ) 以內的質數，原因是:</p>
@@ -139,16 +139,16 @@ ga('send', 'pageview');
 </li>
 </ul>
 <p>$2^{31}-1 = 2147483647$ 為質數，加 $1$ 後會有 overflow 的問題，獨立出來處理。<br>$1$ 不是質數或合成數。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10791</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10791%20-%20Minimum%20Sum%20LCM.cpp" target="_blank" rel="external">UVa 10791 - Minimum Sum LCM</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> INT_MAX <span class="number">2147483647</span></span></span><br><span class="line"><span class="preprocessor">#<span class="keyword">define</span> N <span class="number">46340</span> <span class="comment">//sqrt(INT_MAX)</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> prime[N];</span><br><span class="line"><span class="keyword">bool</span> notPrime[N] = &#123; <span class="literal">true</span>, <span class="literal">true</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getPrime</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Case = <span class="number">0</span>, n, p;</span><br><span class="line">    p = getPrime();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) != EOF&amp;&amp;n)</span><br><span class="line">    &#123;</span><br><span class="line">        Case++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n == INT_MAX)<span class="comment">//2147483647 is prime</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: 2147483648\n"</span>, Case);<span class="comment">//2147483647 + 1</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: 2\n"</span>, Case);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>, m = n;</span><br><span class="line">          </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; p&amp;&amp;prime[i] &lt;= n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//質因數分解</span></span><br><span class="line">                <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (!(n%prime[i]))</span><br><span class="line">                &#123;</span><br><span class="line">                    count *= prime[i];</span><br><span class="line">                    n /= prime[i];</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//相加各項</span></span><br><span class="line">                <span class="keyword">if</span> (count != <span class="number">1</span>)</span><br><span class="line">                    sum += count;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (sum == m)<span class="comment">//本身就是質數，和為 1 + n</span></span><br><span class="line">                sum++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (n != <span class="number">1</span>)<span class="comment">//剩下的質數</span></span><br><span class="line">                sum += n;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>, Case, sum);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getPrime</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">if</span> (!notPrime[i])</span><br><span class="line">        &#123;</span><br><span class="line">        prime[count++] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i &lt;&lt; <span class="number">1</span>; j &lt; N; j += i)</span><br><span class="line">            notPrime[j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10791</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10791%20-%20Minimum%20Sum%20LCM.cpp" target="_blank" rel="external">UVa 10791 - Minimum Sum LCM</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INT_MAX 2147483647</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 46340 <span class="comment">//sqrt(INT_MAX)</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> prime[N];</span><br><span class="line"><span class="keyword">bool</span> notPrime[N] = &#123; <span class="literal">true</span>, <span class="literal">true</span> &#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getPrime</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Case = <span class="number">0</span>, n, p;</span><br><span class="line">    p = getPrime();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) != EOF&amp;&amp;n)</span><br><span class="line">    &#123;</span><br><span class="line">        Case++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n == INT_MAX)<span class="comment">//2147483647 is prime</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: 2147483648\n"</span>, Case);<span class="comment">//2147483647 + 1</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: 2\n"</span>, Case);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>, m = n;</span><br><span class="line">          </span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; p&amp;&amp;prime[i] &lt;= n; i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//質因數分解</span></span><br><span class="line">                <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (!(n%prime[i]))</span><br><span class="line">                &#123;</span><br><span class="line">                    count *= prime[i];</span><br><span class="line">                    n /= prime[i];</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//相加各項</span></span><br><span class="line">                <span class="keyword">if</span> (count != <span class="number">1</span>)</span><br><span class="line">                    sum += count;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (sum == m)<span class="comment">//本身就是質數，和為 1 + n</span></span><br><span class="line">                sum++;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (n != <span class="number">1</span>)<span class="comment">//剩下的質數</span></span><br><span class="line">                sum += n;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"Case %d: %d\n"</span>, Case, sum);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getPrime</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">if</span> (!notPrime[i])</span><br><span class="line">        &#123;</span><br><span class="line">        prime[count++] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i &lt;&lt; <span class="number">1</span>; j &lt; N; j += i)</span><br><span class="line">            notPrime[j] = <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/23/UVa/UVa-10791-Minimum-Sum-LCM/" data-id="ciltjudgb003lfg7kxebwzd28" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/02/23/UVa/UVa-10791-Minimum-Sum-LCM/" data-id="cilypuwe3001ehc7k1t1hldoc" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/02/23/UVa/UVa-10791-Minimum-Sum-LCM/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCM/">LCM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LCM/">LCM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">Prime</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
 
     </footer>
   </div>
@@ -193,6 +193,22 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2016/03/18/ZeroJudge-d756-10290-Sum-i-to-Reach-N/">ZeroJudge d756 - 10290 - {Sum+=i++} to Reach N</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/UVa-10290-Sum-i-to-Reach-N/">UVa 10290 - {Sum+=i++} to Reach N</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/UVa/UVa-10305-Ordering-Tasks/">UVa 10305 - Ordering Tasks</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/UVa/UVa-10487-Closest-Sums/">UVa 10487 - Closest Sums</a>
+          </li>
+        
+          <li>
             <a href="/2016/03/15/UVa/UVa-10000-Longest-Paths/">UVa 10000 - Longest Paths</a>
           </li>
         
@@ -216,22 +232,6 @@ ga('send', 'pageview');
             <a href="/2016/03/05/UVa/UVa-10236-The-Fibonacci-Primes/">UVa 10236 - The Fibonacci Primes</a>
           </li>
         
-          <li>
-            <a href="/2016/03/04/UVa/UVa-929-Number-Maze/">UVa 929 - Number Maze</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/01/Course/Algorithm/Algorithm-Week02/">Algorithm Week 2</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/28/UVa/UVa-10034-Freckles/">UVa 10034 - Freckles</a>
-          </li>
-        
-          <li>
-            <a href="/2016/02/28/UVa/UVa-11069-A-Graph-Problem/">UVa 11069 - A Graph Problem</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -241,7 +241,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">30</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">30</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -251,7 +251,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -296,30 +296,17 @@ ga('send', 'pageview');
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
 
   </div>
-<!-- mathjax config similar to math.stackexchange -->
 
+<!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
 
 <script type="text/x-mathjax-config">
@@ -333,5 +320,6 @@ ga('send', 'pageview');
 
 <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa 10290 - {Sum+=i++} to Reach N | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem題目網址中文網址
+給你 N ，看 N 可以用幾組連續正整數的和表示。例如: 9 = 2 + 3 + 4 = 4 + 5 = 9 ， 輸出 3 組。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 10290 - {Sum+=i++} to Reach N">
+<meta property="og:url" content="http://naivered.github.io/2016/03/18/UVa-10290-Sum-i-to-Reach-N/index.html">
+<meta property="og:site_name" content="NaiveRed's Blog">
+<meta property="og:description" content="Problem題目網址中文網址
+給你 N ，看 N 可以用幾組連續正整數的和表示。例如: 9 = 2 + 3 + 4 = 4 + 5 = 9 ， 輸出 3 組。">
+<meta property="og:updated_time" content="2016-03-18T14:54:06.938Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa 10290 - {Sum+=i++} to Reach N">
+<meta name="twitter:description" content="Problem題目網址中文網址
+給你 N ，看 N 可以用幾組連續正整數的和表示。例如: 9 = 2 + 3 + 4 = 4 + 5 = 9 ， 輸出 3 組。">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-UVa-10290-Sum-i-to-Reach-N" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/18/UVa-10290-Sum-i-to-Reach-N/" class="article-date">
+  <time datetime="2016-03-18T09:22:06.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa 10290 - {Sum+=i++} to Reach N
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/102/10290.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q10290.htm" target="_blank" rel="external">中文網址</a></p>
+<p>給你 N ，看 N 可以用幾組連續正整數的和表示。例如: 9 = 2 + 3 + 4 = 4 + 5 = 9 ， 輸出 3 組。</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>N 可以表示成連續的正整數，也就是 $N = A + (A + 1) + \cdots + (B - 1) + B$，可以寫成: ${(A+B)\times(A-B+1)}\over2$。  </p>
+<p>而 $A+B$ 和 $A-B+1$ 必定是一個奇數一個偶數，稍微假設一下 A 和 B 的奇偶狀況即可得知。而偶數的除以二，剩下的奇數就是 N 的因數，所以我們要求的就是 N 的奇因數個數。  </p>
+<p>作法: 先建出質數表，將數字先除以二直到不能除，剩下的去做質因數分解，再將各項的 <strong>次方+1</strong> 相乘起來，就是奇因數的個數了。因為質數除了 2 以外皆是奇數，奇數乘奇數仍然是奇數，也就是看有幾種組合了。  </p>
+<p>在建質數表時記得只需要建到 測資的開根號 ，除不完剩下的就是質數了，因為如果不是質數，他一定可以分解成其他質數(算術基本定理)，而這樣在前面就處理過了。(雖然實際上UVa的測資只需要建到 <code>1e6</code> 就可以了)</p>
+<p>p.s. 0 要單獨出來處理</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10290</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/10290%20-%20%7BSum+=i++%7D%20to%20Reach%20N.cpp" target="_blank" rel="external">UVa 10290 - &#123;Sum+=i++&#125; to Reach N</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 5000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 400000</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> sieve[N] = &#123; <span class="literal">true</span>, <span class="literal">true</span> &#125;;</span><br><span class="line">LL prime[M];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span>  count = <span class="number">0</span>, i, s = <span class="built_in">sqrt</span>(N);</span><br><span class="line">    <span class="comment">//get prime</span></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt; s; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!sieve[i])</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i * i; j &lt; N; j += i)</span><br><span class="line">                sieve[j] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">2</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">if</span> (!sieve[i])</span><br><span class="line">            prime[count++] = i;</span><br><span class="line"></span><br><span class="line">    LL n;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;n) != EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (!n)</span><br><span class="line">            <span class="built_in">puts</span>(<span class="string">"1"</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span> (!(n % <span class="number">2</span>))</span><br><span class="line">                n &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">            <span class="comment">//因數分解</span></span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">1</span>, idx = <span class="number">1</span>;<span class="comment">//從 3 開始</span></span><br><span class="line">            <span class="keyword">while</span> (n != <span class="number">1</span> &amp;&amp; n &gt;= prime[idx] * prime[idx] &amp;&amp; idx &lt; count)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> temp = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (!(n%prime[idx]))</span><br><span class="line">                &#123;</span><br><span class="line">                    temp++;</span><br><span class="line">                    n /= prime[idx];</span><br><span class="line">                &#125;</span><br><span class="line">                sum *= temp;</span><br><span class="line">                idx++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果還有剩下沒除完的數，就是質數</span></span><br><span class="line">            <span class="keyword">if</span> (n != <span class="number">1</span>)</span><br><span class="line">                sum &lt;&lt;= <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, sum);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2016/03/18/UVa-10290-Sum-i-to-Reach-N/" data-id="cilypuwc00000hc7ktae9o522" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2016/03/18/UVa-10290-Sum-i-to-Reach-N/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Prime/">Prime</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/18/ZeroJudge-d756-10290-Sum-i-to-Reach-N/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ZeroJudge d756 - 10290 - {Sum+=i++} to Reach N
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/18/UVa/UVa-10305-Ordering-Tasks/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 10305 - Ordering Tasks</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/18/ZeroJudge-d756-10290-Sum-i-to-Reach-N/">ZeroJudge d756 - 10290 - {Sum+=i++} to Reach N</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/UVa-10290-Sum-i-to-Reach-N/">UVa 10290 - {Sum+=i++} to Reach N</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/UVa/UVa-10305-Ordering-Tasks/">UVa 10305 - Ordering Tasks</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/18/UVa/UVa-10487-Closest-Sums/">UVa 10487 - Closest Sums</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/15/UVa/UVa-10000-Longest-Paths/">UVa 10000 - Longest Paths</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/15/UVa/UVa-10533-Digit-Primes/">UVa 10533 - Digit Primes</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/13/UVa/UVa-11624-Fire/">UVa 11624 - Fire!</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/06/UVa/UVa-10810-Ultra-QuickSort/">UVa 10810 - Ultra-QuickSort</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/06/UVa/UVa-10801-Lift-Hopping/">UVa 10801 - Lift Hopping</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/05/UVa/UVa-10236-The-Fibonacci-Primes/">UVa 10236 - The Fibonacci Primes</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">34</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">33</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2016/03/18/UVa-10290-Sum-i-to-Reach-N/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
