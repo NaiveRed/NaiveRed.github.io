@@ -2,7 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://naivered.github.io/2016/03/19/UVa-679-Dropping-Balls/</loc>
+    <loc>http://naivered.github.io/2016/03/01/Course/Algorithm/Algorithm-Week02/</loc>
+    
+    <lastmod>2016-03-27T09:22:33.040Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/03/19/UVa/UVa-679-Dropping-Balls/</loc>
     
     <lastmod>2016-03-19T16:33:57.701Z</lastmod>
     
@@ -96,13 +103,6 @@
     <loc>http://naivered.github.io/2016/03/04/UVa/UVa-929-Number-Maze/</loc>
     
     <lastmod>2016-03-05T16:09:48.378Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/03/01/Course/Algorithm/Algorithm-Week02/</loc>
-    
-    <lastmod>2016-03-05T05:42:14.532Z</lastmod>
     
   </url>
   

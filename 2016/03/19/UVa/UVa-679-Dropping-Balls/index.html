@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>UVa 12626 - I Love Pizza | NaiveRed&#39;s Blog</title>
+  <title>UVa 679 - Dropping Balls | NaiveRed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem題目網址
-給你字串看可以組成幾個 “MARGARITA” 。">
+  <meta name="description" content="Problem題目網址中文網址
+球從樹根開始向下，如果節點為 true ，球則往右，反之往左。問最後到達的葉節點為多少？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVa 12626 - I Love Pizza">
-<meta property="og:url" content="http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/index.html">
+<meta property="og:title" content="UVa 679 - Dropping Balls">
+<meta property="og:url" content="http://naivered.github.io/2016/03/19/UVa/UVa-679-Dropping-Balls/index.html">
 <meta property="og:site_name" content="NaiveRed's Blog">
-<meta property="og:description" content="Problem題目網址
-給你字串看可以組成幾個 “MARGARITA” 。">
-<meta property="og:updated_time" content="2016-02-28T03:31:51.198Z">
+<meta property="og:description" content="Problem題目網址中文網址
+球從樹根開始向下，如果節點為 true ，球則往右，反之往左。問最後到達的葉節點為多少？">
+<meta property="og:updated_time" content="2016-03-19T16:33:57.701Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UVa 12626 - I Love Pizza">
-<meta name="twitter:description" content="Problem題目網址
-給你字串看可以組成幾個 “MARGARITA” 。">
+<meta name="twitter:title" content="UVa 679 - Dropping Balls">
+<meta name="twitter:description" content="Problem題目網址中文網址
+球從樹根開始向下，如果節點為 true ，球則往右，反之往左。問最後到達的葉節點為多少？">
   
     <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
   
@@ -81,10 +81,10 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UVa/UVa-12626-I-Love-Pizza" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-UVa/UVa-679-Dropping-Balls" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/02/28/UVa/UVa-12626-I-Love-Pizza/" class="article-date">
-  <time datetime="2016-02-28T03:29:11.000Z" itemprop="datePublished">2016-02-28</time>
+    <a href="/2016/03/19/UVa/UVa-679-Dropping-Balls/" class="article-date">
+  <time datetime="2016-03-19T15:54:15.000Z" itemprop="datePublished">2016-03-19</time>
 </a>
     
   <div class="article-category">
@@ -99,7 +99,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      UVa 12626 - I Love Pizza
+      UVa 679 - Dropping Balls
     </h1>
   
 
@@ -116,20 +116,46 @@ ga('send', 'pageview');
               
             </div>
         
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/126/12626.pdf" target="_blank" rel="external">題目網址</a></p>
-<p>給你字串看可以組成幾個 “MARGARITA” 。</p>
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="http://luckycat.kshs.kh.edu.tw/homework/q679.htm" target="_blank" rel="external">題目網址</a><br><a href="https://uva.onlinejudge.org/external/6/679.pdf" target="_blank" rel="external">中文網址</a></p>
+<p>球從樹根開始向下，如果節點為 true ，球則往右，反之往左。問最後到達的葉節點為多少？</p>
 <a id="more"></a>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>統計一下就可以了。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 12626</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/12626%20-%20I%20Love%20Pizza.cpp" target="_blank" rel="external">UVa 12626 - I Love Pizza</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> pizza[<span class="number">6</span>] = &#123; <span class="string">'M'</span>, <span class="string">'A'</span>, <span class="string">'R'</span>, <span class="string">'G'</span>, <span class="string">'I'</span>, <span class="string">'T'</span> &#125;;</span><br><span class="line">    <span class="keyword">int</span> Case;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;Case);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">while</span> (Case--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s[<span class="number">26</span>] = &#123;&#125;;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">while</span> ((c = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">            s[c - <span class="string">'A'</span>]++;</span><br><span class="line">        </span><br><span class="line">        s[<span class="number">0</span>] /= <span class="number">3</span>;</span><br><span class="line">        s[<span class="string">'R'</span> - <span class="string">'A'</span>] /= <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">6</span>; i++)</span><br><span class="line">            <span class="keyword">if</span> (ans&gt;s[pizza[i] - <span class="string">'A'</span>])</span><br><span class="line">                ans = s[pizza[i] - <span class="string">'A'</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>本來是用模擬的，不過會超時。想從數列中找出個規律，但不得要點，後來查了一下，使用二進位來解決。  </p>
+<p>很明顯最小值會是 <code>1 &lt;&lt; (depth-1)</code> ，也就是最左邊的葉節點。接著觀察增加的數字，這邊假設深度為 5 :  </p>
+<pre><code>10000 = 16
+
+(次數)      (增加的數字)
+1 = 0001    1000 = 8 
+2 = 0010    0100 = 4
+3 = 0011    1100 = 12
+4 = 0100    0010 = 2
+5 = 0101    1010 = 10
+
+. = ....    .... = ..
+
+15 = 1111    1111 = 15
+
+-----------------------
+ex. 10000 + 1000 = 11000 = 24
+</code></pre><p>可以看出增加的數字，轉為二進位後，將會是次數二進位的反向，實際上我們也可從二元樹的結構發現這件事(雖然我一開始沒看出來就是了…)。<br>第 1 次的為 <code>1&lt;&lt;(5-1)</code> 也就是 16,第二次為 16 + 8 = 24，此數列為: 16, 24, 20, 28, 18, 26, …, 31。(次數為球的顆樹減一)  </p>
+<p>至於要如何將二進位顛倒，簡單的寫法，bit 為總位數:</p>
+<pre><code>unsigned int tar = 0;
+while (bit--)
+{
+    tar &lt;&lt;= 1;//將目前存好的左移一位
+    tar |= (n &amp; 1);//將 n 的最後一位加到 tar
+    n &gt;&gt;= 1;//n 移掉最後一位
+}
+</code></pre><p>p.s. 記得要使用 <code>unsigned int</code> 才不會有負數的問題</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 679</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/679%20-%20Dropping%20Balls.cpp" target="_blank" rel="external">UVa 679 - Dropping Balls</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">reverse_bits</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> n, <span class="keyword">unsigned</span> <span class="keyword">int</span> bit)</span></span>;<span class="comment">//將 n 的二進位顛倒，bit 為總位數</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> Case;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;Case);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (Case--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> depth, n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;depth, &amp;n);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%u\n"</span>, (<span class="number">1</span> &lt;&lt; (depth - <span class="number">1</span>)) + reverse_bits(n - <span class="number">1</span>, depth - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">reverse_bits</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> n, <span class="keyword">unsigned</span> <span class="keyword">int</span> bit)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> tar = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (bit--)</span><br><span class="line">    &#123;</span><br><span class="line">        tar &lt;&lt;= <span class="number">1</span>;<span class="comment">//將目前存好的左移一位</span></span><br><span class="line">        tar |= (n &amp; <span class="number">1</span>);<span class="comment">//將 n 的最後一位加到 tar</span></span><br><span class="line">        n &gt;&gt;= <span class="number">1</span>;<span class="comment">//n 移掉最後一位</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> tar;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/" data-id="cimacy8w4001yl87ky1ije8u0" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/03/19/UVa/UVa-679-Dropping-Balls/" data-id="cimacy8wr002ol87kdyzyp62j" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/03/19/UVa/UVa-679-Dropping-Balls/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Bitwise/">Bitwise</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
 
     </footer>
   </div>
@@ -137,19 +163,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2016/02/28/UVa/UVa-11185-Ternary/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          UVa 11185 - Ternary
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/02/27/UVa/UVa-10842-Traffic-Flow/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/03/18/UVa/ZeroJudge-d756-10290-Sum-i-to-Reach-N/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">UVa 10842 - Traffic Flow</div>
+      <div class="article-nav-title">ZeroJudge d756 - 10290 - {Sum+=i++} to Reach N</div>
     </a>
   
 </nav>
@@ -262,7 +279,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'naivered';
   
-  var disqus_url = 'http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/';
+  var disqus_url = 'http://naivered.github.io/2016/03/19/UVa/UVa-679-Dropping-Balls/';
   
   (function(){
     var dsq = document.createElement('script');
