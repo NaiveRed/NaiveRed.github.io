@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>UVa 12626 - I Love Pizza | NaiveRed&#39;s Blog</title>
+  <title>UVa 534 - Frogger | NaiveRed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem題目網址
-給你字串看可以組成幾個 “MARGARITA” 。">
+  <meta name="description" content="Problem題目網址中文網址
+求出一條路徑，可以使得青蛙從起點跳到目的地，此路徑上面石頭間距的最大值為不同路徑中的最小值(minmax distance)。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UVa 12626 - I Love Pizza">
-<meta property="og:url" content="http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/index.html">
+<meta property="og:title" content="UVa 534 - Frogger">
+<meta property="og:url" content="http://naivered.github.io/2016/04/04/UVa/UVa-534-Frogger/index.html">
 <meta property="og:site_name" content="NaiveRed's Blog">
-<meta property="og:description" content="Problem題目網址
-給你字串看可以組成幾個 “MARGARITA” 。">
-<meta property="og:updated_time" content="2016-02-28T03:31:51.198Z">
+<meta property="og:description" content="Problem題目網址中文網址
+求出一條路徑，可以使得青蛙從起點跳到目的地，此路徑上面石頭間距的最大值為不同路徑中的最小值(minmax distance)。">
+<meta property="og:updated_time" content="2016-04-04T13:08:21.922Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UVa 12626 - I Love Pizza">
-<meta name="twitter:description" content="Problem題目網址
-給你字串看可以組成幾個 “MARGARITA” 。">
+<meta name="twitter:title" content="UVa 534 - Frogger">
+<meta name="twitter:description" content="Problem題目網址中文網址
+求出一條路徑，可以使得青蛙從起點跳到目的地，此路徑上面石頭間距的最大值為不同路徑中的最小值(minmax distance)。">
   
     <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
   
@@ -81,10 +81,10 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UVa/UVa-12626-I-Love-Pizza" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-UVa/UVa-534-Frogger" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/02/28/UVa/UVa-12626-I-Love-Pizza/" class="article-date">
-  <time datetime="2016-02-28T03:29:11.000Z" itemprop="datePublished">2016-02-28</time>
+    <a href="/2016/04/04/UVa/UVa-534-Frogger/" class="article-date">
+  <time datetime="2016-04-04T12:39:34.000Z" itemprop="datePublished">2016-04-04</time>
 </a>
     
   <div class="article-category">
@@ -99,7 +99,7 @@ ga('send', 'pageview');
         
   
     <h1 class="article-title" itemprop="name">
-      UVa 12626 - I Love Pizza
+      UVa 534 - Frogger
     </h1>
   
 
@@ -116,20 +116,33 @@ ga('send', 'pageview');
               
             </div>
         
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/126/12626.pdf" target="_blank" rel="external">題目網址</a></p>
-<p>給你字串看可以組成幾個 “MARGARITA” 。</p>
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/5/534.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q534.htm" target="_blank" rel="external">中文網址</a></p>
+<p>求出一條路徑，可以使得青蛙從起點跳到目的地，此路徑上面石頭間距的最大值為不同路徑中的最小值(minmax distance)。</p>
 <a id="more"></a>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>統計一下就可以了。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 12626</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/12626%20-%20I%20Love%20Pizza.cpp" target="_blank" rel="external">UVa 12626 - I Love Pizza</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> pizza[<span class="number">6</span>] = &#123; <span class="string">'M'</span>, <span class="string">'A'</span>, <span class="string">'R'</span>, <span class="string">'G'</span>, <span class="string">'I'</span>, <span class="string">'T'</span> &#125;;</span><br><span class="line">    <span class="keyword">int</span> Case;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;Case);</span><br><span class="line">    getchar();</span><br><span class="line">    <span class="keyword">while</span> (Case--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s[<span class="number">26</span>] = &#123;&#125;;</span><br><span class="line">        <span class="keyword">char</span> c;</span><br><span class="line">        <span class="keyword">while</span> ((c = getchar()) != <span class="string">'\n'</span>)</span><br><span class="line">            s[c - <span class="string">'A'</span>]++;</span><br><span class="line">        </span><br><span class="line">        s[<span class="number">0</span>] /= <span class="number">3</span>;</span><br><span class="line">        s[<span class="string">'R'</span> - <span class="string">'A'</span>] /= <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">6</span>; i++)</span><br><span class="line">            <span class="keyword">if</span> (ans&gt;s[pizza[i] - <span class="string">'A'</span>])</span><br><span class="line">                ans = s[pizza[i] - <span class="string">'A'</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>有點類似於 <a href="http://naivered.github.io/2016/04/04/UVa/UVa-10048-Audiophobia/">UVa 10048</a>。<br>因為不需要所有點對，我們這裡不使用 Floyd-Warshall 。  </p>
+<p>利用 SPFA 的算法，找出兩點間路徑上所至少要跳得間距(路經上的最大值)，取最小的(所有路徑中最小的路經上最大值)。(有點繞口…總之就是 minmax distance</p>
+<p><code>d[]</code> 的意義改成路經上的最大值，稍微修改其中比較路徑長的算法:  </p>
+<p>比較從起點到 <code>idx</code> 和 從 <code>idx</code> 到 <code>i</code> ，兩個的 minmax distance，較大的則為這條路徑(從起點到 <code>i</code> )的 minmax distance : <code>float max = MAX(d[idx], stone[idx].getDistance(stone[i]));</code></p>
+<p>看是否有比原本的 minmax distance 小:</p>
+<pre><code>if (max &lt; d[i])
+{
+    d[i] = max;
+    if (!inQ[i])
+    {
+        Q.push(i);
+        inQ[i] = true;
+    }
+}
+</code></pre><h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 534</span><a href="https://github.com/NaiveRed/Problem-solving/blob/master/UVa/534%20-%20Frogger.cpp" target="_blank" rel="external">UVa 534 - Frogger</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a,b) ((a)&gt;(b)?(a):(b))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 201</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Coord</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> x, y;</span><br><span class="line">    <span class="function"><span class="keyword">float</span> <span class="title">getDistance</span><span class="params">(Coord&amp; a)</span></span><br><span class="line">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">sqrt</span>((x - a.x)*(x - a.x) + (y - a.y)*(y - a.y));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;stone[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">SPFA</span><span class="params">(<span class="keyword">int</span> n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, i, Case = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) &amp;&amp; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//第 0 和 1 分別為起點和終點</span></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;stone[i].x, &amp;stone[i].y);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Scenario #%d\nFrog Distance = %.3f\n\n"</span>, Case++, SPFA(n));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">SPFA</span><span class="params">(<span class="keyword">int</span> n)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">float</span> d[N] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">    <span class="keyword">bool</span> inQ[<span class="number">101</span>] = &#123;&#125;;</span><br><span class="line">    <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; Q;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        d[i] = <span class="number">1e9</span>;</span><br><span class="line"></span><br><span class="line">    Q.push(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!Q.empty())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> idx = Q.front();</span><br><span class="line">        Q.pop();</span><br><span class="line"></span><br><span class="line">        inQ[idx] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//比較從起點到 idx 和 從 idx 到 i ，兩個的 minmax distance，較大的則為這條路徑(從起點到 i )的 minmax distance</span></span><br><span class="line">            <span class="keyword">float</span> max = MAX(d[idx], stone[idx].getDistance(stone[i]));</span><br><span class="line">           </span><br><span class="line">            <span class="comment">//看是否有比原本的 minmax distance 小</span></span><br><span class="line">            <span class="keyword">if</span> (max &lt; d[i])</span><br><span class="line">            &#123;</span><br><span class="line">                d[i] = max;</span><br><span class="line">                <span class="keyword">if</span> (!inQ[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    Q.push(i);</span><br><span class="line">                    inQ[i] = <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> d[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/" data-id="cimm0b6ar0030bc7ku1g425ga" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/04/04/UVa/UVa-534-Frogger/" data-id="cimm0jhpb0000107kovbz4843" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/04/04/UVa/UVa-534-Frogger/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SPFA/">SPFA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
 
     </footer>
   </div>
@@ -137,19 +150,10 @@ ga('send', 'pageview');
     
 <nav id="article-nav">
   
-    <a href="/2016/02/28/UVa/UVa-11185-Ternary/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          UVa 11185 - Ternary
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/02/27/UVa/UVa-10842-Traffic-Flow/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/04/UVa-988-Many-Paths-One-Destination/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">UVa 10842 - Traffic Flow</div>
+      <div class="article-nav-title">UVa 988 - Many Paths, One Destination</div>
     </a>
   
 </nav>
@@ -272,7 +276,7 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'naivered';
   
-  var disqus_url = 'http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/';
+  var disqus_url = 'http://naivered.github.io/2016/04/04/UVa/UVa-534-Frogger/';
   
   (function(){
     var dsq = document.createElement('script');
