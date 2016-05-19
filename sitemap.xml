@@ -2,210 +2,294 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://naivered.github.io/2016/05/18/UVa/UVa-530-Binomial-Showdown/</loc>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-11631-Dark-roads/</loc>
+    
+    <lastmod>2016-05-19T15:22:21.827Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/18/Problem_Solving/UVa/UVa-348-Optimal-Array-Multiplication-Sequence/</loc>
+    
+    <lastmod>2016-05-19T15:16:58.738Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-11388-GCD-LCM/</loc>
+    
+    <lastmod>2016-05-19T14:45:04.469Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-10369-Arctic-Network/</loc>
+    
+    <lastmod>2016-05-19T14:25:57.986Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-10550-Combination-Lock/</loc>
+    
+    <lastmod>2016-05-19T14:25:39.659Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-10147-Highways/</loc>
+    
+    <lastmod>2016-05-19T14:10:17.879Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-10003-Cutting-Sticks/</loc>
+    
+    <lastmod>2016-05-19T08:28:14.210Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-993-Product-of-digits/</loc>
+    
+    <lastmod>2016-05-19T08:21:32.904Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-750-8-Queens-Chess-Problem/</loc>
+    
+    <lastmod>2016-05-19T04:46:25.211Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-562-Dividing-coins/</loc>
+    
+    <lastmod>2016-05-19T04:30:58.638Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/ZeroJudge/ZeroJudge-b309-%E8%81%96%E6%9D%AF%E6%88%B0%E7%88%AD/</loc>
+    
+    <lastmod>2016-05-19T04:25:37.418Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-558-Wormholes/</loc>
+    
+    <lastmod>2016-05-19T04:11:54.276Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/19/Problem_Solving/UVa/UVa-532-Dungeon-Master/</loc>
+    
+    <lastmod>2016-05-19T04:05:28.063Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/05/18/Problem_Solving/UVa/UVa-530-Binomial-Showdown/</loc>
     
     <lastmod>2016-05-18T16:14:06.336Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/05/18/UVa/UVa-200-Rare-Order/</loc>
+    <loc>http://naivered.github.io/2016/05/18/Problem_Solving/UVa/UVa-200-Rare-Order/</loc>
     
     <lastmod>2016-05-18T16:09:48.953Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/05/18/UVa/UVa-10304-Optimal-Binary-Search-Tree/</loc>
+    <loc>http://naivered.github.io/2016/05/18/Problem_Solving/UVa/UVa-10304-Optimal-Binary-Search-Tree/</loc>
     
     <lastmod>2016-05-18T05:50:08.353Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/05/18/UVa/UVa-348-Optimal-Array-Multiplication-Sequence/</loc>
-    
-    <lastmod>2016-05-18T05:31:35.486Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/03/19/UVa/UVa-679-Dropping-Balls/</loc>
+    <loc>http://naivered.github.io/2016/03/19/Problem_Solving/UVa/UVa-679-Dropping-Balls/</loc>
     
     <lastmod>2016-04-29T16:42:20.357Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/24/UVa/UVa-10285-Longest-Run-on-a-Snowboard/</loc>
+    <loc>http://naivered.github.io/2016/04/24/Problem_Solving/UVa/UVa-10285-Longest-Run-on-a-Snowboard/</loc>
     
     <lastmod>2016-04-24T07:22:40.241Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/24/UVa/UVa-10578-The-Game-of-31/</loc>
+    <loc>http://naivered.github.io/2016/04/24/Problem_Solving/UVa/UVa-10578-The-Game-of-31/</loc>
     
     <lastmod>2016-04-24T07:07:48.045Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/24/UVa/UVa-10229-Modular-Fibonacci/</loc>
+    <loc>http://naivered.github.io/2016/04/24/Problem_Solving/UVa/UVa-10229-Modular-Fibonacci/</loc>
     
     <lastmod>2016-04-24T06:51:53.497Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/23/UVa/UVa-10986-Sending-Email/</loc>
+    <loc>http://naivered.github.io/2016/04/23/Problem_Solving/UVa/UVa-10986-Sending-Email/</loc>
     
     <lastmod>2016-04-23T16:00:13.967Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/23/UVa/UVa-477-Points-in-Figures-Rectangles-and-Circles/</loc>
+    <loc>http://naivered.github.io/2016/04/23/Problem_Solving/UVa/UVa-477-Points-in-Figures-Rectangles-and-Circles/</loc>
     
     <lastmod>2016-04-23T15:50:40.665Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/15/UVa/UVa-10245-The-Closest-Pair-Problem/</loc>
+    <loc>http://naivered.github.io/2016/04/15/Problem_Solving/UVa/UVa-10245-The-Closest-Pair-Problem/</loc>
     
     <lastmod>2016-04-15T13:04:50.050Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/15/UVa/UVa-10591-Happy-Number/</loc>
+    <loc>http://naivered.github.io/2016/04/15/Problem_Solving/UVa/UVa-10591-Happy-Number/</loc>
     
     <lastmod>2016-04-15T12:59:13.178Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/15/UVa/UVa-10699-Count-the-factors/</loc>
+    <loc>http://naivered.github.io/2016/04/15/Problem_Solving/UVa/UVa-10699-Count-the-factors/</loc>
     
     <lastmod>2016-04-15T12:37:08.268Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/18/UVa/UVa-10290-Sum-i-to-Reach-N/</loc>
+    <loc>http://naivered.github.io/2016/03/18/Problem_Solving/UVa/UVa-10290-Sum-i-to-Reach-N/</loc>
     
     <lastmod>2016-04-15T12:35:25.380Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/18/UVa/ZeroJudge-d756-10290-Sum-i-to-Reach-N/</loc>
+    <loc>http://naivered.github.io/2016/03/18/Problem_Solving/ZeroJudge/ZeroJudge-d756-10290-Sum-i-to-Reach-N/</loc>
     
     <lastmod>2016-04-15T12:34:59.970Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/13/UVa/UVa-476-Points-in-Figures-Rectangles/</loc>
+    <loc>http://naivered.github.io/2016/04/13/Problem_Solving/UVa/UVa-476-Points-in-Figures-Rectangles/</loc>
     
     <lastmod>2016-04-13T05:49:51.418Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/08/UVa/UVa-307-Sticks/</loc>
+    <loc>http://naivered.github.io/2016/04/08/Problem_Solving/UVa/UVa-307-Sticks/</loc>
     
     <lastmod>2016-04-08T11:34:07.851Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/04/UVa/UVa-10364-Square/</loc>
+    <loc>http://naivered.github.io/2016/04/04/Problem_Solving/UVa/UVa-10364-Square/</loc>
     
     <lastmod>2016-04-08T09:11:01.055Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/08/UVa/UVa-11428-Cubes/</loc>
+    <loc>http://naivered.github.io/2016/04/08/Problem_Solving/UVa/UVa-11428-Cubes/</loc>
     
     <lastmod>2016-04-08T09:08:49.808Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/08/UVa/UVa-10026-Shoemaker-s-Problem/</loc>
+    <loc>http://naivered.github.io/2016/04/08/Problem_Solving/UVa/UVa-10026-Shoemaker-s-Problem/</loc>
     
     <lastmod>2016-04-08T09:07:07.063Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/07/UVa/UVa-990-Diving-for-Gold/</loc>
+    <loc>http://naivered.github.io/2016/04/07/Problem_Solving/UVa/UVa-990-Diving-for-Gold/</loc>
     
     <lastmod>2016-04-08T08:34:26.292Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/06/UVa/UVa-10810-Ultra-QuickSort/</loc>
+    <loc>http://naivered.github.io/2016/03/06/Problem_Solving/UVa/UVa-10810-Ultra-QuickSort/</loc>
     
     <lastmod>2016-04-08T08:24:10.358Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/07/UVa/UVa-10130-SuperSale/</loc>
+    <loc>http://naivered.github.io/2016/04/07/Problem_Solving/UVa/UVa-10130-SuperSale/</loc>
     
     <lastmod>2016-04-08T08:23:47.401Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/04/UVa/UVa-988-Many-Paths-One-Destination/</loc>
+    <loc>http://naivered.github.io/2016/04/04/Problem_Solving/UVa/UVa-988-Many-Paths-One-Destination/</loc>
     
     <lastmod>2016-04-04T13:08:41.245Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/04/UVa/UVa-534-Frogger/</loc>
+    <loc>http://naivered.github.io/2016/04/04/Problem_Solving/UVa/UVa-534-Frogger/</loc>
     
     <lastmod>2016-04-04T13:08:21.922Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/06/UVa/UVa-10801-Lift-Hopping/</loc>
+    <loc>http://naivered.github.io/2016/03/06/Problem_Solving/UVa/UVa-10801-Lift-Hopping/</loc>
     
     <lastmod>2016-04-04T11:06:46.783Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/04/UVa/UVa-929-Number-Maze/</loc>
+    <loc>http://naivered.github.io/2016/03/04/Problem_Solving/UVa/UVa-929-Number-Maze/</loc>
     
     <lastmod>2016-04-04T11:06:34.669Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/04/UVa/UVa-10048-Audiophobia/</loc>
+    <loc>http://naivered.github.io/2016/04/04/Problem_Solving/UVa/UVa-10048-Audiophobia/</loc>
     
     <lastmod>2016-04-04T06:27:11.734Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/04/UVa/UVa-624-CD/</loc>
+    <loc>http://naivered.github.io/2016/04/04/Problem_Solving/UVa/UVa-624-CD/</loc>
     
     <lastmod>2016-04-04T04:12:36.553Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/04/04/UVa/UVa-10465-Homer-Simpson/</loc>
+    <loc>http://naivered.github.io/2016/04/04/Problem_Solving/UVa/UVa-10465-Homer-Simpson/</loc>
     
     <lastmod>2016-04-04T03:53:46.628Z</lastmod>
     
@@ -219,140 +303,140 @@
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/27/UVa/UVa-10856-Recover-Factorial/</loc>
+    <loc>http://naivered.github.io/2016/02/27/Problem_Solving/UVa/UVa-10856-Recover-Factorial/</loc>
     
     <lastmod>2016-03-19T06:31:48.959Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/23/UVa/UVa-10791-Minimum-Sum-LCM/</loc>
+    <loc>http://naivered.github.io/2016/02/23/Problem_Solving/UVa/UVa-10791-Minimum-Sum-LCM/</loc>
     
     <lastmod>2016-03-19T06:26:11.174Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/01/25/UVa/UVa-10093-An-Easy-Problem/</loc>
+    <loc>http://naivered.github.io/2016/01/25/Problem_Solving/UVa/UVa-10093-An-Easy-Problem/</loc>
     
     <lastmod>2016-03-19T06:22:04.861Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/18/UVa/UVa-10305-Ordering-Tasks/</loc>
+    <loc>http://naivered.github.io/2016/03/18/Problem_Solving/UVa/UVa-10305-Ordering-Tasks/</loc>
     
     <lastmod>2016-03-18T08:51:03.320Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/18/UVa/UVa-10487-Closest-Sums/</loc>
+    <loc>http://naivered.github.io/2016/03/18/Problem_Solving/UVa/UVa-10487-Closest-Sums/</loc>
     
     <lastmod>2016-03-18T08:41:08.488Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/15/UVa/UVa-10000-Longest-Paths/</loc>
+    <loc>http://naivered.github.io/2016/03/15/Problem_Solving/UVa/UVa-10000-Longest-Paths/</loc>
     
     <lastmod>2016-03-17T04:32:49.946Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/15/UVa/UVa-10533-Digit-Primes/</loc>
+    <loc>http://naivered.github.io/2016/03/15/Problem_Solving/UVa/UVa-10533-Digit-Primes/</loc>
     
     <lastmod>2016-03-15T15:05:30.922Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/13/UVa/UVa-11624-Fire/</loc>
+    <loc>http://naivered.github.io/2016/03/13/Problem_Solving/UVa/UVa-11624-Fire/</loc>
     
     <lastmod>2016-03-13T15:55:04.849Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/03/05/UVa/UVa-10236-The-Fibonacci-Primes/</loc>
+    <loc>http://naivered.github.io/2016/03/05/Problem_Solving/UVa/UVa-10236-The-Fibonacci-Primes/</loc>
     
     <lastmod>2016-03-05T05:26:03.946Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/07/UVa/UVa-solving-recently/</loc>
+    <loc>http://naivered.github.io/2016/02/07/Problem_Solving/UVa/UVa-solving-recently/</loc>
     
     <lastmod>2016-03-02T14:16:02.870Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/28/UVa/UVa-10034-Freckles/</loc>
+    <loc>http://naivered.github.io/2016/02/28/Problem_Solving/UVa/UVa-10034-Freckles/</loc>
     
     <lastmod>2016-02-28T15:59:10.157Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/28/UVa/UVa-11069-A-Graph-Problem/</loc>
+    <loc>http://naivered.github.io/2016/02/28/Problem_Solving/UVa/UVa-11069-A-Graph-Problem/</loc>
     
     <lastmod>2016-02-28T04:14:28.066Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/28/UVa/UVa-11185-Ternary/</loc>
+    <loc>http://naivered.github.io/2016/02/28/Problem_Solving/UVa/UVa-11185-Ternary/</loc>
     
     <lastmod>2016-02-28T03:34:51.339Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/28/UVa/UVa-12626-I-Love-Pizza/</loc>
+    <loc>http://naivered.github.io/2016/02/28/Problem_Solving/UVa/UVa-12626-I-Love-Pizza/</loc>
     
     <lastmod>2016-02-28T03:31:51.198Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/27/UVa/UVa-10842-Traffic-Flow/</loc>
+    <loc>http://naivered.github.io/2016/02/27/Problem_Solving/UVa/UVa-10842-Traffic-Flow/</loc>
     
     <lastmod>2016-02-27T07:12:29.853Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/25/UVa/UVa-10306-e-Coins/</loc>
+    <loc>http://naivered.github.io/2016/02/25/Problem_Solving/UVa/UVa-10306-e-Coins/</loc>
     
     <lastmod>2016-02-26T10:58:59.134Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/24/UVa/UVa-357-Let-Me-Count-The-Ways/</loc>
+    <loc>http://naivered.github.io/2016/02/24/Problem_Solving/UVa/UVa-357-Let-Me-Count-The-Ways/</loc>
     
     <lastmod>2016-02-26T10:58:50.504Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/25/UVa/UVa-12015-Google-is-Feeling-Lucky/</loc>
+    <loc>http://naivered.github.io/2016/02/25/Problem_Solving/UVa/UVa-12015-Google-is-Feeling-Lucky/</loc>
     
     <lastmod>2016-02-25T16:49:44.970Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/24/UVa/UVa-10397-Connect-the-Campus/</loc>
+    <loc>http://naivered.github.io/2016/02/24/Problem_Solving/UVa/UVa-10397-Connect-the-Campus/</loc>
     
     <lastmod>2016-02-24T08:06:03.970Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/23/UVa/UVa-12820-Cool-Word/</loc>
+    <loc>http://naivered.github.io/2016/02/23/Problem_Solving/UVa/UVa-12820-Cool-Word/</loc>
     
     <lastmod>2016-02-23T09:02:17.825Z</lastmod>
     
@@ -366,7 +450,7 @@
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/21/UVa/UVa-908-Re-connecting-Computer-Sites/</loc>
+    <loc>http://naivered.github.io/2016/02/21/Problem_Solving/UVa/UVa-908-Re-connecting-Computer-Sites/</loc>
     
     <lastmod>2016-02-21T13:32:51.796Z</lastmod>
     
@@ -380,56 +464,56 @@
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/15/UVa/UVa-13012-Identifying-tea/</loc>
+    <loc>http://naivered.github.io/2016/02/15/Problem_Solving/UVa/UVa-13012-Identifying-tea/</loc>
     
     <lastmod>2016-02-19T05:22:34.588Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/15/UVa/UVa-12952-Tri-du/</loc>
+    <loc>http://naivered.github.io/2016/02/15/Problem_Solving/UVa/UVa-12952-Tri-du/</loc>
     
     <lastmod>2016-02-19T05:22:31.702Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/08/UVa/UVa-10921-Find%20the%20Telephone/</loc>
+    <loc>http://naivered.github.io/2016/02/08/Problem_Solving/UVa/UVa-10921-Find%20the%20Telephone/</loc>
     
     <lastmod>2016-02-19T05:22:15.429Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/08/UVa/UVa-10127-Ones/</loc>
+    <loc>http://naivered.github.io/2016/02/08/Problem_Solving/UVa/UVa-10127-Ones/</loc>
     
     <lastmod>2016-02-19T05:22:12.670Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/11/UVa/UVa-1124-Celebrity-jeopardy/</loc>
+    <loc>http://naivered.github.io/2016/02/11/Problem_Solving/UVa/UVa-1124-Celebrity-jeopardy/</loc>
     
     <lastmod>2016-02-19T05:21:59.333Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/15/UVa/UVa-439-Knight-Moves/</loc>
+    <loc>http://naivered.github.io/2016/02/15/Problem_Solving/UVa/UVa-439-Knight-Moves/</loc>
     
     <lastmod>2016-02-19T05:21:52.495Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/02/08/UVa/UVa-264-Count-on-Cantor/</loc>
+    <loc>http://naivered.github.io/2016/02/08/Problem_Solving/UVa/UVa-264-Count-on-Cantor/</loc>
     
     <lastmod>2016-02-19T05:21:33.952Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/01/20/UVa/UVa-120-Stacks-of-Flapjacks/</loc>
+    <loc>http://naivered.github.io/2016/01/20/Problem_Solving/UVa/UVa-120-Stacks-of-Flapjacks/</loc>
     
     <lastmod>2016-02-19T05:21:18.600Z</lastmod>
     
