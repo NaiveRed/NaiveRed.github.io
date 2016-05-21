@@ -6,18 +6,18 @@
   <title>UVa 104 - Arbitrage | NaiveRed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Problem題目網址中文網址
-找出 最少 的套換次數使得獲利大於 0.01。">
+找出 最少 的轉換次數使得獲利大於 0.01。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UVa 104 - Arbitrage">
-<meta property="og:url" content="http://naivered.github.io/2016/05/21/UVa-104-Arbitrage/index.html">
+<meta property="og:url" content="http://naivered.github.io/2016/05/21/Problem_Solving/UVa/UVa-104-Arbitrage/index.html">
 <meta property="og:site_name" content="NaiveRed's Blog">
 <meta property="og:description" content="Problem題目網址中文網址
-找出 最少 的套換次數使得獲利大於 0.01。">
-<meta property="og:updated_time" content="2016-05-21T07:25:03.611Z">
+找出 最少 的轉換次數使得獲利大於 0.01。">
+<meta property="og:updated_time" content="2016-05-21T07:34:04.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVa 104 - Arbitrage">
 <meta name="twitter:description" content="Problem題目網址中文網址
-找出 最少 的套換次數使得獲利大於 0.01。">
+找出 最少 的轉換次數使得獲利大於 0.01。">
   
     <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
   
@@ -81,9 +81,9 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-UVa-104-Arbitrage" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Problem_Solving/UVa/UVa-104-Arbitrage" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/05/21/UVa-104-Arbitrage/" class="article-date">
+    <a href="/2016/05/21/Problem_Solving/UVa/UVa-104-Arbitrage/" class="article-date">
   <time datetime="2016-05-21T07:02:09.000Z" itemprop="datePublished">2016-05-21</time>
 </a>
     
@@ -117,7 +117,7 @@ ga('send', 'pageview');
             </div>
         
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/1/104.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q104.htm" target="_blank" rel="external">中文網址</a></p>
-<p>找出 <strong>最少</strong> 的套換次數使得獲利大於 0.01。</p>
+<p>找出 <strong>最少</strong> 的轉換次數使得獲利大於 0.01。</p>
 <a id="more"></a>
 <h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>覺得很難的一題，稍微有點變化就解不出來了。看了網路上的題解後，花了不少時間才大致了解，總覺得下次遇到也還是不會解…</p>
 <p>因為題目要求的是最少次數，並不是獲利最大，所以單純做 Floyd 容易找成獲利最大，而不是最少次數得到 0.01 獲利的。因此我們利用 DP ，在記錄途中獲利時多一個步數的狀態，來控制步數，每次使用上一步的獲利再來進行 relaxation。  </p>
@@ -132,9 +132,9 @@ if (d[i][k][step - 1] * d[k][j][1] &gt; d[i][j][step])
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/05/21/UVa-104-Arbitrage/" data-id="ciogu372b0000sw7kvjnh75fs" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/05/21/Problem_Solving/UVa/UVa-104-Arbitrage/" data-id="ciogubq8100348w7kh13f6glv" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/05/21/UVa-104-Arbitrage/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/05/21/Problem_Solving/UVa/UVa-104-Arbitrage/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Floyd-Warshall/">Floyd-Warshall</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
@@ -173,7 +173,7 @@ if (d[i][k][step - 1] * d[k][j][1] &gt; d[i][j][step])
       <ul>
         
           <li>
-            <a href="/2016/05/21/UVa-104-Arbitrage/">UVa 104 - Arbitrage</a>
+            <a href="/2016/05/21/Problem_Solving/UVa/UVa-104-Arbitrage/">UVa 104 - Arbitrage</a>
           </li>
         
           <li>
@@ -271,7 +271,7 @@ if (d[i][k][step - 1] * d[k][j][1] &gt; d[i][j][step])
 <script>
   var disqus_shortname = 'naivered';
   
-  var disqus_url = 'http://naivered.github.io/2016/05/21/UVa-104-Arbitrage/';
+  var disqus_url = 'http://naivered.github.io/2016/05/21/Problem_Solving/UVa/UVa-104-Arbitrage/';
   
   (function(){
     var dsq = document.createElement('script');
