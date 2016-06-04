@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="NaiveRed's Blog">
 <meta property="og:description" content="Problem題目網址中文網址
 注意:給 N ，表示 1~N。">
-<meta property="og:updated_time" content="2016-06-04T13:12:53.623Z">
+<meta property="og:updated_time" content="2016-06-04T13:17:05.537Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UVa 11384 - Help is needed for Dexter">
 <meta name="twitter:description" content="Problem題目網址中文網址
@@ -119,13 +119,13 @@ ga('send', 'pageview');
         <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/113/11384.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://rubyacm.blogspot.tw/2011/08/11384-help-is-needed-for-dexter.html" target="_blank" rel="external">中文網址</a></p>
 <p>注意:給 N ，表示 1~N。</p>
 <a id="more"></a>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>只接舉例:(右邊為步驟)</p>
-<pre><code>1 =&gt; 1
-1 2 =&gt; 2
-1 2 3 =&gt; 2
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>直接舉例:(右邊為步驟數)</p>
+<pre><code>1 : 1
+1 2 : 2
+1 2 3 : 2
 </code></pre><p>可以找出規律</p>
 <pre><code>1 2 3 4 =&gt; 1 2 1 2 
-</code></pre><p>讓右邊成為更左邊一樣的，所以也就是兩個 1 2。而 1 2 所要完成的步驟，則是兩個 1。<br>可以用遞迴或 DP 去解，但速度較慢。</p>
+</code></pre><p>讓右邊成為跟左邊一樣的，所以也就是兩個 1 2，1 則為此次使左右兩邊相同。而 1 2 所要完成的步驟，則是兩個 1。<br><code>dp[n/2] + 1</code><br>可以用遞迴或 DP 去解，但速度較慢。</p>
 <p>其中這裡可以發現每次步驟增加都是在 $2^i$ 時，所以我們可以找出 n 是在哪個區間，以求出它的步驟數。   </p>
 <pre><code>1 =&gt; 1
 2 =&gt; 2
@@ -144,7 +144,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/06/04/Problem_Solving/UVa/UVa-11384-Help-is-needed-for-Dexter/" data-id="cip16k38t004rec7k9xrcc9gp" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/06/04/Problem_Solving/UVa/UVa-11384-Help-is-needed-for-Dexter/" data-id="cip16rmxn004ud47k1oy0rzc4" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/06/04/Problem_Solving/UVa/UVa-11384-Help-is-needed-for-Dexter/#disqus_thread" class="article-comment-link">Comments</a>
       
