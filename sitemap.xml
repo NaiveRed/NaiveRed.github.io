@@ -2,16 +2,114 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://naivered.github.io/2016/07/12/Problem_Solving/UVa/UVa-10192-Vacation/</loc>
+    
+    <lastmod>2016-07-12T04:55:54.033Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/12/Problem_Solving/UVa/UVa-10161-Ant-on-a-Chessboard/</loc>
+    
+    <lastmod>2016-07-12T04:54:51.697Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/12/Problem_Solving/UVa/UVa-1121-Subsequence/</loc>
+    
+    <lastmod>2016-07-12T04:48:21.392Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/12/Problem_Solving/UVa/UVa-356-Square-Pegs-And-Round-Holes/</loc>
+    
+    <lastmod>2016-07-12T04:41:32.226Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/10/Problem_Solving/UVa/UVa-10054-The-Necklace/</loc>
+    
+    <lastmod>2016-07-11T06:16:17.214Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/10/Problem_Solving/UVa/UVa-10963-The-Swallowing-Ground/</loc>
+    
+    <lastmod>2016-07-11T05:58:17.265Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/10/Problem_Solving/UVa/UVa-438-The-Circumference-of-the-Circle/</loc>
+    
+    <lastmod>2016-07-11T05:55:30.692Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/10/Problem_Solving/UVa/UVa-437-The-Tower-of-Babylon/</loc>
+    
+    <lastmod>2016-07-11T05:39:51.676Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/10/Problem_Solving/UVa/UVa-409-Excuses-Excuses/</loc>
+    
+    <lastmod>2016-07-11T05:32:01.346Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/10/Problem_Solving/UVa/UVa-291-The-House-Of-Santa-Claus/</loc>
+    
+    <lastmod>2016-07-11T05:22:11.364Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/04/Problem_Solving/UVa/UVa-661-Blowing-Fuses/</loc>
+    
+    <lastmod>2016-07-07T09:03:16.030Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/03/Problem_Solving/UVa/UVa-13114-Josephus-lottery-II/</loc>
+    
+    <lastmod>2016-07-07T09:03:15.009Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/05/Problem_Solving/UVa/UVa-130-Roman-Roulette/</loc>
+    
+    <lastmod>2016-07-07T09:02:38.040Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://naivered.github.io/2016/07/07/Problem_Solving/UVa/UVa-311-Packets/</loc>
     
-    <lastmod>2016-07-07T08:48:35.041Z</lastmod>
+    <lastmod>2016-07-07T09:01:39.857Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://naivered.github.io/2016/07/07/Problem_Solving/UVa/UVa-131-The-Psychic-Poker-Player/</loc>
     
-    <lastmod>2016-07-07T08:43:02.580Z</lastmod>
+    <lastmod>2016-07-07T09:01:05.009Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/04/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L1-Notes/</loc>
+    
+    <lastmod>2016-07-07T08:59:25.009Z</lastmod>
     
   </url>
   
@@ -30,13 +128,6 @@
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/07/04/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L1-Notes/</loc>
-    
-    <lastmod>2016-07-07T03:50:57.789Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://naivered.github.io/2016/07/06/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L2-Notes-2/</loc>
     
     <lastmod>2016-07-06T11:33:58.405Z</lastmod>
@@ -51,13 +142,6 @@
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/07/05/Problem_Solving/UVa/UVa-130-Roman-Roulette/</loc>
-    
-    <lastmod>2016-07-05T07:01:08.707Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://naivered.github.io/2016/07/05/Problem_Solving/UVa/UVa-275-Expanding-Fractions/</loc>
     
     <lastmod>2016-07-05T06:55:57.871Z</lastmod>
@@ -68,13 +152,6 @@
     <loc>http://naivered.github.io/2016/07/04/Problem_Solving/UVa/UVa-587-There-s-treasure-everywhere/</loc>
     
     <lastmod>2016-07-04T15:44:38.426Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/07/04/Problem_Solving/UVa/UVa-661-Blowing-Fuses/</loc>
-    
-    <lastmod>2016-07-04T15:37:10.900Z</lastmod>
     
   </url>
   
@@ -96,13 +173,6 @@
     <loc>http://naivered.github.io/2016/07/03/Problem_Solving/UVa/UVa-306-Cipher/</loc>
     
     <lastmod>2016-07-03T15:43:18.812Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/07/03/Problem_Solving/UVa/UVa-13114-Josephus-lottery-II/</loc>
-    
-    <lastmod>2016-07-03T15:35:21.295Z</lastmod>
     
   </url>
   
