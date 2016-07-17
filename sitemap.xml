@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://naivered.github.io/2016/07/16/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L3-Notes-2/</loc>
+    
+    <lastmod>2016-07-17T03:39:53.004Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://naivered.github.io/2016/07/15/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L3-Notes-1/</loc>
     
-    <lastmod>2016-07-15T15:40:46.351Z</lastmod>
+    <lastmod>2016-07-16T15:37:57.120Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/04/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L1-Notes/</loc>
+    
+    <lastmod>2016-07-16T08:43:10.288Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/05/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L2-Notes-1/</loc>
+    
+    <lastmod>2016-07-16T08:42:54.434Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://naivered.github.io/2016/07/06/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L2-Notes-2/</loc>
+    
+    <lastmod>2016-07-16T08:33:04.727Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://naivered.github.io/2016/07/15/Diary/20160715-End-Of-This-Semester/</loc>
     
-    <lastmod>2016-07-15T05:48:49.535Z</lastmod>
+    <lastmod>2016-07-16T01:37:57.694Z</lastmod>
     
   </url>
   
@@ -121,13 +149,6 @@
   </url>
   
   <url>
-    <loc>http://naivered.github.io/2016/07/04/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L1-Notes/</loc>
-    
-    <lastmod>2016-07-07T08:59:25.009Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://naivered.github.io/2016/07/07/Problem_Solving/UVa/UVa-350-Pseudo-Random-Numbers/</loc>
     
     <lastmod>2016-07-07T08:39:54.370Z</lastmod>
@@ -138,20 +159,6 @@
     <loc>http://naivered.github.io/2016/07/07/Problem_Solving/UVa/UVa-576-Haiku-Review/</loc>
     
     <lastmod>2016-07-07T08:39:09.420Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/07/06/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L2-Notes-2/</loc>
-    
-    <lastmod>2016-07-06T11:33:58.405Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://naivered.github.io/2016/07/05/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L2-Notes-1/</loc>
-    
-    <lastmod>2016-07-06T09:19:51.905Z</lastmod>
     
   </url>
   
