@@ -79,9 +79,9 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
-    <article id="post-Machine-Learning-Foundations-L4-Notes-1" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2016/07/25/Machine-Learning-Foundations-L4-Notes-1/" class="article-date">
+    <a href="/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/" class="article-date">
   <time datetime="2016-07-25T04:33:46.000Z" itemprop="datePublished">2016-07-25</time>
 </a>
     
@@ -97,7 +97,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/25/Machine-Learning-Foundations-L4-Notes-1/">Machine Learning Foundations - L4 Notes(上)</a>
+      <a class="article-title" href="/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/">Machine Learning Foundations - L4 Notes(上)</a>
     </h1>
   
 
@@ -105,42 +105,18 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- Table of Contents -->
-          
         <p>章節名稱: <strong>feasibility of learning</strong></p>
-<h1 id="一-Learning-is-Impossible"><a href="#一-Learning-is-Impossible" class="headerlink" title="一 Learning is Impossible?"></a>一 Learning is Impossible?</h1><h2 id="No-Free-Lunch"><a href="#No-Free-Lunch" class="headerlink" title="No Free Lunch"></a>No Free Lunch</h2><p>在某些情況我們可能無法學習到東西，這邊舉了個例子，我們用在資料內的 $x_n$ 、 $y_n$ ，來驗證產生出來的 $g$ 是否近似於 $f$ ，但就算資料內的都相符了，我們仍然無法確定 $g$ 是否近似於 $f$ ，綜觀來看好像沒學到東西。<br>圖中 $f_n$ 表我們不知道的，所以資料外 ($D$) 的 $y_n$ 我們自然無法得知，也就無法保證一定學到了甚麼東西。 </p>
-<p>但實際上這類可能才是我們想要的，利用已知的資料來達到預測資料外的結果。</p>
-<p>通常我們無法只丟資料，然後去學，來得知資料外的事。 =&gt; No Free Lunch<br>除非加上一些假設。</p>
-<p><img src="" alt="4-1-1"></p>
-<h1 id="二-Probability-to-the-Rescue"><a href="#二-Probability-to-the-Rescue" class="headerlink" title="二 Probability to the Rescue"></a>二 Probability to the Rescue</h1><h2 id="用機率來推論"><a href="#用機率來推論" class="headerlink" title="用機率來推論"></a>用機率來推論</h2><p>所以由剛剛來看，我們需要一些東西來對未知的 $f$ 來做一些推論。</p>
-<p><img src="" alt="4-2-1"></p>
-<p>我們想要知道瓶子裡，橘色彈珠的比例佔多少，除了一顆一顆數要如何知道呢？<br>我們可以用機率來推論:</p>
-<p>罐子裡橘色的機率為 : $\mu$ (未知)</p>
-<p>隨機抓一把彈珠 =&gt; Sample<br>Sample 裡橘色的機率為: $\nu$ (已知)</p>
-<p>則我們能利用 in-sample $\nu$ 來得知 out-of-sample $\mu$ 的一些資訊，</p>
-<p>首先，無法知道 <strong>一定</strong> 有多少比例的橘色，比如抓一把結果全都是綠，但實際上裡面有橘色。<br>我們可以知道的是 <strong>可能</strong> $\nu 和 $\mu$ 是很接近的。</p>
-<h2 id="Hoeffding’s-Inequality"><a href="#Hoeffding’s-Inequality" class="headerlink" title="Hoeffding’s Inequality"></a>Hoeffding’s Inequality</h2><p>而數學上如何說明這件事呢？</p>
-<p><img src="" alt="4-2-2"></p>
-<p>結論上來說就是當 N 很大時，$\mu$ 和 $\nu$ 會很接近的機率很大。也就是 $\mu$ 和 $\nu$ 相差很大的機率很小，寫成數學則像是圖中那樣。(exp: 指數函數，$e^x$ ) </p>
-<p><strong>PAC</strong> : 有很大的機會 差不多 是對的。</p>
-<p><img src="" alt="4-2-3"></p>
-<p>而在 <strong>Hoeffding’s Inequality</strong> 中，首先要有合理的 N 和 $\epsilon$ (容忍度) ，然後我們不需要知道 $\mu$。<br>當 N 或是 $\epsilon$ 越大時，圖中不等式右邊的值就越小。 </p>
-<h2 id="練習"><a href="#練習" class="headerlink" title="練習"></a>練習</h2><p><img src="" alt="4-2-4"></p>
-<span>$$\epsilon = \mu - \nu = 0.3 \\
-\Bbb{P}[ \vert \nu - \mu \vert \gt \epsilon ] \le 2 \times e^{(-2 \times {\epsilon}^2 \times 10)} \fallingdotseq 0.33$$</span><!-- Has MathJax -->
-<p>至於實際機率答案則是 4 ，查了一下，算法如下:</p>
-<p>首先 $\nu \le 0.1$ ，代表 所選的 10 顆內(Sample)，有可能有 <strong>1顆(0.1)</strong> 或 <strong>0顆(0)</strong> 橘的。<br>而在瓶子(Population) 內發生這樣的機率為:<br>($\mu$ 為橘色的機率)</p>
-<ul>
-<li>0 顆橘的 ${1-\mu}^10 = {0.6}^10</li>
-<li>1 顆橘的 $\left( { 10 \choose 1 } \right) \times {0.4}^1 \times {0.6}^9$</li>
-</ul>
-<span>$\left { 10 \choose 1 } (\right)$</span><!-- Has MathJax -->
+        
+          <p class="article-more-link">
+            <a href="/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/#more">Read More !</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/25/Machine-Learning-Foundations-L4-Notes-1/" data-id="cir1oa6z700002k7kgtnoysar" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/" data-id="cir27naw4000ksc7khn3qiqvc" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2016/07/25/Machine-Learning-Foundations-L4-Notes-1/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
@@ -188,7 +164,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/23/Problem_Solving/UVa/UVa-668-Parliament/" data-id="cir1oa7en00fh2k7kq3i1b1rr" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/23/Problem_Solving/UVa/UVa-668-Parliament/" data-id="cir27nbeu00dmsc7k0c89446s" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/23/Problem_Solving/UVa/UVa-668-Parliament/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -237,7 +213,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-639-Don-t-Get-Rooked/" data-id="cir1oa7dr00du2k7k60s3vrn4" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-639-Don-t-Get-Rooked/" data-id="cir27nbe400d4sc7k5i7xkkhd" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-639-Don-t-Get-Rooked/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -286,7 +262,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-619-Numerically-Speaking/" data-id="cir1oa7d800dd2k7k92pf0jwc" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-619-Numerically-Speaking/" data-id="cir27nbeg00dbsc7kmk30rhi2" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-619-Numerically-Speaking/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -335,7 +311,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-1587-Box/" data-id="cir1oa7a300a32k7kfv5r21u7" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-1587-Box/" data-id="cir27nb8h009esc7kn0cp7n9r" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-1587-Box/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -384,7 +360,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-202-Repeating-Decimals/" data-id="cir1oa7a600a72k7k7h80m160" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-202-Repeating-Decimals/" data-id="cir27nb8a009asc7ke6bcjc69" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-202-Repeating-Decimals/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -434,7 +410,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-1368-DNA-Consensus-String/" data-id="cir1oa7a100a02k7k1zioul63" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-1368-DNA-Consensus-String/" data-id="cir27nb7m008qsc7k4i9088b2" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-1368-DNA-Consensus-String/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -483,7 +459,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-574-Sum-It-Up/" data-id="cir1oa7cn00d62k7kqyeehcrq" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-574-Sum-It-Up/" data-id="cir27nbdk00d1sc7ku70ls16x" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-574-Sum-It-Up/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -532,7 +508,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-537-Artificial-Intelligence/" data-id="cir1oa7cb00cs2k7k26rwsn8e" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-537-Artificial-Intelligence/" data-id="cir27nbcc00c5sc7kcli46ood" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-537-Artificial-Intelligence/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -582,7 +558,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-544-Heavy-Cargo/" data-id="cir1oa7d500d92k7kbsvdohs4" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-544-Heavy-Cargo/" data-id="cir27nbdd00ctsc7kus1g8trb" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/07/22/Problem_Solving/UVa/UVa-544-Heavy-Cargo/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -612,7 +588,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2016/07/25/Machine-Learning-Foundations-L4-Notes-1/">Machine Learning Foundations - L4 Notes(上)</a>
+            <a href="/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/">Machine Learning Foundations - L4 Notes(上)</a>
           </li>
         
           <li>
@@ -730,23 +706,5 @@ ga('send', 'pageview');
 <script src="/js/script.js"></script>
 
   </div>
-
-<!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
 </body>
 </html>
