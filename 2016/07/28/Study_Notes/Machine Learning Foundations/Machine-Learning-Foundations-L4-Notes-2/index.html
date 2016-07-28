@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Machine Learning Foundations - L4 Notes(下) | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="三 Connection to Learningverification possible if $E_{in}(h)$ small for fixed $h$">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Foundations - L4 Notes(下)">
+<meta property="og:url" content="http://naivered.github.io/2016/07/28/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-2/index.html">
+<meta property="og:site_name" content="NaiveRed's Blog">
+<meta property="og:description" content="三 Connection to Learningverification possible if $E_{in}(h)$ small for fixed $h$">
+<meta property="og:image" content="http://imgur.com/0ULfcz1.jpg">
+<meta property="og:image" content="http://imgur.com/bh9tzFs.jpg">
+<meta property="og:image" content="http://imgur.com/6t0iqV2.jpg">
+<meta property="og:image" content="http://imgur.com/Dz6jJ4E.jpg">
+<meta property="og:image" content="http://imgur.com/pnUgdZF.jpg">
+<meta property="og:image" content="http://imgur.com/XN0rvOh.jpg">
+<meta property="og:image" content="http://imgur.com/en9rRmJ.jpg">
+<meta property="og:image" content="http://imgur.com/ijYAkeu.jpg">
+<meta property="og:image" content="http://imgur.com/O1VGKwc.jpg">
+<meta property="og:image" content="http://imgur.com/TXgNkII.jpg">
+<meta property="og:image" content="http://imgur.com/gYJMC7h.jpg">
+<meta property="og:image" content="http://imgur.com/SQLGpSZ.jpg">
+<meta property="og:updated_time" content="2016-07-28T14:31:46.369Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Learning Foundations - L4 Notes(下)">
+<meta name="twitter:description" content="三 Connection to Learningverification possible if $E_{in}(h)$ small for fixed $h$">
+<meta name="twitter:image" content="http://imgur.com/0ULfcz1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/07/28/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-2/" class="article-date">
+  <time datetime="2016-07-28T06:23:57.000Z" itemprop="datePublished">2016-07-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/學習筆記/">學習筆記</a>►<a class="article-category-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Machine Learning Foundations - L4 Notes(下)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Connection-to-Learning"><span class="toc-number">1.</span> <span class="toc-text">三 Connection to Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#與學習間的對應"><span class="toc-number">1.1.</span> <span class="toc-text">與學習間的對應</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#整個過程"><span class="toc-number">1.2.</span> <span class="toc-text">整個過程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#套進公式"><span class="toc-number">1.3.</span> <span class="toc-text">套進公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#驗證-h"><span class="toc-number">1.4.</span> <span class="toc-text">驗證 h</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#練習"><span class="toc-number">1.5.</span> <span class="toc-text">練習</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Connection-to-Real-Learning"><span class="toc-number">2.</span> <span class="toc-text">四 Connection to Real Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#不好的資料"><span class="toc-number">2.1.</span> <span class="toc-text">不好的資料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多個-h"><span class="toc-number">2.2.</span> <span class="toc-text">多個 h　　</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#終於可以學習了"><span class="toc-number">2.3.</span> <span class="toc-text">終於可以學習了　　</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#練習-1"><span class="toc-number">2.4.</span> <span class="toc-text">練習</span></a></li></ol></li></ol> 
+              
+            </div>
+        
+        <h1 id="三-Connection-to-Learning"><a href="#三-Connection-to-Learning" class="headerlink" title="三 Connection to Learning"></a>三 Connection to Learning</h1><p>verification possible if <span>$E_{in}(h)$</span><!-- Has MathJax --> small for fixed $h$</p>
+<a id="more"></a>
+<h2 id="與學習間的對應"><a href="#與學習間的對應" class="headerlink" title="與學習間的對應"></a>與學習間的對應</h2><p>這部分看了很多次，但還是有點難以理解 bin model 和 learning 兩者對應的關係…所以可能會有誤。</p>
+<p>用前面瓶子取彈珠的例子，來說明學習。</p>
+<p>在瓶子中，我們不曉得的是 <strong>橘色的機率</strong> 。而在學習中，我們不曉得的是 <strong>target function</strong> ，所以我們自然無法知道在某一點時的 $f(x)$。<br>我們有興趣知道的是某個 $h(x)$ ，其結果是否與 $f(x)$ 一樣。  </p>
+<p>我們會有個 <strong>固定的</strong> $h$ ，和專屬 $h$ 的瓶子。<br>這邊做個動作，從資料中，當 $h(x) = f(x)$ 兩者一樣時就把彈珠漆成 <font color="green">綠色</font>，不一樣則為 <font color="orange">橘色</font>。 不需要知道 $f$ ，這就像是直接從原先瓶子裡取出幾個彈珠，來看是橘色還綠色一樣。</p>
+<p>這樣的用意為何？ 如果從專屬 $h$ 的瓶子裡取出一把彈珠，就好比從資料中取出 $x_n$ 一樣。<br>我們檢查 $h$ 在資料中的表現怎麼樣， 也就是 在專屬 $h$ 的瓶子中 橘色彈珠的機率(不一樣則為 <font color="orange">橘色</font>)。<br>而在 bin model 中則為 取樣 size-N 的樣本，裡面橘色的機率</p>
+<p>資料量夠大 =&gt; 抓一把夠多的彈珠<br>如同 bin model 中，藉由 sample 來推論 $\mu$；<br>學習中是利用 $h$ 在 <strong>已知資料</strong> 中的表現，來推論 $h(x)$ 和 $f(x)$ 的關係，目的就是要得知在 <strong>未知資料</strong> 中的表現狀況。(Hoeffding’s Inequality)</p>
+<p>(i.i.d. = Independent and identically distributed random variables)  </p>
+<p><img src="http://imgur.com/0ULfcz1.jpg" alt="4-3-1"></p>
+<h2 id="整個過程"><a href="#整個過程" class="headerlink" title="整個過程"></a>整個過程</h2><p>我們有個機率，用於取樣產生資料，還有衡量 $h$ 和 $f$。 $h$ 是從 hypothesis set 中取出的一個。<br>我們可以利用產生出來的資料來說很多事(ex. $h$ 和 $f$ 的關係)</p>
+<p>(虛線表示我們不知道)</p>
+<p><img src="http://imgur.com/bh9tzFs.jpg" alt="4-3-2"></p>
+<p><span>$E_{out}$</span><!-- Has MathJax --> 就是 <strong>整個瓶子</strong>，$h$ 和 $f$ 一不一樣，相當於 $\mu$。(我們不知道的)<br><span>$E_{in}$</span><!-- Has MathJax --> 則是 <strong>取樣</strong> 出來的，相當於 $\nu$ ，可以拿來推論整個瓶子中，$h$ 和 $f$ 一不一樣。(我們知道的)  </p>
+<p>in 表示 in-sample ，反之則為 out 。</p>
+<h2 id="套進公式"><a href="#套進公式" class="headerlink" title="套進公式"></a>套進公式</h2><p>把前面提到的 $\mu$ 和 $\nu$ 替換成 <span>$E_{out}$</span><!-- Has MathJax --> 和 <span>$E_{in}$</span><!-- Has MathJax -->，分別為在 <strong>樣本外</strong> 的錯誤率和 <strong>樣本內</strong> 的錯誤率。<br>在 Hoeffding’s Inequality 下，如同前面所提，我們不需要知道 $f$ =&gt; <span>$E_{out}$</span><!-- Has MathJax --> ，就能利用 <span>$E_{in}$</span><!-- Has MathJax --> 推到 <span>$E_{out}$</span><!-- Has MathJax -->。</p>
+<p>結論則是:  <span>$E_{in}(h)$</span><!-- Has MathJax --> 很小 =&gt; <span>$E_{out}(h)$</span><!-- Has MathJax --> 很小，這樣子的誤差推估。$h$ 和 $f$ 也就很接近。</p>
+<p><img src="http://imgur.com/6t0iqV2.jpg" alt="4-3-3"></p>
+<h2 id="驗證-h"><a href="#驗證-h" class="headerlink" title="驗證 h"></a>驗證 h</h2><p>但只有這樣不能算是學到東西，因為它是個固定的 $h$ ，是你強迫演算法去選它的。我們一切的推導，皆是發生在那個 $h$ 上， 但這樣子選得 $h$ 通常不會很好，所以得到的是 $g$ 和 $f$ 不接近。<br>($h$ 是 set 中的一個，$g$ 是選出來的那一個)</p>
+<p>而真正的學習應該要能 挑選 $h$ ，而不是只會選某一個。所以這個過程只能算是 <strong>Verification</strong> ，驗證 $h$ 的誤差。</p>
+<p><img src="http://imgur.com/Dz6jJ4E.jpg" alt="4-3-4"></p>
+<p>其流程長這樣:  </p>
+<p><img src="http://imgur.com/pnUgdZF.jpg" alt="4-3-5"></p>
+<p>我們的資料沒有經過 learning ，也不需要一個 hypothesis set 。</p>
+<h2 id="練習"><a href="#練習" class="headerlink" title="練習"></a>練習</h2><p>得知了一個股票的規律，從過去 10 年的資料，抽樣 100 天來驗證這個規律，其中 80 天是符合的。<br>藉此我們能得知什麼？</p>
+<p><img src="http://imgur.com/XN0rvOh.jpg" alt="4-3-6"></p>
+<h1 id="四-Connection-to-Real-Learning"><a href="#四-Connection-to-Real-Learning" class="headerlink" title="四 Connection to Real Learning"></a>四 Connection to Real Learning</h1><p>learning possible if $\vert{H}\vert$ finite and <span>$E_{in}(g)$</span><!-- Has MathJax --> small</p>
+<h2 id="不好的資料"><a href="#不好的資料" class="headerlink" title="不好的資料"></a>不好的資料</h2><p>如果今天有很多個 $h$ 就代表著有很多瓶子，如果其中一個瓶子抓出來的彈珠皆是綠的 ( $h(x) = f(x)$ 才會漆成綠的)，要不要選它呢？</p>
+<p><img src="http://imgur.com/en9rRmJ.jpg" alt="4-4-1"></p>
+<p>這邊的例子是擲硬幣，本來 1 個人全擲到正面的 <strong>機率很小</strong>，但 150 人中至少 1 人的機率卻 <strong>非常大</strong>。這就像是去選擇其中一個硬幣，來說這個硬幣比較特別。</p>
+<p>本來 Hoeffding’s Inequality 告訴我們，樣本和母體得出來的 <span>$E_{in}$</span><!-- Has MathJax --> 和 <span>$E_{out}$</span><!-- Has MathJax --> ，相差很遠的機率很小，然而選擇這個動作卻 <strong>提高了不好的可能性</strong>。</p>
+<p>老師留言:  </p>
+<blockquote>
+<p>獨立地拿每一顆硬幣丟十次，都會被原始的 Hoeffding 式子限制住。<strong>「獨立」</strong> 隨機的選擇一顆硬幣，並不會改變這個特性，但 <strong>「相依」</strong> 的選了個「最佳」硬幣，就會破壞掉這個特性了。</p>
+</blockquote>
+<p>每次抓一把一把都可以看成取不同的資料，也就是不同的 $D_n$，而 Hoeffding 保證的是:　選得資料是 BAD 的機率很小(前面提到的公式)。也就是圖中下方格子﻿裡填 BAD 的很少，下方數學式子則是把所有對 $h$ 是 BAD　的資料之機率加起來，結果會是很小的。</p>
+<p>BAD 的資料就是 <span>$E_{in}$</span><!-- Has MathJax --> 和 <span>$E_{out}$</span><!-- Has MathJax --> 相差很多的。</p>
+<p><img src="http://imgur.com/ijYAkeu.jpg" alt="4-4-2">　　</p>
+<h2 id="多個-h"><a href="#多個-h" class="headerlink" title="多個 h　　"></a>多個 h　　</h2><p>我們必須確保演算法能自由自在地挑選 hypothesis ，所以不能有對某個 $h$ 時 $D$ 是 BAD 的情形發生，也就是圖中 $D_n$ 的某一直行，都必須不是 BAD。(圖中 1126)</p>
+<p><img src="http://imgur.com/O1VGKwc.jpg" alt="4-4-3"></p>
+<p>然後現在我們想知道的是，對所有 hypothesis (M 個)，這個 BAD 資料發生的機率是多少？</p>
+<p><img src="http://imgur.com/TXgNkII.jpg" alt="4-4-4"></p>
+<p>可以說如果資料量夠大，就可以確保對所有挑出來的 $h$ ， <span>$E_{in}(g)$</span><!-- Has MathJax --> 和 <span>$E_{out}(g)$</span><!-- Has MathJax --> 是 PAC。<br>這樣就能說最合理的做法，就是選一個 <span>$E_{in}(g)$</span><!-- Has MathJax --> 為最小的， 幾乎可以確定<span>$E_{out}(g)$</span><!-- Has MathJax --> 也是最小的。</p>
+<h2 id="終於可以學習了"><a href="#終於可以學習了" class="headerlink" title="終於可以學習了　　"></a>終於可以學習了　　</h2><p>結論上來說，只要我們的　hypothesis　有限 (Ｍ 個)，Ｎ　足夠大，就能保證演算法能自由地挑選 $h$ 來當 $g$。<br>且挑出來的 <span>$E_{in}(g)$</span><!-- Has MathJax --> 和 <span>$E_{out}(g)$</span><!-- Has MathJax --> 接近，只要 <span>$E_{in}(g)$</span><!-- Has MathJax --> 非常小，<span>$E_{out}(g)$</span><!-- Has MathJax --> 也會非常小。</p>
+<p>=&gt; learning possible</p>
+<p>圖中多的兩條虛線，有一個機率函數，右邊的是如何測試 $g$ 和 $f$ 接不接近，左邊的是如何產生資料。</p>
+<p><img src="http://imgur.com/gYJMC7h.jpg" alt="4-4-5">　　</p>
+<h2 id="練習-1"><a href="#練習-1" class="headerlink" title="練習"></a>練習</h2><p><img src="http://imgur.com/SQLGpSZ.jpg" alt="4-4-6"></p>
+<p>如果某資料對 $h_1$ 是 BAD 的，$h_3$ 就只是 $h_1$ 的相反，其 <span>$E_{in}$</span><!-- Has MathJax --> 和 <span>$E_{out}$</span><!-- Has MathJax --> 仍會相差很多，也就是 BAD。</p>
+<p> 3 是原本 Hoeffding 式子推導出來的，而 4 則是 D 有重疊到的部分。 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2016/07/28/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-2/" data-id="cir611ecu000nx07kjadh86xh" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2016/07/28/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Machine Learning Foundations - L4 Notes(上)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/07/28/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-2/">Machine Learning Foundations - L4 Notes(下)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/25/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-1/">Machine Learning Foundations - L4 Notes(上)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/23/Problem_Solving/UVa/UVa-668-Parliament/">UVa 668 - Parliament</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/Problem_Solving/UVa/UVa-639-Don-t-Get-Rooked/">UVa 639 - Don&#39;t Get Rooked</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/Problem_Solving/UVa/UVa-619-Numerically-Speaking/">UVa 619 - Numerically Speaking</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/Problem_Solving/UVa/UVa-1587-Box/">UVa 1587 - Box</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/Problem_Solving/UVa/UVa-202-Repeating-Decimals/">UVa 202 - Repeating Decimals</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/Problem_Solving/UVa/UVa-1368-DNA-Consensus-String/">UVa 1368 - DNA Consensus String</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/Problem_Solving/UVa/UVa-574-Sum-It-Up/">UVa 574 - Sum It Up</a>
+          </li>
+        
+          <li>
+            <a href="/2016/07/22/Problem_Solving/UVa/UVa-537-Artificial-Intelligence/">UVa 537 - Artificial Intelligence</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">146</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">142</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/雜/">雜</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">7</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">7</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/APSP/">APSP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/">BFS</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backtracking/">Backtracking</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Base/">Base</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bellman-Ford/">Bellman-Ford</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Number/">Big Number</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Tree-Reconstruction/">Binary Tree Reconstruction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-search/">Binary search</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bitwise/">Bitwise</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Closest-Pair/">Closest Pair</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coin-Change/">Coin Change</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D-C/">D&C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dijkstra/">Dijkstra</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disjoint-set/">Disjoint-set</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Circuit/">Euler Circuit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Factorial/">Factorial</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Factorization/">Factorization</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fibonacci/">Fibonacci</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floyd-Warshall/">Floyd-Warshall</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fraction/">Fraction</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/">Graph</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/">Greedy</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Josephus/">Josephus</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knapsack/">Knapsack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kruskal/">Kruskal</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCM/">LCM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MST/">MST</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a><span class="tag-list-count">14</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Merge-Sort/">Merge Sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Permutation/">Permutation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prim/">Prim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prime/">Prime</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPFA/">SPFA</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSSP/">SSSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Topological-Sort/">Topological Sort</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVa/">UVa</a><span class="tag-list-count">143</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZeroJudge/">ZeroJudge</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不同進位制的整除判斷/">不同進位制的整除判斷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序和中序轉後序/">前序和中序轉後序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/區間DP/">區間DP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/同餘/">同餘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作排程/">工作排程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速冪/">快速冪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/掃描線/">掃描線</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模擬/">模擬</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正環/">正環</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/狀態壓縮/">狀態壓縮</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/矩陣乘積鏈/">矩陣乘積鏈</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/約分/">約分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/負環判斷/">負環判斷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/連續區間和/">連續區間和</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合DP/">集合DP</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2016/07/28/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L4-Notes-2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
