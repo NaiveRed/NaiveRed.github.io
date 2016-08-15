@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa 512 - Spreadsheet Tracking | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem題目網址  
+刪除和插入多個時，都是同時完成，要注意其位置。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 512 - Spreadsheet Tracking">
+<meta property="og:url" content="http://naivered.github.io/2016/08/15/Problem_Solving/UVa/UVa-512-Spreadsheet-Tracking/index.html">
+<meta property="og:site_name" content="NaiveRed's Blog">
+<meta property="og:description" content="Problem題目網址  
+刪除和插入多個時，都是同時完成，要注意其位置。">
+<meta property="og:updated_time" content="2016-08-15T12:52:39.419Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa 512 - Spreadsheet Tracking">
+<meta name="twitter:description" content="Problem題目網址  
+刪除和插入多個時，都是同時完成，要注意其位置。">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Problem_Solving/UVa/UVa-512-Spreadsheet-Tracking" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/15/Problem_Solving/UVa/UVa-512-Spreadsheet-Tracking/" class="article-date">
+  <time datetime="2016-08-15T12:03:45.000Z" itemprop="datePublished">2016-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa 512 - Spreadsheet Tracking
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/5/512.pdf" target="_blank" rel="external">題目網址</a>  </p>
+<p>刪除和插入多個時，都是同時完成，要注意其位置。</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>把每個指令記錄下來，再詢問時每次都跑一次，看詢問的點最後在哪裡，不需要記整個表格。<br>例如在第 5 列的點，刪除 1~4 列時會使其變成在第4列。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 512</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">struct</span> Command</div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> com[<span class="number">3</span>];</div><div class="line">    <span class="keyword">int</span> count, x[<span class="number">10</span>];</div><div class="line">&#125;command[<span class="number">500</span>];</div><div class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">simulate</span><span class="params">(<span class="keyword">int</span> com, <span class="keyword">int</span>&amp; r, <span class="keyword">int</span>&amp; c)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; com; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</div><div class="line">        <span class="keyword">if</span> (command[i].com[<span class="number">0</span>] == <span class="string">'D'</span>&amp;&amp;command[i].com[<span class="number">1</span>] == <span class="string">'R'</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; command[i].count; j++)</div><div class="line">                <span class="keyword">if</span> (r == command[i].x[j])</div><div class="line">                &#123;</div><div class="line">                    r = c = <span class="number">0</span>;</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (r &gt; command[i].x[j])</div><div class="line">                    temp++;</div><div class="line">            r -= temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (command[i].com[<span class="number">0</span>] == <span class="string">'D'</span>&amp;&amp;command[i].com[<span class="number">1</span>] == <span class="string">'C'</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; command[i].count; j++)</div><div class="line">                <span class="keyword">if</span> (c == command[i].x[j])</div><div class="line">                &#123;</div><div class="line">                    r = c = <span class="number">0</span>;</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (c &gt; command[i].x[j])</div><div class="line">                    temp++;</div><div class="line">            c -= temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (command[i].com[<span class="number">0</span>] == <span class="string">'I'</span>&amp;&amp;command[i].com[<span class="number">1</span>] == <span class="string">'R'</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; command[i].count; j++)</div><div class="line">                <span class="keyword">if</span> (r &gt;= command[i].x[j])</div><div class="line">                    temp++;</div><div class="line">            r += temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (command[i].com[<span class="number">0</span>] == <span class="string">'I'</span>&amp;&amp;command[i].com[<span class="number">1</span>] == <span class="string">'C'</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; command[i].count; j++)</div><div class="line">                <span class="keyword">if</span> (c &gt;= command[i].x[j])</div><div class="line">                    temp++;</div><div class="line">            c += temp;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (r == command[i].x[<span class="number">0</span>] &amp;&amp; c == command[i].x[<span class="number">1</span>])</div><div class="line">            r = command[i].x[<span class="number">2</span>], c = command[i].x[<span class="number">3</span>];</div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (r == command[i].x[<span class="number">2</span>] &amp;&amp; c == command[i].x[<span class="number">3</span>])</div><div class="line">            r = command[i].x[<span class="number">0</span>], c = command[i].x[<span class="number">1</span>];</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> row, col, Case = <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;row, &amp;col) &amp;&amp; row)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> com, i;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;com);<span class="comment">//command</span></div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; com; i++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%s%d"</span>, command[i].com, &amp;command[i].count);</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (command[i].com[<span class="number">0</span>] == <span class="string">'E'</span>)</div><div class="line">            &#123;</div><div class="line">                command[i].x[<span class="number">0</span>] = command[i].count;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;command[i].x[<span class="number">1</span>], &amp;command[i].x[<span class="number">2</span>], &amp;command[i].x[<span class="number">3</span>]);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; command[i].count; j++)</div><div class="line">                    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;command[i].x[j]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (Case != <span class="number">1</span>)</div><div class="line">            <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Spreadsheet #%d\n"</span>, Case++);</div><div class="line">        <span class="keyword">int</span> r, c, query;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;query);<span class="comment">//query</span></div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; query; i++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;r, &amp;c);</div><div class="line">            <span class="keyword">int</span> rr = r, cc = c;</div><div class="line">            simulate(com, r, c);</div><div class="line">            <span class="keyword">if</span> (r)</div><div class="line">                <span class="built_in">printf</span>(<span class="string">"Cell data in (%d,%d) moved to (%d,%d)\n"</span>, rr, cc, r, c);</div><div class="line">            <span class="keyword">else</span></div><div class="line">                <span class="built_in">printf</span>(<span class="string">"Cell data in (%d,%d) GONE\n"</span>, rr, cc);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2016/08/15/Problem_Solving/UVa/UVa-512-Spreadsheet-Tracking/" data-id="cirw7y4wc00dz3gugm0ddgvm3" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2016/08/15/Problem_Solving/UVa/UVa-512-Spreadsheet-Tracking/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Ad-Hoc/">Ad Hoc</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/15/Problem_Solving/UVa/UVa-332-Rational-Numbers-from-Repeating-Fractions/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          UVa 332 - Rational Numbers from Repeating Fractions
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/15/Problem_Solving/UVa/UVa-913-Joana-and-the-Odd-Numbers/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 913 - Joana and the Odd Numbers</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/15/Problem_Solving/UVa/UVa-11057-Exact-Sum/">UVa 11057 - Exact Sum</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/15/Problem_Solving/UVa/UVa-332-Rational-Numbers-from-Repeating-Fractions/">UVa 332 - Rational Numbers from Repeating Fractions</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/15/Problem_Solving/UVa/UVa-512-Spreadsheet-Tracking/">UVa 512 - Spreadsheet Tracking</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/15/Problem_Solving/UVa/UVa-913-Joana-and-the-Odd-Numbers/">UVa 913 - Joana and the Odd Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/15/Problem_Solving/UVa/UVa-392-Polynomial-Showdown/">UVa 392 - Polynomial Showdown</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/15/Problem_Solving/UVa/UVa-294-Divisors/">UVa 294 - Divisors</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/13/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L5-Notes-1/">Machine Learning Foundations - L5 Notes(上)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/08/Problem_Solving/UVa/UVa-11127-Triple-Free-Binary-Strings/">UVa 11127 - Triple-Free Binary Strings</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/08/Problem_Solving/UVa/UVa-494-Kindergarten-Counting-Game/">UVa 494 - Kindergarten Counting Game</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/08/Problem_Solving/UVa/UVa-10055-Hashmat-the-Brave-Warrior/">UVa 10055 - Hashmat the Brave Warrior</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">168</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">164</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/雜/">雜</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">8</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">8</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">23</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/APSP/">APSP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ad-Hoc/">Ad Hoc</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/">BFS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backtracking/">Backtracking</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Base/">Base</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bellman-Ford/">Bellman-Ford</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Number/">Big Number</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Tree-Reconstruction/">Binary Tree Reconstruction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bitwise/">Bitwise</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Closest-Pair/">Closest Pair</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coin-Change/">Coin Change</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D-C/">D&C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dijkstra/">Dijkstra</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disjoint-set/">Disjoint-set</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Circuit/">Euler Circuit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Factorial/">Factorial</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Factorization/">Factorization</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fibonacci/">Fibonacci</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floating-Point/">Floating Point</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floyd-Warshall/">Floyd-Warshall</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fraction/">Fraction</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/">Graph</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/">Greedy</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Huffman-Code/">Huffman Code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Josephus/">Josephus</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knapsack/">Knapsack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kruskal/">Kruskal</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCM/">LCM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MST/">MST</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Merge-Sort/">Merge Sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Permutation/">Permutation</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prim/">Prim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prime/">Prime</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPFA/">SPFA</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSSP/">SSSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Topological-Sort/">Topological Sort</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree/">Tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVa/">UVa</a><span class="tag-list-count">165</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZeroJudge/">ZeroJudge</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不同進位制的整除判斷/">不同進位制的整除判斷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序和中序轉後序/">前序和中序轉後序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/區間DP/">區間DP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/同餘/">同餘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作排程/">工作排程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速冪/">快速冪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/掃描線/">掃描線</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模擬/">模擬</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正環/">正環</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/狀態壓縮/">狀態壓縮</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/矩陣乘積鏈/">矩陣乘積鏈</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/約分/">約分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/負環判斷/">負環判斷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/連續區間和/">連續區間和</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合DP/">集合DP</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2016/08/15/Problem_Solving/UVa/UVa-512-Spreadsheet-Tracking/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
