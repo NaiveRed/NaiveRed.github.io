@@ -3,18 +3,14 @@
 <head>
   <meta charset="utf-8">
   
-  <title>UVa 341 - Non-Stop Travel | NaiveRed&#39;s Blog</title>
+  <title>Tag: Binary Sea5rch | NaiveRed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Problem題目網址中文網址">
-<meta property="og:type" content="article">
-<meta property="og:title" content="UVa 341 - Non-Stop Travel">
-<meta property="og:url" content="http://naivered.github.io/2016/06/27/Problem_Solving/UVa/UVa-341-Non-Stop-Travel/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="NaiveRed's Blog">
+<meta property="og:url" content="http://naivered.github.io/tags/Binary-Sea5rch/index.html">
 <meta property="og:site_name" content="NaiveRed's Blog">
-<meta property="og:description" content="Problem題目網址中文網址">
-<meta property="og:updated_time" content="2016-06-27T04:31:51.766Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UVa 341 - Non-Stop Travel">
-<meta name="twitter:description" content="Problem題目網址中文網址">
+<meta name="twitter:title" content="NaiveRed's Blog">
   
     <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
   
@@ -78,86 +74,59 @@ ga('send', 'pageview');
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-Problem_Solving/UVa/UVa-341-Non-Stop-Travel" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2016/06/27/Problem_Solving/UVa/UVa-341-Non-Stop-Travel/" class="article-date">
-  <time datetime="2016-06-27T04:24:31.000Z" itemprop="datePublished">2016-06-27</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      UVa 341 - Non-Stop Travel
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/08/15/Problem_Solving/UVa/UVa-11057-Exact-Sum/" class="archive-article-date">
+  <time datetime="2016-08-15T15:43:57.000Z" itemprop="datePublished">Aug 15</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/08/15/Problem_Solving/UVa/UVa-11057-Exact-Sum/">UVa 11057 - Exact Sum</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-          
-            <div id="toc" class="toc-article">
-            <h2 class="toc-title">Contents</h2>
-			  
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
-              
-            </div>
-        
-        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/3/341.pdf" target="_blank" rel="external">題目網址</a><br><a href="http://rubyacm.blogspot.tw/2011/11/341-non-stop-travel.html" target="_blank" rel="external">中文網址</a><br><a id="more"></a></p>
-<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>做 Dijkstra，權重為時間。</p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 341</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 11</span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">struct</span> Node&#123;</div><div class="line">    <span class="keyword">int</span> u, d;</div><div class="line">    Node(<span class="keyword">int</span> uu, <span class="keyword">int</span> dd) :u(uu), d(dd)&#123;&#125;</div><div class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span>&lt;(<span class="keyword">const</span> Node&amp; n)<span class="keyword">const</span>&#123; <span class="keyword">return</span> d&gt;n.d; &#125;</div><div class="line">&#125;;</div><div class="line"><span class="keyword">int</span> adjM[N][N];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> g)</span></span>;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> n, i, j, Case = <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) &amp;&amp; n)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; N; i++)</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; N; j++)</div><div class="line">                adjM[i][j] = <span class="number">-1</span>;</div><div class="line"></div><div class="line">        <span class="keyword">int</span> t, u, d;</div><div class="line">        <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; i++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;t);</div><div class="line">            <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; t; j++)</div><div class="line">            &#123;</div><div class="line">                <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;d);</div><div class="line">                adjM[i][u] = d;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> s, g;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;s, &amp;g);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Case %d: Path ="</span>, Case++);</div><div class="line">        dijkstra(s, g);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">dijkstra</span><span class="params">(<span class="keyword">int</span> s, <span class="keyword">int</span> g)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> d[N] = &#123;&#125;, path[N] = &#123;&#125;;</div><div class="line">    <span class="keyword">bool</span> isVisit[N] = &#123;&#125;;</div><div class="line">    priority_queue&lt;Node&gt; PQ;</div><div class="line">    PQ.push(Node(s, <span class="number">0</span>));</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++)</div><div class="line">        d[i] = <span class="number">1e9</span>;</div><div class="line"></div><div class="line">    d[s] = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> (<span class="literal">true</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> next = <span class="number">-1</span>;</div><div class="line">        <span class="keyword">while</span> (!PQ.empty() &amp;&amp; isVisit[next = PQ.top().u])</div><div class="line">            PQ.pop();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (next == <span class="number">-1</span> || next == g)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        PQ.pop();</div><div class="line">        isVisit[next] = <span class="literal">true</span>;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++)</div><div class="line">            <span class="keyword">if</span> (!isVisit[i] &amp;&amp; adjM[next][i] != <span class="number">-1</span>)</div><div class="line">                <span class="keyword">if</span> (d[next] + adjM[next][i] &lt; d[i])</div><div class="line">                &#123;</div><div class="line">            d[i] = d[next] + adjM[next][i];</div><div class="line">            path[i] = next;</div><div class="line">            PQ.push(Node(i, d[i]));</div><div class="line">                &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> last = g;</div><div class="line">    <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; Stack;</div><div class="line">    Stack.push(g);</div><div class="line">    <span class="keyword">while</span> (last != s)</div><div class="line">    &#123;</div><div class="line">        last = path[last];</div><div class="line">        Stack.push(last);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (!Stack.empty())</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">" %d"</span>, Stack.top());</div><div class="line">        Stack.pop();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"; %d second delay\n"</span>, d[g]);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/06/27/Problem_Solving/UVa/UVa-341-Non-Stop-Travel/" data-id="cirw84ups00chi0ugre8ei409" class="article-share-link">Share</a>
-      
-        <a href="http://naivered.github.io/2016/06/27/Problem_Solving/UVa/UVa-341-Non-Stop-Travel/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Dijkstra/">Dijkstra</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2016/06/27/Problem_Solving/UVa/UVa-10918-Tri-Tiling/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          UVa 10918 - Tri Tiling
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2016/06/27/Problem_Solving/UVa/UVa-12405-Scarecrow/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">UVa 12405 - Scarecrow</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/03/18/Problem_Solving/UVa/UVa-10487-Closest-Sums/" class="archive-article-date">
+  <time datetime="2016-03-18T08:16:45.000Z" itemprop="datePublished">Mar 18</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/03/18/Problem_Solving/UVa/UVa-10487-Closest-Sums/">UVa 10487 - Closest Sums</a>
+    </h1>
+  
 
-
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </header>
   </div>
-</section>
+</article>
+  
+  
+    </div></section>
+  
+
 </section>
         
           <aside id="sidebar">
@@ -267,13 +236,11 @@ ga('send', 'pageview');
 <script>
   var disqus_shortname = 'naivered';
   
-  var disqus_url = 'http://naivered.github.io/2016/06/27/Problem_Solving/UVa/UVa-341-Non-Stop-Travel/';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
