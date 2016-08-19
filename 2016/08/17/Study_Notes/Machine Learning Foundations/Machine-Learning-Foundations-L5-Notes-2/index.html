@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Machine Learning Foundations - L5 Notes(下) | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="三 Effective Number of Hypotheses">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Foundations - L5 Notes(下)">
+<meta property="og:url" content="http://naivered.github.io/2016/08/17/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L5-Notes-2/index.html">
+<meta property="og:site_name" content="NaiveRed's Blog">
+<meta property="og:description" content="三 Effective Number of Hypotheses">
+<meta property="og:image" content="http://imgur.com/3IgTXr7.jpg">
+<meta property="og:image" content="http://imgur.com/lqocuSU.jpg">
+<meta property="og:image" content="http://imgur.com/1p2rv7N.jpg">
+<meta property="og:image" content="http://imgur.com/DhzeGoG.jpg">
+<meta property="og:image" content="http://imgur.com/z8YOGRC.jpg">
+<meta property="og:image" content="http://imgur.com/q1dQYvu.jpg">
+<meta property="og:image" content="http://imgur.com/dp9W6f2.jpg">
+<meta property="og:image" content="http://imgur.com/NArXkTL.jpg">
+<meta property="og:image" content="http://imgur.com/pfSEw5d.jpg">
+<meta property="og:image" content="http://imgur.com/DJ0ZMbS.jpg">
+<meta property="og:image" content="http://imgur.com/20mYWgd.jpg">
+<meta property="og:updated_time" content="2016-08-19T09:41:55.755Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Learning Foundations - L5 Notes(下)">
+<meta name="twitter:description" content="三 Effective Number of Hypotheses">
+<meta name="twitter:image" content="http://imgur.com/3IgTXr7.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L5-Notes-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/08/17/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L5-Notes-2/" class="article-date">
+  <time datetime="2016-08-17T12:23:19.000Z" itemprop="datePublished">2016-08-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/學習筆記/">學習筆記</a>►<a class="article-category-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Machine Learning Foundations - L5 Notes(下)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Effective-Number-of-Hypotheses"><span class="toc-number">1.</span> <span class="toc-text">三 Effective Number of Hypotheses</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hypothesis-的數量"><span class="toc-number">1.1.</span> <span class="toc-text">Hypothesis 的數量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Growth-Function"><span class="toc-number">1.2.</span> <span class="toc-text">Growth Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1D-的-hypothesis-set"><span class="toc-number">1.3.</span> <span class="toc-text">1D 的 hypothesis set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Convex-的-hypothesis-set"><span class="toc-number">1.4.</span> <span class="toc-text">Convex 的 hypothesis set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#練習"><span class="toc-number">1.5.</span> <span class="toc-text">練習</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四-Break-Point"><span class="toc-number">2.</span> <span class="toc-text">四 Break Point</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#繼續-Growth-Function"><span class="toc-number">2.1.</span> <span class="toc-text">繼續 Growth Function</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Break-Point"><span class="toc-number">2.2.</span> <span class="toc-text">Break Point</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#練習與總結"><span class="toc-number">2.3.</span> <span class="toc-text">練習與總結</span></a></li></ol></li></ol> 
+              
+            </div>
+        
+        <h1 id="三-Effective-Number-of-Hypotheses"><a href="#三-Effective-Number-of-Hypotheses" class="headerlink" title="三 Effective Number of Hypotheses"></a>三 Effective Number of Hypotheses</h1><a id="more"></a>
+<h2 id="Hypothesis-的數量"><a href="#Hypothesis-的數量" class="headerlink" title="Hypothesis 的數量"></a>Hypothesis 的數量</h2><p>上一節有講過如果用線，平面上有幾種不同的線。這邊要更延伸探討 hypothesis 的數量。</p>
+<p>先定義一下名詞 <strong>dichotomy</strong> ，其意思是二分，也就是把手上的點分成兩堆，而我們想知道的是 hypothesis set 可以做出多少種不一樣的 dichotomy，例如: (ooxx),(oxox) 等等，而這些就是產生出來的 dichotomy。</p>
+<p>我們把這些 dichotomy 放進一個 <strong>集合</strong>，表示成: $\mathcal{H}(x_1,x_2,\ldots,x_N)$ 。</p>
+<p>而這跟 hypothesis set 的差別在於</p>
+<p>hypothesis set :</p>
+<ul>
+<li>每個 hypothesis 可以對空間所有的點來進行取值。</li>
+<li>其大小可能是無限(例如平面上所有的線)</li>
+</ul>
+<p>dichotomy $\mathcal{H}$:</p>
+<ul>
+<li>只對 N 個特定的點來取值</li>
+<li>其大小就是 $2^N$</li>
+</ul>
+<p>(可回顧上集的內容)</p>
+<p>現在我們要來看能不能用 $\vert \mathcal{H}(x_1,x_2,\ldots,x_N)\vert$ 來 <strong>取代</strong> Hoeffding’s Inequality 裡的 <strong>M</strong>。</p>
+<p>$2\times {M}e^{-2\epsilon^2N}$</p>
+<p><img src="http://imgur.com/3IgTXr7.jpg" alt="5-3-1"></p>
+<h2 id="Growth-Function"><a href="#Growth-Function" class="headerlink" title="Growth Function"></a>Growth Function</h2><p>而很明顯的 $\vert \mathcal{H}(x_1,x_2,\ldots,x_N)\vert$ 取決於 $x_1,x_2,\dots,x_n$ ，為了不要依賴它們，我們就改算 <strong>最多</strong> 有幾種。就好像是每次都抓不同把 x 來算，最後取最大的值，並且把結果表示成: <span>$m_{\mathcal{H}}(N)$</span><!-- Has MathJax --> 如圖所示。</p>
+<p>就很像先前所講的 線在 2D 的種類數: $2^N$ ，就是 <span>$m_{\mathcal{H}}(N)$</span><!-- Has MathJax -->，稱為 <strong>Growth Function</strong> (成長函數)。</p>
+<p><img src="http://imgur.com/lqocuSU.jpg" alt="5-3-2"></p>
+<h2 id="1D-的-hypothesis-set"><a href="#1D-的-hypothesis-set" class="headerlink" title="1D 的 hypothesis set"></a>1D 的 hypothesis set</h2><p><img src="http://imgur.com/1p2rv7N.jpg" alt="5-3-3"></p>
+<p>也就是在數線上的一些點，而其 hypothesis 就是 <strong>門檻值</strong>(threshold)，只要超過它就是圈的(+1)，反之是叉(-1)。這個 hypothesis 就叫 <strong>Positive Rays</strong>。<br>這也是一半的 1D perceptrons ，少的一半是指向另一個方向是圈的。</p>
+<p>而問題就是這樣可以切出幾種不同的 <strong>dichotomy</strong>？ 稍微算一下就可得知有 N + 1 種。</p>
+<p>如果是某一區間呢？</p>
+<p><img src="http://imgur.com/DhzeGoG.jpg" alt="5-3-4"></p>
+<p>可以當作從中取兩個點當作頭跟尾，但尾巴不算進去，所以為了取到最後一個點，最後面再多加個假設的點。也就是 $\binom{N+1}{2}$。  </p>
+<p>而最後 $+1$ 則是全部都不取的情況。</p>
+<p>也可以用等差級數，每次選一個點開始增加區間長度，每次能增加的區間長度都會減少，總共選 N 次: $N + (N-1) + (N-2) + \cdots + 1 = \frac{(N+1)N}{2}$ 最後再加上全部都不選的 1。</p>
+<p>以上兩個 <span>$m_{\mathcal{H}}(N)$</span><!-- Has MathJax --> 如果能把 Hoeffding 裡的 $M$ 取代掉，都能藉由讓 N 很大時，讓 Hoeffding 式子的 BAD event 發生機率變很<strong>小</strong>。</p>
+<h2 id="Convex-的-hypothesis-set"><a href="#Convex-的-hypothesis-set" class="headerlink" title="Convex 的 hypothesis set"></a>Convex 的 hypothesis set</h2><p><img src="http://imgur.com/z8YOGRC.jpg" alt="5-3-5"></p>
+<p>(Convex: 凸)</p>
+<p>凸的集合內是圈圈(藍色)，集合外是叉叉(紅)。  </p>
+<p>而這樣一個 hypothesis set 的 growth function 要怎算呢？  </p>
+<p>假設所有的點圍成一個圈。<br>首先要做出某一組 dichotomy ，我們只需要依照其圈圈(+)個數來做多邊形，像是有 3 個圈，就是三角形；4 個則是四邊形。如下圖的是五個。<br>而不管幾個，我們都可以用 <strong>凸多邊形</strong> 做出來，也就可以用 Convex Set 做出來，而其 Growth Function <span>$m_{\mathcal{H}}(N) = 2^N$</span><!-- Has MathJax -->。</p>
+<p><img src="http://imgur.com/q1dQYvu.jpg" alt="5-3-6"></p>
+<p>如果可以把這 N 個點的所有情形都做出來(成長函數為 $2^N$ )，我們把它稱作做 <strong>shattered</strong> (打碎、擊毀)。</p>
+<p>我們也就知道成長函數不會無限增加，也就證明學習是可行的了。</p>
+<h2 id="練習"><a href="#練習" class="headerlink" title="練習"></a>練習</h2><p>如同前面所講 1D perceptrons，而這次可以指向正負 ( <strong>positive and negative rays</strong> )。問 growth function 為何？</p>
+<p><img src="http://imgur.com/dp9W6f2.jpg" alt="5-3-7"></p>
+<p>先不管全是圈或叉的，朝向某一方的都可以有 $N-1$ 個 threshold ，而因為指向兩邊，所以是 $2(N-1)$。<br>最後再加上全是圈或叉的，答案是: $2(N-1)+2=2N$</p>
+<pre><code>oooo
+xxxx
+
+xooo
+xxoo
+xxxo
+
+oxxx
+ooxx
+ooox
+</code></pre><h1 id="四-Break-Point"><a href="#四-Break-Point" class="headerlink" title="四 Break Point"></a>四 Break Point</h1><h2 id="繼續-Growth-Function"><a href="#繼續-Growth-Function" class="headerlink" title="繼續 Growth Function"></a>繼續 Growth Function</h2><p><img src="http://imgur.com/NArXkTL.jpg" alt="5-4-1"></p>
+<p>我們一直在討論著 <span>$m_{\mathcal{H}}(N)$</span><!-- Has MathJax --> 來取代 $M$ 這件事。這邊用前面提到的四種 Growth Function 來看看會發生什麼。</p>
+<p>如果 Growth Function 是 <strong>polynomial</strong> ，那 BAD EVENT 的機率會變小，因為後面 exp 是 <strong>exponential</strong> ，整體下降的速度會比較快。如 positive ray 和 positive intervals 。  </p>
+<p>但如果今天是像 convex sets <strong>exponential</strong> 上升，就算後面 exp 是 <strong>exponential</strong> 下降，就不見得會比較好。  </p>
+<p>那 2D perceptrons 呢？</p>
+<h2 id="Break-Point"><a href="#Break-Point" class="headerlink" title="Break Point"></a>Break Point</h2><p><img src="http://imgur.com/pfSEw5d.jpg" alt="5-4-2"></p>
+<p>2D perceptrons 是好還不好。</p>
+<p>這邊先解釋個名詞: <strong>Break Point</strong> 。  </p>
+<p>k 也就是 input 到達某個情況時，將不再是 <strong>shattered</strong> ，也就是無法處理點的所有組合( <span>$m_{\mathcal{H}}(N) \lt 2^N$</span><!-- Has MathJax --> )。此時我們就稱這個 k 是 <strong>Break Point</strong>。<br>而自然 k 以後的也都是 break points，但我們感興趣的是第一個。  </p>
+<p>舉例來說，先前提到的 2D perceptrons ，在 3 個點時，可以做出所有的 <strong>dichotomy</strong> 。但在 4 個點時就沒辦法了，我們就稱 4 是 <strong>Break Point</strong>。</p>
+<p>幾種 growth function 的 break point:</p>
+<p><img src="http://imgur.com/DJ0ZMbS.jpg" alt="5-4-3"></p>
+<p>這邊先做了一個猜測，除了沒 break point 的外，是不是 break point 會發生在 <span>$m_{\mathcal{H}}(N) = O(N^{k-1})$</span><!-- Has MathJax --> 的 k 呢？<br>也就可以進一步推測 2D perceptrons 的成長速度大約是 $O(N^{4-1})$ ，或許就可以說 2D perceptrons 是好的了(因為不是指數成長了)。</p>
+<h2 id="練習與總結"><a href="#練習與總結" class="headerlink" title="練習與總結"></a>練習與總結</h2><p><span>$m_{\mathcal{H}}(N) = 2N$</span><!-- Has MathJax --> 它的最小 break point 是？</p>
+<p>$k=3$ 時，<span>$m_{\mathcal{H}}(k) = 6$</span><!-- Has MathJax --> ，但 $2^k = 8$ 。</p>
+<p>總結一下第五章:</p>
+<p><img src="http://imgur.com/20mYWgd.jpg" alt="5-4-4"></p>
+<p>大致上就是圍繞在如何讓 BAD event 發生的機率變小，所以要用 <span>$m_{\mathcal{H}}(N)$</span><!-- Has MathJax --> 取代掉 Hoeffding 裡無限的 $M$ ，其中的轉換，有效的線數和 hypothesis 的種類，接著繼續探討 <span>$m_{\mathcal{H}}(N)$</span><!-- Has MathJax --> 究竟是多項式成長或是指數成長，帶出 break point 的觀念。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2016/08/17/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L5-Notes-2/" data-id="cis1khak000j9f0ugqa0q0y65" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2016/08/17/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L5-Notes-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/08/18/Problem_Solving/UVa/UVa-11292-Dragon-of-Loowater/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          UVa 11292 - Dragon of Loowater
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/08/17/Problem_Solving/UVa/UVa-11734-Big-Number-of-Teams-will-Solve-This/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 11734 - Big Number of Teams will Solve This</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/08/19/Problem_Solving/UVa/UVa-10042-Smith-Numbers/">UVa 10042 - Smith Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/19/Problem_Solving/UVa/UVa-10341-Solve-It/">UVa 10341 - Solve It</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/19/Problem_Solving/UVa/UVa-273-Jack-Straws/">UVa 273 - Jack Straws</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Problem_Solving/UVa/UVa-11716-Digital-Fortress/">UVa 11716 - Digital Fortress</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Problem_Solving/UVa/UVa-424-Integer-Inquiry/">UVa 424 - Integer Inquiry</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Problem_Solving/UVa/UVa-11727-Cost-Cutting/">UVa 11727 - Cost Cutting</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Problem_Solving/UVa/UVa-10622-Perfect-P-th-Powers/">UVa 10622 - Perfect P-th Powers</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Problem_Solving/UVa/UVa-729-The-Hamming-Distance-Problem/">UVa 729 - The Hamming Distance Problem</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Problem_Solving/UVa/UVa-400-Unix-ls/">UVa 400 - Unix ls</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/18/Problem_Solving/UVa/UVa-201-Squares/">UVa 201 - Squares</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">187</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">183</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/雜/">雜</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">9</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">43</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/APSP/">APSP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Ad-Hoc/">Ad Hoc</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BFS/">BFS</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Backtracking/">Backtracking</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Base/">Base</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bellman-Ford/">Bellman-Ford</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Big-Number/">Big Number</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Search/">Binary Search</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Binary-Tree-Reconstruction/">Binary Tree Reconstruction</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bisection/">Bisection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Bitwise/">Bitwise</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Closest-Pair/">Closest Pair</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coin-Change/">Coin Change</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/D-C/">D&C</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DFS/">DFS</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/DP/">DP</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Dijkstra/">Dijkstra</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Disjoint-set/">Disjoint-set</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Euler-Circuit/">Euler Circuit</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Factorial/">Factorial</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Factorization/">Factorization</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fibonacci/">Fibonacci</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floating-Point/">Floating Point</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Floyd-Warshall/">Floyd-Warshall</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Fraction/">Fraction</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Graph/">Graph</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Greedy/">Greedy</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hash/">Hash</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Huffman-Code/">Huffman Code</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Intersection/">Intersection</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Josephus/">Josephus</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Knapsack/">Knapsack</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Kruskal/">Kruskal</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCM/">LCM</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LCS/">LCS</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LIS/">LIS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MST/">MST</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Math/">Math</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Merge-Sort/">Merge Sort</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Permutation/">Permutation</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prim/">Prim</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Prime/">Prime</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Recursion/">Recursion</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SPFA/">SPFA</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SSSP/">SSSP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Stack/">Stack</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/String/">String</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Topological-Sort/">Topological Sort</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tree/">Tree</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UVa/">UVa</a><span class="tag-list-count">184</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ZeroJudge/">ZeroJudge</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/不同進位制的整除判斷/">不同進位制的整除判斷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/前序和中序轉後序/">前序和中序轉後序</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/區間DP/">區間DP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/同餘/">同餘</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/工作排程/">工作排程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/快速冪/">快速冪</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/掃描線/">掃描線</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/模擬/">模擬</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正環/">正環</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/狀態壓縮/">狀態壓縮</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/矩陣乘積鏈/">矩陣乘積鏈</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/約分/">約分</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/負環判斷/">負環判斷</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/連續區間和/">連續區間和</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/集合DP/">集合DP</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2016/08/17/Study_Notes/Machine Learning Foundations/Machine-Learning-Foundations-L5-Notes-2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
