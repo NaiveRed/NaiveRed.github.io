@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Machine Learning Foundations - L6 Notes(下) | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="三 Bounding Function: Inductive Cases">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Foundations - L6 Notes(下)">
+<meta property="og:url" content="http://naivered.github.io/2016/09/09/Machine-Learning-Foundations-L6-Notes-2/index.html">
+<meta property="og:site_name" content="NaiveRed's Blog">
+<meta property="og:description" content="三 Bounding Function: Inductive Cases">
+<meta property="og:image" content="http://imgur.com/QCQpc84.jpg">
+<meta property="og:image" content="http://imgur.com/iiP33in.jpg">
+<meta property="og:image" content="http://imgur.com/4EJeN70.jpg">
+<meta property="og:image" content="http://imgur.com/cjmGpHm.jpg">
+<meta property="og:image" content="http://imgur.com/K04B0WS.jpg">
+<meta property="og:image" content="http://imgur.com/ei6U2X7.jpg">
+<meta property="og:image" content="http://imgur.com/t59upWu.jpg">
+<meta property="og:image" content="http://imgur.com/NjciGT2.jpg">
+<meta property="og:image" content="http://imgur.com/PEvK2Fa.jpg">
+<meta property="og:updated_time" content="2016-09-09T15:57:07.508Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine Learning Foundations - L6 Notes(下)">
+<meta name="twitter:description" content="三 Bounding Function: Inductive Cases">
+<meta name="twitter:image" content="http://imgur.com/QCQpc84.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Machine-Learning-Foundations-L6-Notes-2" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/09/Machine-Learning-Foundations-L6-Notes-2/" class="article-date">
+  <time datetime="2016-09-09T07:45:33.000Z" itemprop="datePublished">2016-09-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/學習筆記/">學習筆記</a>►<a class="article-category-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Machine Learning Foundations - L6 Notes(下)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#三-Bounding-Function-Inductive-Cases"><span class="toc-number">1.</span> <span class="toc-text">三 Bounding Function: Inductive Cases</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#估計-B-N-k"><span class="toc-number">1.1.</span> <span class="toc-text">估計 B(N,k)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-N-k-的上限"><span class="toc-number">1.2.</span> <span class="toc-text">B(N,k) 的上限</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#練習"><span class="toc-number">1.3.</span> <span class="toc-text">練習</span></a></li></ol></li></ol> 
+              
+            </div>
+        
+        <h1 id="三-Bounding-Function-Inductive-Cases"><a href="#三-Bounding-Function-Inductive-Cases" class="headerlink" title="三 Bounding Function: Inductive Cases"></a>三 Bounding Function: Inductive Cases</h1><a id="more"></a>
+<h2 id="估計-B-N-k"><a href="#估計-B-N-k" class="headerlink" title="估計 B(N,k)"></a>估計 B(N,k)</h2><p><img src="http://imgur.com/QCQpc84.jpg" alt="6-3-1"></p>
+<p>延續上次所講的表格，要來填 N 大於 k 的部分。</p>
+<p>以 <strong>B(4,3)</strong> 為例，其符合規定的 dichotomies 算出來是 11 種。( 4 個點中 任意 3 個皆無法 shattered )</p>
+<p>此時要來試著找出它與 B(3,?) 間的關聯性。</p>
+<p><img src="http://imgur.com/iiP33in.jpg" alt="6-3-2"></p>
+<p>從圖中可以看出 11 種 可以再區分成 <strong>兩類</strong>。排除 $x_4$ 來看可以發現:</p>
+<ul>
+<li>有一類是 <strong>成對</strong> 的，也就是它前 3 個點一樣，第 4 的點有 o,x 兩種。</li>
+<li>另一類則是 <strong>不成對</strong> 的。</li>
+</ul>
+<p>寫成簡單的式子: $B(4,3) = 2\alpha + \beta$</p>
+<p><img src="http://imgur.com/4EJeN70.jpg" alt="6-3-3"></p>
+<p>排除掉 $x_4$ 後的 dichotomies $(x_1,x_2,x_3)$: $\alpha + \beta$<br>而這三個點不能有 shattered 的情形發生，否則就違反 k = 3 的限制了。<br>這麼一來，就可以知道 $\alpha + \beta \le B(3,3)$ 。</p>
+<p><img src="http://imgur.com/cjmGpHm.jpg" alt="6-3-4"></p>
+<p>接著來看 $\alpha$ ，圖中橘色的部分，我們已經知道 $\alpha$ 的 dichotomies 如果加回 $x_4$ 是 <strong>成對的 (o,x)</strong>。再進一步也就是說 $(x_1,x_2,x_3)$ 中 <strong>任兩點</strong> 皆不能 shattered ，否則加回 $x_4$ 後，就會發生 <strong>三個點</strong> shattered 的情形，違反 k = 3 的限制了。<br>所以可以得知: $\alpha \le B(3,2)$</p>
+<p>整理一下:<br><img src="http://imgur.com/K04B0WS.jpg" alt="6-3-5"></p>
+<p><img src="http://imgur.com/ei6U2X7.jpg" alt="6-3-6"></p>
+<p>我們還不能確定它等於哪個值，但我們現在可以知道 <strong>B(N,k) 的上限</strong>了。</p>
+<h2 id="B-N-k-的上限"><a href="#B-N-k-的上限" class="headerlink" title="B(N,k) 的上限"></a>B(N,k) 的上限</h2><p><img src="http://imgur.com/t59upWu.jpg" alt="6-3-7"></p>
+<p>推導可以透過表格的邊界和遞迴式，用數學歸納法。  </p>
+<p>從一開始的 growth function 到其 上限函數 B(N,k) ，現在則是 B(N,k) 的上限了，而 B(N,k) 的上限則會是某個 poly(N) 。<br>最後則能得到結論: </p>
+<blockquote>
+<p>growth function 如果有 break point ，最後就會是個多項式。</p>
+</blockquote>
+<p>p.s. 這邊的小於等於可以換成等於</p>
+<p>一些例子:<br><img src="http://imgur.com/NjciGT2.jpg" alt="6-3-8"></p>
+<p>其中 2D perceptrons 的 growth function 雖然不知道，但現在能知道其上限了。<br>也就是說不管 growth function 怎麼樣，只要能找到 break point ，其成長的速度最多就會跟 <strong>多項式</strong> 一樣快。</p>
+<h2 id="練習"><a href="#練習" class="headerlink" title="練習"></a>練習</h2><p><img src="http://imgur.com/PEvK2Fa.jpg" alt="6-3-9"></p>
+<p>N &gt; 2 的時候成長函數就會小於它了，它是上限。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2016/09/09/Machine-Learning-Foundations-L6-Notes-2/" data-id="cissunuxf0002aguguk5h9hfe" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2016/09/09/Machine-Learning-Foundations-L6-Notes-2/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/07/Problem_Solving/UVa/UVa-10515-Powers-Et-Al/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 10515 - Powers Et Al</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/09/Machine-Learning-Foundations-L6-Notes-2/">Machine Learning Foundations - L6 Notes(下)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/Problem_Solving/UVa/UVa-10515-Powers-Et-Al/">UVa 10515 - Powers Et Al</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/Problem_Solving/UVa/UVa-713-Adding-Reversed-Numbers/">UVa 713 - Adding Reversed Numbers</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/Problem_Solving/UVa/UVa-739-Soundex-Indexing/">UVa 739 - Soundex Indexing</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/Problem_Solving/UVa/UVa-446-Kibbles-n-Bits-n-Bits-n-Bits/">UVa 446 - Kibbles n Bits n Bits n Bits</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/07/Problem_Solving/UVa/UVa-10128-Queue/">UVa 10128 - Queue</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/26/Problem_Solving/UVa/UVa-748-Exponentiation/">UVa 748 - Exponentiation</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/26/Problem_Solving/UVa/UVa-10534-Wavio-Sequence/">UVa 10534 - Wavio Sequence</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/26/Problem_Solving/UVa/UVa-12250-Language-Detection/">UVa 12250 - Language Detection</a>
+          </li>
+        
+          <li>
+            <a href="/2016/08/23/Problem_Solving/UVa/UVa-386-Perfect-Cubes/">UVa 386 - Perfect Cubes</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">196</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">192</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/雜/">雜</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">11</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2016/09/09/Machine-Learning-Foundations-L6-Notes-2/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
