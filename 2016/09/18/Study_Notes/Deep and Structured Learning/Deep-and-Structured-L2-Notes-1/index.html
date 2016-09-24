@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Deep and Structured - L2 Notes(上) | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Neural Network (Basic Ideas)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep and Structured - L2 Notes(上)">
+<meta property="og:url" content="http://naivered.github.io/2016/09/18/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L2-Notes-1/index.html">
+<meta property="og:site_name" content="NaiveRed's Blog">
+<meta property="og:description" content="Neural Network (Basic Ideas)">
+<meta property="og:image" content="http://imgur.com/8HWgwqz.jpg">
+<meta property="og:image" content="http://imgur.com/wFF00MV.jpg">
+<meta property="og:image" content="http://imgur.com/yi9m6ua.jpg">
+<meta property="og:image" content="http://imgur.com/jpVT604.jpg">
+<meta property="og:image" content="http://imgur.com/i1QkCCx.jpg">
+<meta property="og:image" content="http://imgur.com/zApo2yG.jpg">
+<meta property="og:image" content="http://imgur.com/msyEdFQ.jpg">
+<meta property="og:image" content="http://imgur.com/ztKIr6b.jpg">
+<meta property="og:image" content="http://imgur.com/AC5e3Oi.jpg">
+<meta property="og:image" content="http://imgur.com/GbRbVHt.jpg">
+<meta property="og:image" content="http://imgur.com/ZKRylyS.jpg">
+<meta property="og:image" content="http://imgur.com/fiRejM6.jpg">
+<meta property="og:image" content="http://imgur.com/2uMjDH8.jpg">
+<meta property="og:image" content="http://imgur.com/O6Y4xGC.jpg">
+<meta property="og:image" content="http://imgur.com/a6043A2.jpg">
+<meta property="og:image" content="http://imgur.com/am8yW4d.jpg">
+<meta property="og:image" content="http://imgur.com/4cbMeJY.jpg">
+<meta property="og:image" content="http://imgur.com/sIYznZI.jpg">
+<meta property="og:image" content="http://imgur.com/Fhf0MMi.jpg">
+<meta property="og:image" content="http://imgur.com/sFESqdZ.jpg">
+<meta property="og:image" content="http://imgur.com/9UST1TE.jpg">
+<meta property="og:image" content="http://imgur.com/AWiaCjW.jpg">
+<meta property="og:image" content="http://imgur.com/YQsSzaA.jpg">
+<meta property="og:updated_time" content="2016-09-24T15:38:06.404Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Deep and Structured - L2 Notes(上)">
+<meta name="twitter:description" content="Neural Network (Basic Ideas)">
+<meta name="twitter:image" content="http://imgur.com/8HWgwqz.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Study_Notes/Deep and Structured Learning/Deep-and-Structured-L2-Notes-1" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/09/18/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L2-Notes-1/" class="article-date">
+  <time datetime="2016-09-18T06:53:09.000Z" itemprop="datePublished">2016-09-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/學習筆記/">學習筆記</a>►<a class="article-category-link" href="/categories/學習筆記/Deep-and-Structured-Learning/">Deep and Structured Learning</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Deep and Structured - L2 Notes(上)
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Neural-Network-Basic-Ideas"><span class="toc-number">1.</span> <span class="toc-text">Neural Network (Basic Ideas)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提要"><span class="toc-number">1.1.</span> <span class="toc-text">提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-model"><span class="toc-number">1.2.</span> <span class="toc-text">What is model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Layer-of-Neuron"><span class="toc-number">1.2.1.</span> <span class="toc-text">A Layer of Neuron</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Neural-Network"><span class="toc-number">1.2.2.</span> <span class="toc-text">Neural Network</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Neural-Network-as-Model"><span class="toc-number">1.2.3.</span> <span class="toc-text">Neural Network as Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Notation"><span class="toc-number">1.2.4.</span> <span class="toc-text">Notation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Relation-between-Layer-Outputs"><span class="toc-number">1.2.5.</span> <span class="toc-text">Relation between Layer Outputs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-Best-Function"><span class="toc-number">1.3.</span> <span class="toc-text">What is Best Function</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Best-Parameter"><span class="toc-number">1.3.1.</span> <span class="toc-text">Best Parameter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cost-Function"><span class="toc-number">1.3.2.</span> <span class="toc-text">Cost Function</span></a></li></ol></li></ol></li></ol> 
+              
+            </div>
+        
+        <h1 id="Neural-Network-Basic-Ideas"><a href="#Neural-Network-Basic-Ideas" class="headerlink" title="Neural Network (Basic Ideas)"></a>Neural Network (Basic Ideas)</h1><a id="more"></a>
+<h2 id="提要"><a href="#提要" class="headerlink" title="提要"></a>提要</h2><p>回顧一下 framework :</p>
+<p><img src="http://imgur.com/8HWgwqz.jpg" alt="2-3"></p>
+<p>這次要探討的有:</p>
+<ol>
+<li>什麼是 model ?</li>
+<li>什麼是 “best” function ?</li>
+<li>如何挑選 “best” function ?</li>
+</ol>
+<p>而首先要考慮的是今天要學習做到的是什麼，這邊給了 Classification 中的兩種:</p>
+<ul>
+<li>Binary Classification</li>
+<li>Multi-class Classification</li>
+</ul>
+<p>之前有提過的 <a href="http://naivered.github.io/2016/07/15/Study_Notes/Machine%20Learning%20Foundations/Machine-Learning-Foundations-L3-Notes-1/#一些問題分類">筆記</a>。</p>
+<h2 id="What-is-model"><a href="#What-is-model" class="headerlink" title="What is model"></a>What is model</h2><h3 id="A-Layer-of-Neuron"><a href="#A-Layer-of-Neuron" class="headerlink" title="A Layer of Neuron"></a>A Layer of Neuron</h3><p>要如何來建 <strong>input</strong> 是 n dimension ，<strong>output</strong> 是 m dimension 的 <strong>model</strong> 呢？<br>我們只要用一層 Layer 的 Neuron 就可做到了。</p>
+<p>首先一個 Neuron 的運作在上一章有大致講過，其 input 是 n 維的 <strong>vector</strong> ，output 是個 <strong>scalar</strong> 。另外對於 <strong>bias</strong> 的描述方式還有另一種，把 input 多一個 dimension 為 1 ，而其 <strong>weight</strong> 就是 bias 的值。</p>
+<p><div id="singleneuron"></div><br><img src="http://imgur.com/wFF00MV.jpg" alt="2-13"><br><img src="http://imgur.com/yi9m6ua.jpg" alt="2-14">  </p>
+<p>而顯然的目前這樣只能回答 <strong>binary classification</strong> 的問題，如下圖:</p>
+<p><img src="http://imgur.com/jpVT604.jpg" alt="2-15"></p>
+<p>但假如今天是要辨識 10 個數字，10 個 class (1,2,3,4,5,6,7,8,9,0)，就要增加 neurons 到 10 個，最後就會有 10 個純量，也就是 m 維的 vector。每一維對應到一個 class 。最後要決定是哪個數字，就只需要看哪一個 neuron 出來的值($y_1,y_2,\ldots,y_m$)最大即可。</p>
+<p><img src="http://imgur.com/i1QkCCx.jpg" alt="2-16"></p>
+<p>但很快發現了一些問題是無法解決的，例如 <strong>XOR</strong> ，不管怎麼調整各項數值都無法做到，有點像是從座標中找一條線將這四個點分成我們要的兩類。</p>
+<p><img src="http://imgur.com/zApo2yG.jpg" alt="2-18"></p>
+<h3 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network"></a>Neural Network</h3><p>那解決方法就是利用 <strong>兩個 Layer</strong> 來解決，這裡以 <strong>XNOR</strong> 來看，右上角是其邏輯電路圖。<br>先用兩個 neuron 來模擬圖中兩個 AND gate ，再將它們的 <strong>output</strong> 丟到另一個 neuron 模擬 OR gate。</p>
+<p>把一個 neuron 的 <strong>output</strong> 當作另一個 neuron 的 <strong>input</strong> ，這樣子其實就是一個 <strong>Neural Network</strong> 了。<br>中間那些 output 被當成 input 的 neurons 又稱為 <strong>Hidden Neurons</strong>。 </p>
+<p><img src="http://imgur.com/msyEdFQ.jpg" alt="2-21"></p>
+<p>大概的過程:</p>
+<p><img src="http://imgur.com/ztKIr6b.jpg" alt="2-22"></p>
+<p>可以看到最後有辦法畫出一條線將它們區隔開來。至於如何找出 $a_1,a_2$ 的值，就是以後的故事了。</p>
+<p><img src="http://imgur.com/AC5e3Oi.jpg" alt="2-23"></p>
+<h3 id="Neural-Network-as-Model"><a href="#Neural-Network-as-Model" class="headerlink" title="Neural Network as Model"></a>Neural Network as Model</h3><p>從 input 到第一層 layer ，第一層 layer 的 output 再傳到第二層，這樣一直下去直到最後一層。如同前面所提，如果你希望最後是個 m 為的 vector ，那最後一層就要有 m 個 neuron 。<br>我們這邊稱 input 的 vector 為 <strong>input layer</strong>。  </p>
+<p>而實際上 neuron 這邊的這些連結是不一定這樣一層一層往下連的，但這邊我們考慮的就只有第一層連第二層 …  這樣一直下去。  </p>
+<p><img src="http://imgur.com/GbRbVHt.jpg" alt="2-25"></p>
+<p><strong>Feedforward</strong>: 它傳遞訊息的方式從 input 到 output 是單向的 (<a href="https://en.wikipedia.org/wiki/Feedforward_neural_network" target="_blank" rel="external">維基百科</a>)。</p>
+<p><strong>Fully connected</strong>: 兩 layer 間的 neurons 兩兩相連，也就是上一層的每一個 neuron 會接到下一層的每一個 neuron 。</p>
+<p><strong>Deep Neural Network</strong> : 有很多層的 hidden layers。</p>
+<h3 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h3><p>我這邊用大寫 L 來表示第幾層 Layer 。可以往上拉在看一下 Single Neuron 的圖 <a href="#singleneuron">#</a> </p>
+<p>$a^L_i$ : 第 L 層 的第 i 個 neuron 的 <strong>output</strong> 。</p>
+<p>$a^L$ : 第 L 層每一個 neuron 的 <strong>output</strong> =&gt; <strong>vector</strong> 。</p>
+<p><img src="http://imgur.com/ZKRylyS.jpg" alt="2-26"></p>
+<p>這邊要特別注意上下標所代表的意思。</p>
+<p>$w^L_{ij}$ : “第 <strong>L-1</strong> 層中的第 <strong>j</strong> 個 neuron “ 到 “第 <strong>L</strong> 層中的第 <strong>i</strong> 個 neuron “ 之間的 weight。</p>
+<p>$W^L$ : “第 <strong>L-1</strong> 層” 到 “第 <strong>L</strong> 層” neuron 的所有 weight =&gt; <strong>matrix</strong> ，且其 row 的數量為 <span>$N_L$</span><!-- Has MathJax --> ，column 的數量為 $N_{L-1}$。 ($N_L$: 第 L 層中 neuron 的數量)。</p>
+<p><img src="http://imgur.com/fiRejM6.jpg" alt="2-27"></p>
+<p>$b^L_i$ : 第 L 層第 i 個 neuron 的 bias。  </p>
+<p>$b^L$ : 第 L 層中全部 neuron 的 bias =&gt; <strong>vector</strong> 。</p>
+<p><img src="http://imgur.com/2uMjDH8.jpg" alt="2-28"></p>
+<p>$z^L_i$ : 第 L 層第 i 個 neuron 中 activation function 的 <strong>input</strong>。  </p>
+<p>$z^L$ : 第 L 層中全部 neuron 的 activation function 的 <strong>input</strong> =&gt; <strong>vector</strong> 。</p>
+<p>特別注意下圖中 $z^L_i$ 的算法。</p>
+<p><img src="http://imgur.com/O6Y4xGC.jpg" alt="2-29"></p>
+<p>統整:</p>
+<p><img src="http://imgur.com/a6043A2.jpg" alt="2-30"></p>
+<h3 id="Relation-between-Layer-Outputs"><a href="#Relation-between-Layer-Outputs" class="headerlink" title="Relation between Layer Outputs"></a>Relation between Layer Outputs</h3><p>從下面這張圖就可以清楚知道為何 $w^L_{ij}$ 的下標方向要顛倒，否則在做 $W^La^{L-1}$矩陣乘法時，$W$ 就要做 transpose 了。</p>
+<p><img src="http://imgur.com/am8yW4d.jpg" alt="2-32"></p>
+<p>再來只要將 $z^L_i$ 通過 Activation function 就能得到 output。我們可以將 Activation function 直接定義在 $z^L$ vector 上。</p>
+<p><img src="http://imgur.com/4cbMeJY.jpg" alt="2-33"></p>
+<p><img src="http://imgur.com/sIYznZI.jpg" alt="2-34"></p>
+<p>將整個 network 寫成 Function:</p>
+<p><img src="http://imgur.com/Fhf0MMi.jpg" alt="2-35"></p>
+<p><img src="http://imgur.com/sFESqdZ.jpg" alt="2-36"></p>
+<p>第 2 個 $b^1$ 應該改成 $b^2$ 才對。</p>
+<h2 id="What-is-Best-Function"><a href="#What-is-Best-Function" class="headerlink" title="What is Best Function"></a>What is Best Function</h2><h3 id="Best-Parameter"><a href="#Best-Parameter" class="headerlink" title="Best Parameter"></a>Best Parameter</h3><p>嚴格來說，我們上面提到的 $f(x) $ ，它並不只是一個 function ，它應該是一個 <strong>function set</strong> ，只要裡面的參數不同($W,b$)，就是不同的 function 。<br>表示法如下圖:<br>$f(x;\theta)$<br>($\theta$ 是 parameter)<br>(第 2 個 $b^1$ 應該改成 $b^2$ 才對)  </p>
+<p><img src="http://imgur.com/9UST1TE.jpg" alt="2-38"></p>
+<p>所以對於找一個最好的 function ，其實也就是找一組最好的 <strong>參數</strong>。</p>
+<h3 id="Cost-Function"><a href="#Cost-Function" class="headerlink" title="Cost Function"></a>Cost Function</h3><p>用來評估一組 parameter $\theta$ 它有多 <strong>糟糕</strong> 。通常表示成 $C(\theta)$ ，稱為 <strong>Cost function</strong>。<br>所以我們想找的 <strong>Best</strong> ，就是一組代進 Cost Function 後出來的值為 <strong>最小</strong> 的 parameter。  </p>
+<p>如果今天評估的是 parameter 有多 <strong>好</strong> 。<br>我們通常會用 $O(\theta)$ 來表示，稱為 <strong>Objective Function</strong>。</p>
+<p><img src="http://imgur.com/AWiaCjW.jpg" alt="2-39"></p>
+<p>特別注意 $\hat{y}^r$ 它是指第 r 筆資料的正確答案，且同樣是用 vector 存。與我們的 $f$ 得出的結果(vector)相減後，取 norm(範數) 長度。<br>目的就是希望找一組 $\theta$ 能最小化這 vector 間的距離。</p>
+<p><img src="http://imgur.com/YQsSzaA.jpg" alt="2-40"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2016/09/18/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L2-Notes-1/" data-id="citgunohy00kaaguguwowxpuu" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2016/09/18/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L2-Notes-1/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deep-Learning/">Deep Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/09/16/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L1-Notes/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Deep and Structured - L1 Notes</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/09/18/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L2-Notes-1/">Deep and Structured - L2 Notes(上)</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/16/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L1-Notes/">Deep and Structured - L1 Notes</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/16/Problem_Solving/UVa/UVa-10017-The-Never-Ending-Towers-of-Hanoi/">UVa 10017 - The Never Ending Towers of Hanoi</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/16/Problem_Solving/UVa/UVa-10254-The-Priest-Mathematician/">UVa 10254 - The Priest Mathematician</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/16/Problem_Solving/UVa/UVa-10911-Forming-Quiz-Teams/">UVa 10911 - Forming Quiz Teams</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/16/Problem_Solving/UVa/UVa-216-Getting-in-Line/">UVa 216 - Getting in Line</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/10/Problem_Solving/UVa/UVa-256-Quirksome-Squares/">UVa 256 - Quirksome Squares</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/10/Problem_Solving/UVa/UVa-11015-05-2-Rendezvous/">UVa 11015 - 05-2 Rendezvous</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/10/Problem_Solving/UVa/UVa-755-487-3279/">UVa 755 - 487--3279</a>
+          </li>
+        
+          <li>
+            <a href="/2016/09/10/Problem_Solving/UVa/UVa-11827-Maximum-GCD/">UVa 11827 - Maximum GCD</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">204</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">200</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/">School Courses</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/School-Courses/雜/">雜</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">13</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Deep-and-Structured-Learning/">Deep and Structured Learning</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">13</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2016/09/18/Study_Notes/Deep and Structured Learning/Deep-and-Structured-L2-Notes-1/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
