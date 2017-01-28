@@ -80,8 +80,8 @@ ga('send', 'pageview');
   
     <article id="post-Study_Notes/Machine Learning/Machine-Learning-L6-Notes" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/" class="article-date">
-  <time datetime="2017-01-20T07:05:14.000Z" itemprop="datePublished">2017-01-20</time>
+    <a href="/2017/01/21/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/" class="article-date">
+  <time datetime="2017-01-21T07:05:14.000Z" itemprop="datePublished">2017-01-21</time>
 </a>
     
   <div class="article-category">
@@ -96,7 +96,7 @@ ga('send', 'pageview');
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/">Machine Learning - L6 Notes</a>
+      <a class="article-title" href="/2017/01/21/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/">Machine Learning - L6 Notes</a>
     </h1>
   
 
@@ -104,71 +104,18 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <!-- Table of Contents -->
-          
         <h1 id="Classification-Logistic-Regression-L6"><a href="#Classification-Logistic-Regression-L6" class="headerlink" title="Classification: Logistic Regression (L6)"></a>Classification: Logistic Regression (L6)</h1><p>另一種方法。</p>
-<h2 id="Step-1-Function-Set"><a href="#Step-1-Function-Set" class="headerlink" title="Step 1 : Function Set"></a>Step 1 : Function Set</h2><p>如果我們現在要求的 posterior probability 就是將 $z = w\cdot x + b$ 代進 <strong>sigmoid function</strong> 的結果。  </p>
-<p>我們的 function set 就是由不同 $w,b$ 的 function 所組成。</p>
-<p><img src="http://imgur.com/e2XoUE1.png" alt="6-2"></p>
-<p>用圖形來表示:</p>
-<p><img src="http://imgur.com/ZoKhkUV.png" alt="6-3"></p>
-<p>而這樣的作法叫做 <strong>Logistic Regression</strong>。</p>
-<p>比較一下最開始講的 <strong>Linear Regression</strong>。</p>
-<p><img src="http://imgur.com/vdbNa2t.png" alt="6-4"></p>
-<p>Logistic Regression 會通過 sigmoid function 所以 output 會介於 <strong>0 ~ 1</strong>。<br>Linear Regression 則可能是任何值。</p>
-<h2 id="Step-2-Goodness-of-a-Function"><a href="#Step-2-Goodness-of-a-Function" class="headerlink" title="Step 2 : Goodness of a Function"></a>Step 2 : Goodness of a Function</h2><p>給定 $w,b$ 後，我們就能求出產生這樣一筆 training data 的機率為何，<br>也就是圖中的 $L(w,b)$ ，likelihood function。  </p>
-<p>而其中最好的 $w,b$ 就是能使 $L(w,b)$ <strong>最大化</strong> 的。  </p>
-<p><img src="http://imgur.com/LSZYRAd.png" alt="6-5"></p>
-<p>為了方便計算我們可以把它轉換成找 $-lnL(w,b)$ 的 <strong>最小值</strong>。</p>
-<p><img src="http://imgur.com/1tD2ZI0.png" alt="6-6"></p>
-<p>而與 linear 在 <strong>loss function</strong> 上是 <strong>不一樣</strong> 的，<br>logistic 需要使用 <strong>cross entropy</strong> ，而 linear 的則是之前就看過的 <strong>square error</strong>。  </p>
-<p><img src="http://imgur.com/SsLwgUg.png" alt="6-8"></p>
-<h3 id="cross-entropy-v-s-square-error"><a href="#cross-entropy-v-s-square-error" class="headerlink" title="cross entropy v.s square error"></a>cross entropy v.s square error</h3><p>(數學推導部分就不貼了)</p>
-<p><img src="http://imgur.com/0JIY09z.png" alt="6-15"></p>
-<p>假設中間就是我們的目標(function)，其 loss 值很小。  </p>
-<p>用 square error ，如果產生出的結果離目標很近，它微分的值自然 <strong>很小</strong>，<br>然而在離目標很遠的時候，它微分的值仍然 <strong>很小</strong>，導致非常平坦，在 update 時會很卡(步伐小)。<br>我們也不能隨意更改 learning rate 因為在離目標很近，我們需要較小的步伐。</p>
-<p>如果用 cross entropy ，距離目標越遠，微分值則越大，在 update 參數時速度越快(步伐越大)。</p>
-<h2 id="Step-3-Find-the-best-function"><a href="#Step-3-Find-the-best-function" class="headerlink" title="Step 3 : Find the best function"></a>Step 3 : Find the best function</h2><p>接下來要做的就是要找一個最好的 function ，也就是要去最小化我們的 $-lnL(w,b)$。<br>利用 gradient descent(對 $-lnL(w,b)$ 做偏微分然後 update $w_i$ ):  </p>
-<p><img src="http://imgur.com/cEs0kV4.png" alt="6-11"></p>
-<p>省略中間的過程，最後一項中間(紫線)，它代表著我們 $f$ 產生出來的結果和理想的差距有多大，差越多我們 update 的量就會越大。</p>
-<p>在 linear regression 上，兩者的 update 算式是 <strong>一樣</strong> 的，<br>差別在於 $\hat{y}^n$，logistic 的會是 <strong>0 或 1</strong> ，而 linear 的會是任意實數。<br>還有 $f$ 的輸出，logistic 的會是 <strong>0~1</strong> ，而 linear 的會是任意實數。</p>
-<p><img src="http://imgur.com/jqhp77Q.png" alt="6-12"></p>
-<h2 id="Discriminative-v-s-Generative"><a href="#Discriminative-v-s-Generative" class="headerlink" title="Discriminative v.s. Generative"></a>Discriminative v.s. Generative</h2><p>上一章節(L5)所講的是利用常態分布(Gaussian distribution) 來描述 Posterior Probability 的方法，稱為 <strong>Generative</strong> model 。(covariance matrix 設成是共用的)<br>如果是 Logistic Regression 的話，我們稱之為 <strong>Discriminative</strong> model。</p>
-<p><img src="http://imgur.com/yn0uW3r.png" alt="6-16"></p>
-<p>如果是 Logistic Regression ，我們可以直接去把 $w,b$ 找出來(gradient descent)。<br>如果是 Generative model 則是先算出那些參數，再代進去求 $w,b$ 。  </p>
-<p>它們的 function set 和 training data 是一樣的，但因為我們做了不同的假設，所以最後找出來的參數( $w,b$ )會是不一樣的。<br>(我們在 Logistic Regression 沒有對機率分布做其他假設)</p>
-<p>而哪一個產生的結果會比較好呢？用一個簡單的例子來看。</p>
-<p><img src="http://imgur.com/zGzILpn.png" alt="6-18"></p>
-<p>每一個 class 都有兩個 feature，當都是 1 的時候就是 class 1 ，另外三種是 class 2。  </p>
-<p>我們利用 <strong>Naive Bayes</strong> 來看看， 當 testing data 的兩個 feature 都是 1 時，屬於哪個 class 的機率比較高？<br>我們假設所有 feature 是獨立的，那 x 從 $C_i$ 產生出來的機率，就會等於其各個 feature 從 $C_i$ 產生出來的機率。</p>
-<p>算出來各項後，我們就可以來算 x 屬於 class 1 的條件機率了。($&lt;0.5$)</p>
-<p><img src="http://imgur.com/CNFaoR6.png" alt="6-20"></p>
-<p>結果跟我們預想的不太一樣，對 naive bayes 來說它覺得這筆資料應該屬於 class 2 ，這是因為 naive bayes 自行腦補了 class 2 裡有這樣一筆資料(ㄏㄏ…)。<br>同樣的在 Generative 裡我們也自行假設了一些狀況，通常腦補會帶來比較差的效果。</p>
-<p>何時 Generative 會比較好呢？</p>
-<p><img src="http://imgur.com/Qtz5Fyd.png" alt="6-21"></p>
-<ol>
-<li><p>因為 discriminative 受資料量的影響比較大。所以在資料量較少時，generative 可能會效果比較好，因為它可能會遵從自己的假設，而無視資料。</p>
-</li>
-<li><p>資料本身有雜訊，而此時自行的假設可能會帶來較好的結果。</p>
-</li>
-<li><p>…</p>
-</li>
-</ol>
-<h2 id="Limitation-of-Logistic-Regression"><a href="#Limitation-of-Logistic-Regression" class="headerlink" title="Limitation of Logistic Regression"></a>Limitation of Logistic Regression</h2><p>有時會有無法學習的情形，像是圖中的例子就做不到，我們找不到一條線來分紅和藍的點。<br>(在 Deep and Structured L2 有)</p>
-<p><img src="http://imgur.com/SHkWRtC.png" alt="6-24"></p>
-<p>此時我們就可以利用串接 Logistic Regression ，前半部分是在做 <strong>Feature Transformation</strong> ，我們可以得到另外一組 feature，後半部分則是 <strong>classification</strong> 。</p>
-<p><img src="http://imgur.com/M8ldeeH.png" alt="6-27"></p>
-<p>(圖中座標有誤)<br><img src="http://imgur.com/jYbMa9c.png" alt="6-29">  </p>
-<p>此時就可以做到從中分一條線了。</p>
-<p>而這樣子把 Logistic Regression 接在一起，<br>每一個 Logistic Regression 叫做一個 <strong>Neuron</strong>，很多個 Neuron 串起來就叫 <strong>Neural Network</strong> 。<br>這樣子的東西就叫做 <strong>Deep Learning</strong>。  </p>
-<p><img src="http://imgur.com/qw7Ojm5.png" alt="6-30"></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2017/01/21/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/#more">Read More !</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/" data-id="ciyaayvik010obcugtepnpo16" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2017/01/21/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/" data-id="ciyfmxfb400loosugp3l5prg0" class="article-share-link">Share</a>
       
-        <a href="http://naivered.github.io/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://naivered.github.io/2017/01/21/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/">Machine Learning</a></li></ul>
@@ -215,7 +162,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L5-Notes/" data-id="ciyaayvgm00vxbcugb54d7xv9" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L5-Notes/" data-id="ciyfmxfab00khosugjirtujhi" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L5-Notes/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -264,7 +211,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2017/01/19/Study_Notes/Machine Learning/Machine-Learning-L4-Notes/" data-id="ciyaayvgf00vlbcugh2bgf86v" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2017/01/19/Study_Notes/Machine Learning/Machine-Learning-L4-Notes/" data-id="ciyfmxfa900kcosugvcj730j0" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2017/01/19/Study_Notes/Machine Learning/Machine-Learning-L4-Notes/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -313,7 +260,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2017/01/17/Study_Notes/Machine Learning/Machine-Learning-L1toL3-Notes/" data-id="ciyaayvgd00vhbcug99f4mufh" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2017/01/17/Study_Notes/Machine Learning/Machine-Learning-L1toL3-Notes/" data-id="ciyfmxfa800k9osuggal1o00s" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2017/01/17/Study_Notes/Machine Learning/Machine-Learning-L1toL3-Notes/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -362,7 +309,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/10/01/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-2/" data-id="ciyaayvgb00vebcugpx24o9qb" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/10/01/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-2/" data-id="ciyfmxfa600k5osug86q6b73n" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/10/01/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -411,7 +358,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/09/18/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-1/" data-id="ciyaayvg700v9bcugrqgrmhv2" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/09/18/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-1/" data-id="ciyfmxfa400k1osugptzf28xb" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/09/18/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-1/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -463,7 +410,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/09/16/Study_Notes/Machine Learning/Deep-and-Structured-L1-Notes/" data-id="ciyaayvg500v6bcugj9lpl36c" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/09/16/Study_Notes/Machine Learning/Deep-and-Structured-L1-Notes/" data-id="ciyfmxfa200jxosugogvyu7ov" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/09/16/Study_Notes/Machine Learning/Deep-and-Structured-L1-Notes/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -512,7 +459,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10017-The-Never-Ending-Towers-of-Hanoi/" data-id="ciyaayv27000tbcugr9l9rfpk" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10017-The-Never-Ending-Towers-of-Hanoi/" data-id="ciyfmxew3000sosugbv5qktw2" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10017-The-Never-Ending-Towers-of-Hanoi/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -561,7 +508,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10254-The-Priest-Mathematician/" data-id="ciyaayv3z002zbcugzl89juvy" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10254-The-Priest-Mathematician/" data-id="ciyfmxey80037osugy1pdzhz8" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10254-The-Priest-Mathematician/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -610,7 +557,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10911-Forming-Quiz-Teams/" data-id="ciyaayv5u005wbcugew0y8tt4" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10911-Forming-Quiz-Teams/" data-id="ciyfmxf0o005zosugoc2v417c" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/09/16/Problem_Solving/UVa/UVa-10911-Forming-Quiz-Teams/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -640,7 +587,7 @@ ga('send', 'pageview');
       <ul>
         
           <li>
-            <a href="/2017/01/20/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/">Machine Learning - L6 Notes</a>
+            <a href="/2017/01/21/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/">Machine Learning - L6 Notes</a>
           </li>
         
           <li>
@@ -750,23 +697,5 @@ ga('send', 'pageview');
 <script src="/js/script.js"></script>
 
   </div>
-
-<!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<!-- End: Injected MathJax -->
 </body>
 </html>
