@@ -208,7 +208,6 @@ body {
   -webkit-box-shadow: 1px 1px 3px #2f2f2f;
   box-shadow: 1px 1px 3px #2f2f2f;
   border: 1px solid #3e403e;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 .article-entry h1,
@@ -478,7 +477,6 @@ body {
   right: 0;
   background: #fff;
   padding: 5px 15px;
-  -webkit-border-radius: 15px;
   border-radius: 15px;
   -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.3);
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
@@ -703,7 +701,6 @@ a.article-title:hover {
   display: inline-block;
   line-height: 1em;
   padding: 6px 15px;
-  -webkit-border-radius: 15px;
   border-radius: 15px;
   background: #5c6a54;
   color: #fff;
@@ -786,7 +783,6 @@ a.article-title:hover {
     margin-top: -4px;
     margin-left: -4px;
     content: "";
-    -webkit-border-radius: 50%;
     border-radius: 50%;
     background: #3e403e;
     -webkit-box-shadow: 0 1px 2px #fff;
@@ -848,7 +844,6 @@ a.article-title:hover {
   background: #fff;
   -webkit-box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
   box-shadow: 1px 2px 10px rgba(0,0,0,0.2);
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   margin-left: -145px;
   overflow: hidden;
@@ -868,7 +863,6 @@ a.article-title:hover {
   color: #403e3e;
   outline: none;
   border: 1px solid #3e403e;
-  -webkit-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0;
   height: 36px;
   line-height: 36px;
@@ -975,7 +969,6 @@ a.article-title:hover {
   box-shadow: 1px 2px 3px #ddd;
   padding: 20px;
   border: 1px solid #3e403e;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   margin: 50px 0;
 }
@@ -1055,7 +1048,6 @@ a.article-title:hover {
   -webkit-box-shadow: 1px 2px 3px #ddd;
   box-shadow: 1px 2px 3px #ddd;
   border: 1px solid #3e403e;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   text-align: center;
   color: #7a7a7a;
@@ -1146,7 +1138,6 @@ a.article-title:hover {
   font-size: 90%;
   color: #dfdede;
   background-color: #4b4b4b;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
   padding: 0.1em 0.2em;
 }
@@ -1322,7 +1313,6 @@ pre .javascript .function {
   margin: 1.6em 0 1.6em 2em;
   line-height: 1.5em;
   font-size: 0.9em;
-  -webkit-border-radius: 4px;
   -webkit-border-radius: 4px;
   border-radius: 4px;
   min-height: 20px;
@@ -1554,7 +1544,6 @@ pre .javascript .function {
   box-shadow: 0 -1px 4px #3e403e inset;
   border: 1px solid #3e403e;
   padding: 15px;
-  -webkit-border-radius: 3px;
   border-radius: 3px;
 }
 .widget a {
