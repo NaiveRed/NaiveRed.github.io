@@ -152,11 +152,11 @@ ga('send', 'pageview');
 <p>loop: 計算 <strong>Gradient $\nabla$</strong> -&gt; 移動點  </p>
 <p>直到 Gradient 的 <strong>norm</strong>($\nabla C(\theta)$) 算出來接近零才停。</p>
 <p><img src="http://imgur.com/zoEtjQI.jpg" alt="2-46"></p>
-<p>關於倒三角這個符號，<a href="https://zh.wikipedia.org/wiki/Nabla%E7%AE%97%E5%AD%90" target="_blank" rel="external">向量微分算子</a>。</p>
+<p>關於倒三角這個符號，<a href="https://zh.wikipedia.org/wiki/Nabla%E7%AE%97%E5%AD%90" target="_blank" rel="noopener">向量微分算子</a>。</p>
 <h3 id="Gradient-Descent-的原理"><a href="#Gradient-Descent-的原理" class="headerlink" title="Gradient Descent 的原理"></a>Gradient Descent 的原理</h3><p>同樣是以兩個變數為例，在下圖中線上的數字代表著 $C(\theta)$ 的值，而圖中的點就是每次 update 的 parameter。  </p>
 <p>而我們可以做到的事是: 給我一個點，可以知道這個點 <strong>附近</strong> 的 $C(\theta)$ <strong>最小值</strong> 是在哪一點。<br>所以我們就一直往這個會使 $C(\theta)$ 變小的地方邁進，最後就會走到 <strong>local minimum</strong>。<br>這邊所謂的 附近 ，就如同圖中的紅圈一樣。有個有趣的比喻: 就像是 <strong>戰爭迷霧</strong>，我們只能看到自己視野內的東西。  </p>
 <p><img src="http://imgur.com/fDqECi5.jpg" alt="2-47"></p>
-<p>至於怎麼看視野內的東西呢？這邊提到了 <strong>Taylor Series</strong> ，大致上就是當 $x = x_0$ ，且可微無限多次時，這個函數可以寫成圖中的 $h(x)$ 。(<a href="https://zh.wikipedia.org/wiki/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0" target="_blank" rel="external">Taylor Series</a>)  </p>
+<p>至於怎麼看視野內的東西呢？這邊提到了 <strong>Taylor Series</strong> ，大致上就是當 $x = x_0$ ，且可微無限多次時，這個函數可以寫成圖中的 $h(x)$ 。(<a href="https://zh.wikipedia.org/wiki/%E6%B3%B0%E5%8B%92%E7%BA%A7%E6%95%B0" target="_blank" rel="noopener">Taylor Series</a>)  </p>
 <p>然後當 $x_0$ 和 $x$ 很接近時， $(x-x_0)^k$ 的項後面會越來越小，所以我們可以只看它的前兩項。</p>
 <p><img src="http://imgur.com/0vLZTKG.jpg" alt="2-48"></p>
 <p>拓展到兩個變數:</p>
@@ -192,7 +192,7 @@ ga('send', 'pageview');
 <p>如果在 training data 的部分時就沒有好的結果:</p>
 <p><img src="http://imgur.com/jyqTtWV.jpg" alt="2-70"></p>
 <p><img src="http://imgur.com/9cQj3lN.jpg" alt="2-71"></p>
-<p>關於 <strong>Overfitting</strong> 的小解釋 <a href="https://zh.wikipedia.org/wiki/%E9%81%8E%E9%81%A9" target="_blank" rel="external">維基百科</a>:  </p>
+<p>關於 <strong>Overfitting</strong> 的小解釋 <a href="https://zh.wikipedia.org/wiki/%E9%81%8E%E9%81%A9" target="_blank" rel="noopener">維基百科</a>:  </p>
 <p>我們從 training data 中得出的 best parameter ，並不代表我們在 test data 上也是如此適用。有可能因為過度符合 training data 導致在 test data 中有不好的結果。(可增加 training data 來解決)</p>
 <p><img src="http://imgur.com/qpaMsoD.jpg" alt="2-72"></p>
 <h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p><img src="http://imgur.com/K75m9j4.jpg" alt="2-74"></p>
@@ -200,7 +200,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2016/10/01/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-2/" data-id="cj92uhomn00k8x4ugxtrhhf5n" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2016/10/01/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-2/" data-id="cjaovpmcy0015fsug4sxiu7wf" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2016/10/01/Study_Notes/Machine Learning/Deep-and-Structured-L2-Notes-2/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -250,6 +250,14 @@ ga('send', 'pageview');
       <ul>
         
           <li>
+            <a href="/2017/12/01/Diary/20171201-Master-application-record-2/">資工、碩士、推甄 (下)</a>
+          </li>
+        
+          <li>
+            <a href="/2017/12/01/Diary/20171201-Master-application-record-1/">資工、碩士、推甄 (上)</a>
+          </li>
+        
+          <li>
             <a href="/2017/10/22/Book/20171022-DarkMatter-Review-Ep1/">《人生複本》如果當初我 | Ep.1</a>
           </li>
         
@@ -281,14 +289,6 @@ ga('send', 'pageview');
             <a href="/2017/02/24/Study_Notes/Machine Learning/Machine-Learning-L8-Notes/">Machine Learning - L8 Notes</a>
           </li>
         
-          <li>
-            <a href="/2017/02/23/Study_Notes/Machine Learning/Machine-Learning-L7-Notes/">Machine Learning - L7 Notes</a>
-          </li>
-        
-          <li>
-            <a href="/2017/01/21/Study_Notes/Machine Learning/Machine-Learning-L6-Notes/">Machine Learning - L6 Notes</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -298,7 +298,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">204</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">200</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">204</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">200</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -308,7 +308,7 @@ ga('send', 'pageview');
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
