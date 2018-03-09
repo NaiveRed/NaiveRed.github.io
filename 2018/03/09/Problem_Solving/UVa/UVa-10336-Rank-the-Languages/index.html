@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa 10336 - Rank the Languages | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem題目網址   給一張地圖，上面標示每種語言的使用區塊，兩區塊如果上下左右是同樣的語言，為同一地區。計算某一語言有多少地區使用。">
+<meta name="keywords" content="UVa,DFS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 10336 - Rank the Languages">
+<meta property="og:url" content="http://naivered.github.io/2018/03/09/Problem_Solving/UVa/UVa-10336-Rank-the-Languages/index.html">
+<meta property="og:site_name" content="NaiveRed&#39;s Blog">
+<meta property="og:description" content="Problem題目網址   給一張地圖，上面標示每種語言的使用區塊，兩區塊如果上下左右是同樣的語言，為同一地區。計算某一語言有多少地區使用。">
+<meta property="og:updated_time" content="2018-03-09T06:14:42.859Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa 10336 - Rank the Languages">
+<meta name="twitter:description" content="Problem題目網址   給一張地圖，上面標示每種語言的使用區塊，兩區塊如果上下左右是同樣的語言，為同一地區。計算某一語言有多少地區使用。">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Problem_Solving/UVa/UVa-10336-Rank-the-Languages" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/09/Problem_Solving/UVa/UVa-10336-Rank-the-Languages/" class="article-date">
+  <time datetime="2018-03-09T05:41:05.000Z" itemprop="datePublished">2018-03-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa 10336 - Rank the Languages
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="http://uva.onlinejudge.org/external/103/10336.pdf" target="_blank" rel="noopener">題目網址</a>  </p>
+<p>給一張地圖，上面標示每種語言的使用區塊，兩區塊如果上下左右是同樣的語言，為同一地區。<br>計算某一語言有多少地區使用。</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>DFS 一次填一個地區，並對各語言計數。</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 10336</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 500</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> dir[<span class="number">4</span>][<span class="number">2</span>] = &#123; &#123;<span class="number">0</span>, <span class="number">-1</span>&#125;, &#123;<span class="number">-1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;, &#123;<span class="number">0</span>, <span class="number">1</span>&#125; &#125;;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="keyword">char</span> grid[N][N];</span><br><span class="line">    <span class="keyword">bool</span> visited[N][N] = &#123;&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> t = <span class="number">1</span>; t &lt;= T; ++t)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> H, W;</span><br><span class="line">        <span class="keyword">char</span> tmp[N];</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d "</span>, &amp;H, &amp;W);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= H; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            fgets(tmp, N, <span class="built_in">stdin</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= W; ++j)</span><br><span class="line">                grid[i][j] = tmp[j - <span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        pair&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; lang[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">            lang[i] = make_pair(<span class="string">'a'</span> + i, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//DFS</span></span><br><span class="line">        <span class="built_in">stack</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; S;</span><br><span class="line">        <span class="keyword">char</span> ch;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= H; ++i)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= W; ++j)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (visited[i][j])</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">                S.emplace(i, j);</span><br><span class="line">                ch = grid[i][j];</span><br><span class="line">                visited[i][j] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">while</span> (!S.empty())</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">int</span> r = S.top().first, c = S.top().second;</span><br><span class="line">                    S.pop();</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; ++i)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="keyword">int</span> rr = r + dir[i][<span class="number">0</span>], cc = c + dir[i][<span class="number">1</span>];</span><br><span class="line">                        <span class="keyword">if</span> (rr &amp;&amp; rr &lt;= H &amp;&amp; cc &amp;&amp; cc &lt;= W &amp;&amp; !visited[rr][cc] &amp;&amp; grid[rr][cc] == ch)</span><br><span class="line">                        &#123;</span><br><span class="line">                            visited[rr][cc] = <span class="literal">true</span>;</span><br><span class="line">                            S.emplace(rr, cc);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="comment">//使用該語言的區域增加</span></span><br><span class="line">                lang[ch - <span class="string">'a'</span>].second++;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        sort(lang, lang + <span class="number">26</span>, [](<span class="keyword">const</span> pair&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; &amp;a, <span class="keyword">const</span> pair&lt;<span class="keyword">char</span>,<span class="keyword">int</span>&gt; &amp;b) -&gt; <span class="keyword">bool</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (a.second &gt; b.second || (a.second == b.second &amp;&amp; a.first &lt; b.first));</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"World #%d\n"</span>, t);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">26</span>; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (lang[i].second)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%c: %d\n"</span>, lang[i].first, lang[i].second);</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//init</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= H; ++i)</span><br><span class="line">            <span class="built_in">memset</span>(visited[i], <span class="literal">false</span>, <span class="keyword">sizeof</span> visited[i]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2018/03/09/Problem_Solving/UVa/UVa-10336-Rank-the-Languages/" data-id="cjejjpnda003a94ugbsudy74w" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2018/03/09/Problem_Solving/UVa/UVa-10336-Rank-the-Languages/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/09/Problem_Solving/UVa/UVa-10067-Playing-with-Wheels/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 10067 - Playing with Wheels</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/09/Problem_Solving/UVa/UVa-10336-Rank-the-Languages/">UVa 10336 - Rank the Languages</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Problem_Solving/UVa/UVa-10067-Playing-with-Wheels/">UVa 10067 - Playing with Wheels</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/09/Problem_Solving/UVa/UVa-12382-Grid-of-Lamps/">UVa 12382 - Grid of Lamps</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Problem_Solving/UVa/UVa-10653-Bombs-NO-they-are-Mines/">UVa 10653 - Bombs NO they are Mines</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/08/Problem_Solving/UVa/UVa-820-Internet-Bandwidth/">UVa 820 - Internet Bandwidth</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/Problem_Solving/UVa/UVa-100-The-3n-1-problem/">UVa 100 - The 3n + 1 problem</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/05/Problem_Solving/UVa/UVa-429-Word-Transformation/">UVa 429 - Word Transformation</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/Problem_Solving/UVa/UVa-12034-Race/">UVa 12034 - Race</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/Problem_Solving/UVa/UVa-10360-Rat-Attack/">UVa 10360 - Rat Attack</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/04/Problem_Solving/UVa/UVa-11456-Trainsorting/">UVa 11456 - Trainsorting</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">221</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">217</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">landscape</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2018/03/09/Problem_Solving/UVa/UVa-10336-Rank-the-Languages/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
