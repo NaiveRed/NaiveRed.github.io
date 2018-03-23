@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa 11504 - Dominos | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem題目網址中文網址">
+<meta name="keywords" content="UVa,DFS,SCC,Tarjan">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 11504 - Dominos">
+<meta property="og:url" content="http://naivered.github.io/2018/03/23/Problem_Solving/UVa/UVa-11504-Dominos/index.html">
+<meta property="og:site_name" content="NaiveRed&#39;s Blog">
+<meta property="og:description" content="Problem題目網址中文網址">
+<meta property="og:updated_time" content="2018-03-23T12:35:43.920Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa 11504 - Dominos">
+<meta name="twitter:description" content="Problem題目網址中文網址">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Problem_Solving/UVa/UVa-11504-Dominos" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/03/23/Problem_Solving/UVa/UVa-11504-Dominos/" class="article-date">
+  <time datetime="2018-03-23T11:42:18.000Z" itemprop="datePublished">2018-03-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa 11504 - Dominos
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/115/11504.pdf" target="_blank" rel="noopener">題目網址</a><br><a href="http://rubyacm.blogspot.tw/2011/08/11504-dominos.html" target="_blank" rel="noopener">中文網址</a></p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>沒做過 Tarjan’s Algorithm，起初打算用 DFS 直接做，但從不一樣的點開始推都會影響，應該不太可行了…</p>
+<p>找出 SCC，再利用這些點收縮後的 component (形成 DAG)，找各個的 <strong>入邊(in-edge)</strong> (不知道有沒有 in-edge 這個講法…)。<br>只要沒有入邊，就代表一定要從這裡開始推。而有入邊的可以透過其他 component 連過去。</p>
+<p>作法參考：<a href="http://www.csie.ntnu.edu.tw/~u91029/Component.html#4" target="_blank" rel="noopener">http://www.csie.ntnu.edu.tw/~u91029/Component.html#4</a></p>
+<p>我想最關鍵的地方就是如果有 back edge，則還在 stack 中 <strong>back edge 所能到的最高祖先</strong> 及 <strong>它的子孫們</strong> 可以形成 SCC。<br>其餘詳細部分就請自行查閱了。</p>
+<p>把樹畫出可以幫助理解，可以用裡面的圖：<a href="https://youtu.be/ju9Yk7OOEb8" target="_blank" rel="noopener">https://youtu.be/ju9Yk7OOEb8</a></p>
+<p>附上個 udebug 的測資：(畫出來~)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">IN:</span><br><span class="line">1</span><br><span class="line">12 13</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">3 4</span><br><span class="line">4 1</span><br><span class="line">6 3</span><br><span class="line">6 7</span><br><span class="line">7 8</span><br><span class="line">8 9</span><br><span class="line">9 6</span><br><span class="line">12 2</span><br><span class="line">12 10</span><br><span class="line">10 11</span><br><span class="line">11 12</span><br><span class="line"></span><br><span class="line">OUT:</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 11504</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="comment">//#include &lt;stack&gt;</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MIN(a, b) ((a) &lt; (b) ? (a) : (b))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100001</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> v, next;</span><br><span class="line">&#125; E[N];</span><br><span class="line"><span class="keyword">int</span> adj[N]; <span class="comment">//adjacent list</span></span><br><span class="line"><span class="keyword">int</span> low[N], visited[N];</span><br><span class="line"><span class="keyword">int</span> step;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> in_stack[N];</span><br><span class="line"><span class="comment">//std::stack&lt;int&gt; S;</span></span><br><span class="line"><span class="keyword">int</span> Stack[N], top;</span><br><span class="line"><span class="keyword">int</span> contract[N], component; <span class="comment">//收縮的點, 收縮後的點數</span></span><br><span class="line"><span class="keyword">bool</span> in_deg[N];             <span class="comment">//有無入邊(in-edge)</span></span><br><span class="line"><span class="comment">//int have_in;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = getchar()) &gt;= <span class="string">'0'</span> &amp;&amp; c &lt;= <span class="string">'9'</span>)</span><br><span class="line">        n = n * <span class="number">10</span> + c - <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    visited[u] = low[u] = ++step;</span><br><span class="line">    <span class="comment">//S.push(u);</span></span><br><span class="line">    Stack[top++] = u;</span><br><span class="line">    in_stack[u] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = adj[u]; i != <span class="number">-1</span>; i = E[i].next)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> v = E[i].v;</span><br><span class="line">        <span class="keyword">if</span> (!visited[v]) <span class="comment">//tree edge</span></span><br><span class="line">            DFS(v);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (in_stack[v]) <span class="comment">//已經走過但還未成 SCC 的點</span></span><br><span class="line">            low[u] = MIN(low[u], low[v]);</span><br><span class="line">        <span class="keyword">else</span> <span class="comment">//連到一個 SCC，該 SCC 就有了入邊</span></span><br><span class="line">            in_deg[contract[v]] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*else if(!in_deg[contract[v]])</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            in_deg[contract[v]] = true;</span></span><br><span class="line"><span class="comment">            ++have_in;</span></span><br><span class="line"><span class="comment">        &#125;*/</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//形成 SCC，將整串(也可能一點)從 DFS tree 中移除</span></span><br><span class="line">    <span class="keyword">if</span> (visited[u] == low[u]) <span class="comment">//u 是 SCC 中最早拜訪的點</span></span><br><span class="line">    &#123;</span><br><span class="line">        ++component;</span><br><span class="line">        <span class="keyword">while</span> (<span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/*int v = S.top();</span></span><br><span class="line"><span class="comment">            S.pop();*/</span></span><br><span class="line">            <span class="keyword">int</span> v = Stack[--top];</span><br><span class="line">            in_stack[v] = <span class="literal">false</span>;</span><br><span class="line">            contract[v] = component; <span class="comment">//記下該收縮點</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (v == u)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//freopen("test.out","w",stdout);</span></span><br><span class="line">    <span class="keyword">int</span> n, m, Case;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d "</span>, &amp;Case);</span><br><span class="line">    <span class="keyword">while</span> (Case--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(adj, <span class="number">-1</span>, <span class="keyword">sizeof</span> adj);</span><br><span class="line">        <span class="comment">//scanf("%d%d", &amp;n, &amp;m);</span></span><br><span class="line">        n = read();</span><br><span class="line">        m = read();</span><br><span class="line">        <span class="keyword">int</span> u, v, idx = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//scanf("%d%d", &amp;u, &amp;v);</span></span><br><span class="line">            u = read();</span><br><span class="line">            v = read();</span><br><span class="line">            E[idx] = (edge)&#123;v, adj[u]&#125;; <span class="comment">//u -&gt; v</span></span><br><span class="line">            adj[u] = idx++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">            <span class="keyword">if</span> (!visited[i])</span><br><span class="line">                DFS(i);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//(已在DFS中計算)</span></span><br><span class="line">        <span class="comment">//用每個邊計算各收縮後點的入邊數(超過 1 就不用再算)</span></span><br><span class="line">        <span class="comment">/*for (u = 1; u &lt;= n; ++u)</span></span><br><span class="line"><span class="comment">            for (int i = adj[u]; i != -1; i = E[i].next)</span></span><br><span class="line"><span class="comment">            &#123;</span></span><br><span class="line"><span class="comment">                //u -&gt; v</span></span><br><span class="line"><span class="comment">                int v = E[i].v;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                if (contract[u] != contract[v] &amp;&amp; !in_deg[contract[v]])</span></span><br><span class="line"><span class="comment">                    in_deg[contract[v]] = true;</span></span><br><span class="line"><span class="comment">            &#125;*/</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= component; ++i)</span><br><span class="line">            <span class="keyword">if</span> (!in_deg[i])</span><br><span class="line">                ++ans;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//printf("%d\n", component - have_in);</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//init</span></span><br><span class="line">        top = component = step = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(visited, <span class="number">0</span>, <span class="keyword">sizeof</span> visited);</span><br><span class="line">        <span class="built_in">memset</span>(in_deg, <span class="literal">false</span>, N);</span><br><span class="line">        <span class="built_in">memset</span>(in_stack, <span class="literal">false</span>, N);</span><br><span class="line">        <span class="comment">//have_in = 0;</span></span><br><span class="line">        <span class="comment">//memset(low, 0, sizeof low);</span></span><br><span class="line">        <span class="comment">//memset(contract,0,sizeof contract);</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2018/03/23/Problem_Solving/UVa/UVa-11504-Dominos/" data-id="cjf3wrowc009mhwuga8cmoice" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2018/03/23/Problem_Solving/UVa/UVa-11504-Dominos/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DFS/">DFS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SCC/">SCC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tarjan/">Tarjan</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/23/Problem_Solving/UVa/UVa-610-Street-Directions/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 610 - Street Directions</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/03/23/Problem_Solving/UVa/UVa-11504-Dominos/">UVa 11504 - Dominos</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/23/Problem_Solving/UVa/UVa-610-Street-Directions/">UVa 610 - Street Directions</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/Problem_Solving/UVa/UVa-13190-Rockabye-Tobby/">UVa 13190 - Rockabye Tobby</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/21/Problem_Solving/UVa/UVa-11517-Exact-Change/">UVa 11517 - Exact Change</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/Problem_Solving/UVa/UVa-442-Matrix-Chain-Multiplication/">UVa 442 - Matrix Chain Multiplication</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/20/Problem_Solving/UVa/UVa-11264-Coin-Collector/">UVa 11264 - Coin Collector</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/Problem_Solving/UVa/UVa-10330-Power-Transmission/">UVa 10330 - Power Transmission</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/Problem_Solving/UVa/UVa-11792-Krochanska-is-Here/">UVa 11792 - Krochanska is Here</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/19/Problem_Solving/UVa/UVa-11518-Dominos-2/">UVa 11518 - Dominos 2</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/16/Problem_Solving/UVa/UVa-195-Anagram/">UVa 195 - Anagram</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">244</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/CodeForces/">CodeForces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">239</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/">網頁建置</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/網頁建置/Hexo/">Hexo</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">35</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">landscape</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2018/03/23/Problem_Solving/UVa/UVa-11504-Dominos/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
