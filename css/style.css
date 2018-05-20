@@ -1126,7 +1126,7 @@ a.article-title:hover {
   line-height: 25.6px;
 }
 .article-entry .highlight .gutter pre,
-.article-entry .gist .gist-file .gist-data .line-numbers {
+.gist .gist-file .gist-data .line-numbers {
   color: #666;
   font-size: 0.85em;
 }
@@ -1183,50 +1183,50 @@ a.article-title:hover {
 .article-entry .highlight .line {
   height: 25.6px;
 }
-.article-entry .gist {
+.gist {
   margin: 0 -20px;
   border-style: solid;
   border-color: #3e403e;
   border-width: 1px 0;
-  background: #2d2d2d;
-  padding: 15px 20px 15px 0;
+  background: #dbcbb9;
+  padding: 5px 5px 5px 5px;
 }
-.article-entry .gist .gist-file {
+.gist .gist-file {
   border: none;
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
   margin: 0;
 }
-.article-entry .gist .gist-file .gist-data {
+.gist .gist-file .gist-data {
   background: none;
   border: none;
 }
-.article-entry .gist .gist-file .gist-data .line-numbers {
+.gist .gist-file .gist-data .line-numbers {
   background: none;
   border: none;
   padding: 0 20px 0 0;
 }
-.article-entry .gist .gist-file .gist-data .line-data {
+.gist .gist-file .gist-data .line-data {
   padding: 0 !important;
 }
-.article-entry .gist .gist-file .highlight {
+.gist .gist-file .highlight {
   margin: 0;
   padding: 0;
   border: none;
 }
-.article-entry .gist .gist-file .gist-meta {
-  background: #2d2d2d;
-  color: #999;
+.gist .gist-file .gist-meta {
+  background: #dbcbb9;
+  color: #e63343;
   font: 0.85em "Helvetica Neue", "Microsoft YaHei", Helvetica, Arial, sans-serif;
   text-shadow: 0 0;
   padding: 0;
-  margin-top: 1em;
-  margin-left: 20px;
+  border: none;
+  margin: 3px 3px -17px 3px;
 }
-.article-entry .gist .gist-file .gist-meta a {
-  color: #2572b8;
+.gist .gist-file .gist-meta a {
+  color: #3083f2;
   font-weight: normal;
 }
-.article-entry .gist .gist-file .gist-meta a:hover {
+.gist .gist-file .gist-meta a:hover {
   text-decoration: underline;
 }
 pre .comment,

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>OpenCV 噴射阿姆斯特朗砲繪製練習 | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言學校課程要用到 OpenCV，先來試試簡單的畫圖。   前幾天剛好看到 銀魂(Gintama)，就來粗糙的實作一下新阿姆斯特朗旋風噴射阿姆斯特朗砲 (The Armstrong Cannon of New Armstrong Cyclone&amp;amp;Shooting)。">
+<meta name="keywords" content="Python,OpenCV">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenCV 噴射阿姆斯特朗砲繪製練習">
+<meta property="og:url" content="http://naivered.github.io/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/index.html">
+<meta property="og:site_name" content="NaiveRed&#39;s Blog">
+<meta property="og:description" content="前言學校課程要用到 OpenCV，先來試試簡單的畫圖。   前幾天剛好看到 銀魂(Gintama)，就來粗糙的實作一下新阿姆斯特朗旋風噴射阿姆斯特朗砲 (The Armstrong Cannon of New Armstrong Cyclone&amp;amp;Shooting)。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://gist.github.com/NaiveRed/06e82f06e8a928de8500ed82c1d8b22f/raw/fe7b695e6e3e1751521cb180682851cb12ea2697/z-cannon0.jpg">
+<meta property="og:updated_time" content="2018-05-20T05:37:15.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OpenCV 噴射阿姆斯特朗砲繪製練習">
+<meta name="twitter:description" content="前言學校課程要用到 OpenCV，先來試試簡單的畫圖。   前幾天剛好看到 銀魂(Gintama)，就來粗糙的實作一下新阿姆斯特朗旋風噴射阿姆斯特朗砲 (The Armstrong Cannon of New Armstrong Cyclone&amp;amp;Shooting)。">
+<meta name="twitter:image" content="https://gist.github.com/NaiveRed/06e82f06e8a928de8500ed82c1d8b22f/raw/fe7b695e6e3e1751521cb180682851cb12ea2697/z-cannon0.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-For_Fun/The-Cannon-of-Gintama-by-openCV" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/" class="article-date">
+  <time datetime="2018-05-20T02:55:50.000Z" itemprop="datePublished">2018-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/For-Fun/">For Fun</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      OpenCV 噴射阿姆斯特朗砲繪製練習
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#程式"><span class="toc-number">2.</span> <span class="toc-text">程式</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>學校課程要用到 OpenCV，先來試試簡單的畫圖。  </p>
+<p>前幾天剛好看到 <strong>銀魂(Gintama)</strong>，就來粗糙的實作一下<br><strong>新阿姆斯特朗旋風噴射阿姆斯特朗砲</strong> (The Armstrong Cannon of New Armstrong Cyclone&amp;Shooting)。</p>
+<a id="more"></a>
+<p>看來還原度不怎麼高呢~</p>
+<p><img src="https://gist.github.com/NaiveRed/06e82f06e8a928de8500ed82c1d8b22f/raw/fe7b695e6e3e1751521cb180682851cb12ea2697/z-cannon0.jpg" alt="Cannon"></p>
+<p>不知道的人可以看看：<br><a href="https://wiki.komica.org/%E6%88%90%E5%8F%A5/%E9%80%99%E4%B8%8D%E6%98%AF%E6%96%B0%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E6%9C%97%E6%97%8B%E9%A2%A8%E5%99%B4%E5%B0%84%E9%98%BF%E5%A7%86%E6%96%AF%E7%89%B9%E6%9C%97%E7%A0%B2%E5%97%8E%EF%BC%9F%E5%81%9A%E5%BE%97%E6%8C%BA%E5%83%8F%E7%9A%84%E5%91%A2" target="_blank" rel="noopener">Komica WIKI</a><br><a href="https://www.youtube.com/watch?v=ztChrPJMXUI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ztChrPJMXUI</a><br><a href="https://www.youtube.com/watch?v=lhPCf9f_Zig" target="_blank" rel="noopener">https://www.youtube.com/watch?v=lhPCf9f_Zig</a></p>
+<p>做法參考，恩…就只是換換參數了：<br><a href="https://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_drawing_functions/py_drawing_functions.html#drawing-functions" target="_blank" rel="noopener">Drawing Functions in OpenCV</a><br><a href="http://palanceli.com/2017/10/01/2017/1001opencvpy/" target="_blank" rel="noopener">http://palanceli.com/2017/10/01/2017/1001opencvpy/</a></p>
+<h2 id="程式"><a href="#程式" class="headerlink" title="程式"></a>程式</h2><p>環境：<br>Python 3.6</p>
+<p>相關套件：<br>numpy, opencv-python, matplotlib</p>
+<p>It can generate a “simple” image of cannon appeared in Gintama(ぎんたま), a manga.</p>
+<script src="https://gist.github.com/NaiveRed/06e82f06e8a928de8500ed82c1d8b22f.js?file=gen_cannon.py"></script>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/" data-id="cjhee0nvo000bc8ugf9rwq607" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OpenCV/">OpenCV</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 11235 - Frequent values</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/">OpenCV 噴射阿姆斯特朗砲繪製練習</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/">UVa 11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11223-O-dah-dah-dah/">UVa 11223 - O: dah dah dah!</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/23/Problem_Solving/UVa/UVa-394-Mapmaker/">UVa 394 - Mapmaker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/Problem_Solving/UVa/UVa-10901-Ferry-Loading-III/">UVa 10901 - Ferry Loading III</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/11/Problem_Solving/UVa/UVa-1730-Sum-of-MSLCM/">UVa 1730 - Sum of MSLCM</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/01/Problem_Solving/UVa/UVa-10633-Rare-Easy-Problem/">UVa 10633 - Rare Easy Problem</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/26/Problem_Solving/UVa/UVa-861-Little-Bishops/">UVa 861 - Little Bishops</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/25/Problem_Solving/UVa/UVa-910-TV-game/">UVa 910 - TV game</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/24/Problem_Solving/UVa/UVa-166-Making-Change/">UVa 166 - Making Change</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/For-Fun/">For Fun</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">255</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/CodeForces/">CodeForces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">250</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">40</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">landscape</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

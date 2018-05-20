@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa 11235 - Frequent values | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem題目網址中文網址">
+<meta name="keywords" content="UVa,Segment Tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 11235 - Frequent values">
+<meta property="og:url" content="http://naivered.github.io/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/index.html">
+<meta property="og:site_name" content="NaiveRed&#39;s Blog">
+<meta property="og:description" content="Problem題目網址中文網址">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-20T02:54:07.162Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa 11235 - Frequent values">
+<meta name="twitter:description" content="Problem題目網址中文網址">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Problem_Solving/UVa/UVa-11235-Frequent-values" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/" class="article-date">
+  <time datetime="2018-05-20T02:08:45.000Z" itemprop="datePublished">2018-05-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa 11235 - Frequent values
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="http://uva.onlinejudge.org/external/112/11235.pdf" target="_blank" rel="noopener">題目網址</a><br><a href="http://luckycat.kshs.kh.edu.tw/homework/q11235.htm" target="_blank" rel="noopener">中文網址</a><br><a id="more"></a></p>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>基本上就是套線段樹的作法(<a href="https://github.com/NaiveRed/Algorithms-and-Data-Structures/tree/master/segment_tree" target="_blank" rel="noopener">參考之前寫的</a>)。</p>
+<p>由於該數列是 <strong>非遞減(重要!)</strong>，利用把連續的數字的次數作累積(fre)，再放進線段樹。</p>
+<p>e.g.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">idx:  1   2   3   4   5   6   7   8   9  10</span><br><span class="line">num: -1  -1   1   1   1   1   3  10  10  10</span><br><span class="line">fre:  2   2   4   4   4   4   1   3   3   3</span><br></pre></td></tr></table></figure></p>
+<p>這樣在查詢 <strong>沒有被切開</strong> 來的數字區段時就可以拿到正確答案，例如：[1, 6] =&gt; 4 (1 出現 4 次)。</p>
+<p>但是如果是 [1, 3] 時，數字 1 的區段是不完整的，這樣 fre 給出的資訊就不正確了。<br>所以我們需要對查詢區間的頭尾做檢查，把有被切開的獨立算出，接著剩餘的就會是 <strong>完整的數字區間</strong>(因為是非遞減) 了。<br>基本上就是分成三個區段做查詢，左右能直接算出，中間利用線段樹查詢。<br>e.g.<br>[4, 9] =&gt;<br>MAX([4, 6], [7], [8, 9]) =&gt;  MAX(3, 1, 2) =&gt; 3<br>[2, 8] =&gt;<br>MAX([2, 2], [3, 7], [8, 8]) =&gt; MAX(1, 4, 1) =&gt; 4</p>
+<p>如果頭尾數字一樣代表中間也都一樣，答案即為查詢長度。</p>
+<p>可以利用紀錄每個數字的左右邊界來判斷有無被切開。<br>e.g.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">idx:  1   2   3   4   5   6   7   8   9  10</span><br><span class="line">num: -1  -1   1   1   1   1   3  10  10  10</span><br><span class="line">fre:  2   2   4   4   4   4   1   3   3   3</span><br><span class="line"></span><br><span class="line">border</span><br><span class="line">left: 1   1   3   3   3   3   7   8   8   8</span><br><span class="line">right:2   2   6   6   6   6   7  10  10  10</span><br><span class="line"></span><br><span class="line">left[4]: num[4](1) 它連續的數字段最左邊的位置為 idx = 3。  </span><br><span class="line">right[4]: num[4](1) 它連續的數字段最右邊的位置為 idx = 6。</span><br></pre></td></tr></table></figure></p>
+<p>ref: <a href="http://www.algorithmist.com/index.php/UVa_11235" target="_blank" rel="noopener">http://www.algorithmist.com/index.php/UVa_11235</a></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 11235</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> M 262144</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX(a, b) ((a) &gt; (b) ? (a) : (b))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LC(i) ((i) &lt;&lt; 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RC(i) (((i) &lt;&lt; 1) | 1)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> PADDING 1e9</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> arr[N];</span><br><span class="line"><span class="keyword">int</span> left[N], right[N]; <span class="comment">//[n]: arr[n] 連續數字的左右邊界</span></span><br><span class="line"><span class="keyword">int</span> fre[N];            <span class="comment">//該段數字的長度(次數)</span></span><br><span class="line"><span class="keyword">int</span> tree[M];           <span class="comment">//segment tree</span></span><br><span class="line"><span class="keyword">int</span> T;                 <span class="comment">//last level</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//2: head and tail padding</span></span><br><span class="line">    <span class="keyword">for</span> (T = <span class="number">1</span>; T &lt; n + <span class="number">2</span>; T &lt;&lt;= <span class="number">1</span>)</span><br><span class="line">        ;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    tree[T] = tree[T + n + <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        tree[T + i] = fre[i]; <span class="comment">//frequent</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (; i &lt; T; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        tree[T + i] = <span class="number">0</span>; <span class="comment">//padding</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i = T - <span class="number">1</span>; i; --i)</span><br><span class="line">        tree[i] = MAX(tree[LC(i)], tree[RC(i)]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> L, <span class="keyword">int</span> R)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//因為是非遞減，頭尾數字一樣時，中間也一樣</span></span><br><span class="line">    <span class="keyword">if</span> (arr[L] != arr[R])</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (L &gt; left[L]) <span class="comment">//最左半段有被切</span></span><br><span class="line">        &#123;</span><br><span class="line">            res = right[L] - L + <span class="number">1</span>; <span class="comment">//最左段的長度</span></span><br><span class="line">            L = right[L] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (R &lt; right[R]) <span class="comment">//最右半段有被切</span></span><br><span class="line">        &#123;</span><br><span class="line">            res = MAX(res, R - left[R] + <span class="number">1</span>); <span class="comment">//最右段的長度</span></span><br><span class="line">            R = left[R] - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (L &lt; R) <span class="comment">//還有剩餘沒被切割到的區段(L==R 時就只有 1 個省略不算)</span></span><br><span class="line">            <span class="keyword">for</span> (L += T - <span class="number">1</span>, R += T + <span class="number">1</span>; L ^ R ^ <span class="number">1</span>; L &gt;&gt;= <span class="number">1</span>, R &gt;&gt;= <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (~L &amp; <span class="number">1</span>)</span><br><span class="line">                    res = MAX(res, tree[L ^ <span class="number">1</span>]);</span><br><span class="line">                <span class="keyword">if</span> (R &amp; <span class="number">1</span>)</span><br><span class="line">                    res = MAX(res, tree[R ^ <span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        res = R - L + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>, neg = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> c = getchar();</span><br><span class="line">    <span class="keyword">if</span> (c == <span class="string">'-'</span>)</span><br><span class="line">        neg = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        n = c - <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">while</span> ((c = getchar()) &lt;= <span class="string">'9'</span> &amp;&amp; c &gt;= <span class="string">'0'</span>)</span><br><span class="line">        n = n * <span class="number">10</span> + c - <span class="string">'0'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> n * neg;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*int T;</span></span><br><span class="line"><span class="comment">    for (T = 1; T &lt; N; T &lt;&lt;= 1)</span></span><br><span class="line"><span class="comment">        ;</span></span><br><span class="line"><span class="comment">    printf("%d\n", T * 2);*/</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n, q;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d "</span>, &amp;n, &amp;q) == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> start = <span class="number">1</span>, last = PADDING, i;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//non-decreasing</span></span><br><span class="line">            arr[i] = read();</span><br><span class="line">            <span class="keyword">if</span> (arr[i] != last)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> k = start; k &lt; i; ++k)</span><br><span class="line">                &#123;</span><br><span class="line">                    right[k] = i - <span class="number">1</span>;   <span class="comment">//上個數字該邊界到 i - 1</span></span><br><span class="line">                    fre[k] = i - start; <span class="comment">//該段數字共有幾個</span></span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//重新開始某段數字</span></span><br><span class="line">                start = left[i] = i;</span><br><span class="line">                last = arr[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                left[i] = start;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//最後一段 [start, n]</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> k = start; k &lt; i; ++k)</span><br><span class="line">        &#123;</span><br><span class="line">            right[k] = i - <span class="number">1</span>; <span class="comment">// (n+1) - 1</span></span><br><span class="line">            fre[k] = i - start;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        build(n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; q; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> L = read(), R = read();</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, query(L, R));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/" data-id="cjhee0o4n009cc8ug7uv4q8bw" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Segment-Tree/">Segment Tree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          OpenCV 噴射阿姆斯特朗砲繪製練習
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/05/20/Problem_Solving/UVa/UVa-11223-O-dah-dah-dah/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 11223 - O: dah dah dah!</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/">OpenCV 噴射阿姆斯特朗砲繪製練習</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/">UVa 11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11223-O-dah-dah-dah/">UVa 11223 - O: dah dah dah!</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/23/Problem_Solving/UVa/UVa-394-Mapmaker/">UVa 394 - Mapmaker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/Problem_Solving/UVa/UVa-10901-Ferry-Loading-III/">UVa 10901 - Ferry Loading III</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/11/Problem_Solving/UVa/UVa-1730-Sum-of-MSLCM/">UVa 1730 - Sum of MSLCM</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/01/Problem_Solving/UVa/UVa-10633-Rare-Easy-Problem/">UVa 10633 - Rare Easy Problem</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/26/Problem_Solving/UVa/UVa-861-Little-Bishops/">UVa 861 - Little Bishops</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/25/Problem_Solving/UVa/UVa-910-TV-game/">UVa 910 - TV game</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/24/Problem_Solving/UVa/UVa-166-Making-Change/">UVa 166 - Making Change</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/For-Fun/">For Fun</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">255</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/CodeForces/">CodeForces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">250</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">40</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">landscape</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
