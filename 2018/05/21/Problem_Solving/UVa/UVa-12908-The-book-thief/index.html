@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa 12908 - The book thief | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem題目網址   給一個 s ，為全部頁數加總(1+2+…+n)但缺了某一頁。要求出 缺的頁數 和 這本書總共有幾頁(n)。">
+<meta name="keywords" content="UVa,Math">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 12908 - The book thief">
+<meta property="og:url" content="http://naivered.github.io/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/index.html">
+<meta property="og:site_name" content="NaiveRed&#39;s Blog">
+<meta property="og:description" content="Problem題目網址   給一個 s ，為全部頁數加總(1+2+…+n)但缺了某一頁。要求出 缺的頁數 和 這本書總共有幾頁(n)。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-23T03:23:33.431Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa 12908 - The book thief">
+<meta name="twitter:description" content="Problem題目網址   給一個 s ，為全部頁數加總(1+2+…+n)但缺了某一頁。要求出 缺的頁數 和 這本書總共有幾頁(n)。">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Problem_Solving/UVa/UVa-12908-The-book-thief" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/" class="article-date">
+  <time datetime="2018-05-21T05:56:14.000Z" itemprop="datePublished">2018-05-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa 12908 - The book thief
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/129/12908.pdf" target="_blank" rel="noopener">題目網址</a>  </p>
+<p>給一個 s ，為全部頁數加總(1+2+…+n)但缺了某一頁。<br>要求出 缺的頁數 和 這本書總共有幾頁(n)。</p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>n 為總頁數，列出式子就是： $0 \lt \frac{n(n+1)}{2} - s \le n$<br>(總頁數的和) - (給的 s) = 缺的頁數，而缺的頁數會大於零、小於等於 n。</p>
+<p>接著利用其中一邊不等式，同乘以 2<br>$$<br>n^2+n-2s\le2n\\<br>n^2-n-2s\le0\\<br>n(n-1)-2s\le0\\<br>$$</p>
+<p>有兩段解，但另一個是負的，只考慮正的，將 $n = \sqrt{2s}$，看有沒有滿足。<br>因為是 $n(n-1)$ 要記得將結果向上取整($\lceil\sqrt{2s}\rceil$)，以免取得過小無法滿足另一邊的不等式。<br>沒有滿足的話就減一即為答案(n)。</p>
+<p>用另一邊也行，但要換成向下取整($\lfloor\sqrt{2s}\rfloor$)，且不滿足的話是將 n 加一。<br>$$<br>\frac{n(n+1)}{2} - s &gt; 0\\<br>n(n+1) - 2s &gt; 0\\<br>$$</p>
+<p>e.g. <code>s = 6</code></p>
+<p>$$<br>n^2 - n - 12 \le 0\\<br>n^2 + n - 12 \gt 0\\<br>$$</p>
+<p>畫起來就像(不考慮負的)：<br>*: including<br>o: excluding<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--------*</span><br><span class="line">    o--------</span><br><span class="line">    3   4</span><br></pre></td></tr></table></figure></p>
+<p>n = 4, lost = 4<br>(1 + 2 + 3 + 4) - 4 = 6</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><figcaption><span>UVa 12908</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">11</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fgets(str, <span class="number">11</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    <span class="keyword">if</span> (str[<span class="number">0</span>] == <span class="string">'0'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; str[i] != <span class="string">'\n'</span>; ++i)</span><br><span class="line">        n = n * <span class="number">10</span> + str[i] - <span class="string">'0'</span>;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> s;</span><br><span class="line">    <span class="keyword">while</span> ((s = read()) != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> s2 = s &lt;&lt; <span class="number">1</span>;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        //n^2 - n - 2s &lt;= 0</span></span><br><span class="line"><span class="comment">        int n = ceil(sqrt((double)(s2)));        </span></span><br><span class="line"><span class="comment">        int nn = n * n;</span></span><br><span class="line"><span class="comment">        if (nn - n &gt; (s &lt;&lt; 1))</span></span><br><span class="line"><span class="comment">        &#123;</span></span><br><span class="line"><span class="comment">            nn -= (n &lt;&lt; 1) - 1; //(n)^2 - (n*2-1) = (n-1)^2</span></span><br><span class="line"><span class="comment">            --n;</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">        printf("%d %d\n", ((nn + n) &gt;&gt; 1) - s, n);</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//n^2 + n - 2s &gt; 0</span></span><br><span class="line">        <span class="keyword">int</span> n = <span class="built_in">floor</span>(<span class="built_in">sqrt</span>((<span class="keyword">double</span>)(s2)));</span><br><span class="line">        <span class="keyword">int</span> nn1 = n * (n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (nn1 &lt;= s2)</span><br><span class="line">        &#123;</span><br><span class="line">            nn1 += (++n) &lt;&lt; <span class="number">1</span>; <span class="comment">//(n*(n+1)) + (n+1)*2 = (n+1)*(n+2)</span></span><br><span class="line">            <span class="comment">//++n;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, (nn1 &gt;&gt; <span class="number">1</span>) - s, n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/" data-id="cjhgd5vyr00eug4ughqxahwp3" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">OpenCV 噴射阿姆斯特朗砲繪製練習</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/">UVa 12908 - The book thief</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/">OpenCV 噴射阿姆斯特朗砲繪製練習</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/">UVa 11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11223-O-dah-dah-dah/">UVa 11223 - O: dah dah dah!</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/23/Problem_Solving/UVa/UVa-394-Mapmaker/">UVa 394 - Mapmaker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/Problem_Solving/UVa/UVa-10901-Ferry-Loading-III/">UVa 10901 - Ferry Loading III</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/11/Problem_Solving/UVa/UVa-1730-Sum-of-MSLCM/">UVa 1730 - Sum of MSLCM</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/01/Problem_Solving/UVa/UVa-10633-Rare-Easy-Problem/">UVa 10633 - Rare Easy Problem</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/26/Problem_Solving/UVa/UVa-861-Little-Bishops/">UVa 861 - Little Bishops</a>
+          </li>
+        
+          <li>
+            <a href="/2018/03/25/Problem_Solving/UVa/UVa-910-TV-game/">UVa 910 - TV game</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/For-Fun/">For Fun</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">256</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/CodeForces/">CodeForces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">251</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">40</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">landscape</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
