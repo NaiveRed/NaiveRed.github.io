@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>UVa 10158 - War | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Problem題目網址">
+<meta name="keywords" content="UVa,Disjoint-set">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UVa 10158 - War">
+<meta property="og:url" content="http://naivered.github.io/2018/05/26/Problem_Solving/UVa/UVa-10158-War/index.html">
+<meta property="og:site_name" content="NaiveRed&#39;s Blog">
+<meta property="og:description" content="Problem題目網址">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-26T08:43:01.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UVa 10158 - War">
+<meta name="twitter:description" content="Problem題目網址">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Problem_Solving/UVa/UVa-10158-War" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/26/Problem_Solving/UVa/UVa-10158-War/" class="article-date">
+  <time datetime="2018-05-26T07:58:23.000Z" itemprop="datePublished">2018-05-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Problem-Solving/">Problem Solving</a>►<a class="article-category-link" href="/categories/Problem-Solving/UVa/">UVa</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      UVa 10158 - War
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Problem"><span class="toc-number">1.</span> <span class="toc-text">Problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Solution"><span class="toc-number">2.</span> <span class="toc-text">Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-number">3.</span> <span class="toc-text">Code</span></a></li></ol> 
+              
+            </div>
+        
+        <h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><p><a href="https://uva.onlinejudge.org/external/101/10158.pdf" target="_blank" rel="noopener">題目網址</a>  </p>
+<a id="more"></a>
+<h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>有幾個比較重要的關係：  </p>
+<ol>
+<li>(A, B) 是朋友、(B, C) 是朋友： (A, C) 是朋友</li>
+<li>(A, B) 是敵人、(B, C) 是敵人： (A, C) 是朋友</li>
+<li>(A, B) 是朋友、(B, C) 是敵人： (A, C) 是敵人</li>
+</ol>
+<p>要特別注意的是：<br>setEnemies(A, B) 時，也要將 (A 的敵人) 和 (B) 化為朋友、(B 的敵人) 和 (A) 化為朋友(Union)。<br>setFriends(A, B) 時，則是也要讓 (A 的敵人) 和 (B 的敵人) 化為朋友(Union)。</p>
+<p>第一種作法，讓 A 分成兩部分，分別是 (A) 和 (A’s enemy)。<br>只要和 <code>p[A]</code> 相同的代表是朋友，和 <code>p[A&#39;s enemy]</code> 相同的則是 A 的敵人。<br>由於分成了兩個不同的數字，就可以直接對他們去做 union 等操作了。</p>
+<p>第二種則是額外用一個 <code>enemy[A]</code> 去紀錄 A 的敵人，需要在每一次更動關係時去追蹤 A 的敵人。  </p>
+<p>在 setFriends 中有個一開始沒寫到，一直拿 WA 的原因…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//兩方的敵人會成為朋友，並更新紀錄敵人的陣列</span><br><span class="line">do_union(ex, ey);</span><br><span class="line">ex = find(ex), ey = find(ey);</span><br><span class="line">enemy[find(x)] = ex ? ex : ey;</span><br></pre></td></tr></table></figure>
+<p>要注意 <strong>空集合</strong> 的判斷，並記得以各隊(朋友)的代表去操作。</p>
+<p>一開始使用第二種，儘管可以過 udebug，還是 WA 了快 20 次才找到問題…</p>
+<p>提供一個比較好手算的測資：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">1 1 2</span><br><span class="line">1 3 4</span><br><span class="line">2 2 3</span><br><span class="line">1 1 4</span><br><span class="line">2 4 5</span><br><span class="line">2 1 5</span><br><span class="line">1 5 6</span><br><span class="line">3 1 6</span><br><span class="line">3 3 6</span><br><span class="line">0 0 0</span><br><span class="line"></span><br><span class="line">-1</span><br><span class="line">-1</span><br><span class="line">1</span><br><span class="line">0</span><br></pre></td></tr></table></figure></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>(1)<br><figure class="highlight cpp"><figcaption><span>UVa 10158</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 20010</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//disjoint set</span></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> p[N];    <span class="comment">//the leader of each unit([x]: x 的代表)</span></span><br><span class="line"><span class="keyword">int</span> size[N]; <span class="comment">//number of each group([x]: x 的成員有幾人)</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (n &lt;&lt; <span class="number">1</span>); ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        size[i] = <span class="number">1</span>;</span><br><span class="line">        p[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x == p[x]) ? x : (p[x] = find(p[x]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">get_ene</span><span class="params">(<span class="keyword">int</span> x)</span> <span class="comment">//x 的敵人</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x + n;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">do_union</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line">    <span class="keyword">if</span> (x == y)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//小的併入大的</span></span><br><span class="line">    <span class="keyword">if</span> (size[x] &lt; size[y])</span><br><span class="line">    &#123;</span><br><span class="line">        p[x] = y;</span><br><span class="line">        size[y] += size[x];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        p[y] = x;</span><br><span class="line">        size[x] += size[y];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">are_friends</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> find(x) == find(y);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">are_enemies</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> find(get_ene(x)) == find(y) || find(get_ene(y)) == find(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">set_friends</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ex = find(get_ene(x)), ey = find(get_ene(y));</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ex == y || ey == x) <span class="comment">//they are enemies</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    do_union(x, y);</span><br><span class="line">    do_union(ex, ey); <span class="comment">//雙方的敵人互為朋友</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">set_enemies</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ex = find(get_ene(x)), ey = find(get_ene(y));</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (x == y) <span class="comment">//they are friends</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//敵人的敵人就是朋友</span></span><br><span class="line">    do_union(ex, y);</span><br><span class="line">    do_union(ey, x);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">int</span> c, x, y;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;c, &amp;x, &amp;y) &amp;&amp; c)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (c == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!set_friends(x, y))</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!set_enemies(x, y))</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="number">3</span>)</span><br><span class="line">            <span class="built_in">puts</span>(are_friends(x, y) ? <span class="string">"1"</span> : <span class="string">"0"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="number">4</span>)</span><br><span class="line">            <span class="built_in">puts</span>(are_enemies(x, y) ? <span class="string">"1"</span> : <span class="string">"0"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>(2)<br><figure class="highlight cpp"><figcaption><span>UVa 10158</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 10010</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//disjoint set</span></span><br><span class="line"><span class="keyword">int</span> p[N];     <span class="comment">//the leader of each unit([x]: x 的代表)</span></span><br><span class="line"><span class="keyword">int</span> size[N];  <span class="comment">//number of each group([x]: x 的成員有幾人)</span></span><br><span class="line"><span class="keyword">int</span> enemy[N]; <span class="comment">//[x]: x's enemy</span></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        size[i] = <span class="number">1</span>;</span><br><span class="line">        p[i] = i;</span><br><span class="line">        enemy[i] = <span class="number">0</span>; <span class="comment">//empty set</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x == p[x]) ? x : (p[x] = find(p[x]));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">do_union</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line">    <span class="keyword">if</span> (x == y || !x || !y)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//小的併入大的</span></span><br><span class="line">    <span class="keyword">if</span> (size[x] &lt; size[y])</span><br><span class="line">    &#123;</span><br><span class="line">        p[x] = y;</span><br><span class="line">        size[y] += size[x];</span><br><span class="line">        <span class="comment">//size[x] = 0;</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        p[y] = x;</span><br><span class="line">        size[x] += size[y];</span><br><span class="line">        <span class="comment">//size[y] = 0;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">are_friends</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line">    <span class="keyword">return</span> x == y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">are_enemies</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line">    <span class="keyword">return</span> find(enemy[x]) == y || find(enemy[y]) == x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">set_friends</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line">    <span class="keyword">int</span> ex = find(enemy[x]), ey = find(enemy[y]);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ex == y || ey == x) <span class="comment">//they are enemies</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    do_union(x, y);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//兩方的敵人會成為朋友，並更新紀錄敵人的陣列</span></span><br><span class="line">    do_union(ex, ey);</span><br><span class="line">    ex = find(ex), ey = find(ey);</span><br><span class="line">    enemy[find(x)] = ex ? ex : ey;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">set_enemies</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (x == y) <span class="comment">//they are friends</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    do_union(enemy[x], y);</span><br><span class="line">    do_union(enemy[y], x);</span><br><span class="line"></span><br><span class="line">    x = find(x), y = find(y);</span><br><span class="line">    enemy[x] = y;</span><br><span class="line">    enemy[y] = x;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    init(n);</span><br><span class="line">    <span class="keyword">int</span> c, x, y;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;c, &amp;x, &amp;y) &amp;&amp; c)</span><br><span class="line">    &#123;</span><br><span class="line">        ++x, ++y; <span class="comment">//編號從 1 開始</span></span><br><span class="line">        <span class="keyword">if</span> (c == <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!set_friends(x, y))</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="number">2</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (!set_enemies(x, y))</span><br><span class="line">                <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="number">3</span>)</span><br><span class="line">            <span class="built_in">puts</span>(are_friends(x, y) ? <span class="string">"1"</span> : <span class="string">"0"</span>);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (c == <span class="number">4</span>)</span><br><span class="line">            <span class="built_in">puts</span>(are_enemies(x, y) ? <span class="string">"1"</span> : <span class="string">"0"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2018/05/26/Problem_Solving/UVa/UVa-10158-War/" data-id="cjhn5dz5t0034esugxnekxor1" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2018/05/26/Problem_Solving/UVa/UVa-10158-War/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Disjoint-set/">Disjoint-set</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UVa/">UVa</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/26/Problem_Solving/UVa/UVa-10528-Major-Scales/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 10528 - Major Scales</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/26/Problem_Solving/UVa/UVa-10158-War/">UVa 10158 - War</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/Problem_Solving/UVa/UVa-10528-Major-Scales/">UVa 10528 - Major Scales</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/">UVa 12908 - The book thief</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/">OpenCV 噴射阿姆斯特朗砲繪製練習</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/">UVa 11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11223-O-dah-dah-dah/">UVa 11223 - O: dah dah dah!</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/23/Problem_Solving/UVa/UVa-394-Mapmaker/">UVa 394 - Mapmaker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/Problem_Solving/UVa/UVa-10901-Ferry-Loading-III/">UVa 10901 - Ferry Loading III</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/11/Problem_Solving/UVa/UVa-1730-Sum-of-MSLCM/">UVa 1730 - Sum of MSLCM</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/01/Problem_Solving/UVa/UVa-10633-Rare-Easy-Problem/">UVa 10633 - Rare Easy Problem</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/For-Fun/">For Fun</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">258</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/CodeForces/">CodeForces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">253</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">40</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">landscape</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2018/05/26/Problem_Solving/UVa/UVa-10158-War/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
