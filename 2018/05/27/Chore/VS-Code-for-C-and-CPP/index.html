@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>VS Code for C and CPP | NaiveRed&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。">
+<meta name="keywords" content="vscode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VS Code for C and CPP">
+<meta property="og:url" content="http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/index.html">
+<meta property="og:site_name" content="NaiveRed&#39;s Blog">
+<meta property="og:description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-05-27T15:17:55.926Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VS Code for C and CPP">
+<meta name="twitter:description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。">
+  
+    <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73951673-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">NaiveRed&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Don&#39;t Panic!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/tags">Tags</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://naivered.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Chore/VS-Code-for-C-and-CPP" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/27/Chore/VS-Code-for-C-and-CPP/" class="article-date">
+  <time datetime="2018-05-27T12:59:02.000Z" itemprop="datePublished">2018-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Chore/">Chore</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      VS Code for C and CPP
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+          
+            <div id="toc" class="toc-article">
+            <h2 class="toc-title">Contents</h2>
+			  
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Visual-Studio-Code-for-C-CPP"><span class="toc-number">1.</span> <span class="toc-text">Visual Studio Code for C/CPP</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#c-cpp-properties"><span class="toc-number">1.1.</span> <span class="toc-text">c_cpp_properties</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tasks"><span class="toc-number">1.2.</span> <span class="toc-text">tasks</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#launch"><span class="toc-number">1.3.</span> <span class="toc-text">launch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其它"><span class="toc-number">1.4.</span> <span class="toc-text">其它</span></a></li></ol></li></ol> 
+              
+            </div>
+        
+        <h2 id="Visual-Studio-Code-for-C-CPP"><a href="#Visual-Studio-Code-for-C-CPP" class="headerlink" title="Visual Studio Code for C/CPP"></a>Visual Studio Code for C/CPP</h2><p>紀錄一些相關設定和說明。</p>
+<p>OS: windows 10<br>Compiler: MinGW-w64<br>Debugger: GDB  </p>
+<p>先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。<br>看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。</p>
+<a id="more"></a>
+<h3 id="c-cpp-properties"><a href="#c-cpp-properties" class="headerlink" title="c_cpp_properties"></a>c_cpp_properties</h3><p><strong>先前的：</strong></p>
+<script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=c_cpp_properties(deprecated).json"></script>
+
+<p>今天重新再用一次發現步驟簡化很多，只要改一點預設的就能跑了。</p>
+<p>也就是 IntelliSense 相關的部分，現在只需要這樣：  </p>
+<script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=c_cpp_properties.json"></script>
+
+<blockquote>
+<p>The extension will use that information to determine the system include path and defines so that they don’t need to be added to c_cpp_properties.json. - doc.</p>
+</blockquote>
+<p>如果把 <code>&quot;intelliSenseMode&quot;</code> 換成 <code>&quot;msvc-x64&quot;</code>，那就會將 IntelliSense 等相關功能以 MSVC 的為主。<br>像是對 <code>#include&lt;string&gt;</code> 按右鍵(Go to Definition: F12)，他就會移到 MSCV 的 string file。<br>反之 <code>&quot;clang-x64&quot;</code> 則是 GNU 的。</p>
+<h3 id="tasks"><a href="#tasks" class="headerlink" title="tasks"></a>tasks</h3><p>在這邊進行編譯等動作，並用 predefined variables 讓產生出來的執行檔和程式碼在同一資料夾。  </p>
+<script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=tasks.json"></script>
+
+<h3 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h3><p>要設定這個檔案才能除錯，記得設定正確的路徑，像是 gdb 的。  </p>
+<p>另外如果前面 tasks 所產生出來的執行檔在其他地方，<code>&quot;program&quot;</code> 也要修改成對應的。  </p>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(tasks 內)執行檔直接產生到當前目錄 &quot;$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line"></span><br><span class="line">&quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,</span><br><span class="line">&quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br></pre></td></tr></table></figure></p>
+<script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=launch.json"></script>
+
+<h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>記得可以先從 command (F1) 那找需要的檔案產生範本。e.g. F1 -&gt; Tasks …</p>
+<p><strong>重要：</strong> </p>
+<p>設定建議可以搭配官方文件，有些教學文是較久以前寫的難免有誤，或是舊版本使用的方法。</p>
+<p>官方文件：</p>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/languages/cpp" target="_blank" rel="noopener">https://code.visualstudio.com/docs/languages/cpp</a>  </li>
+<li><a href="https://code.visualstudio.com/docs/editor/variables-reference" target="_blank" rel="noopener">Variables Reference</a></li>
+</ul>
+<p>相關資源：(有些較舊版本的方法)  </p>
+<ul>
+<li><a href="https://ithelp.ithome.com.tw/articles/10190235" target="_blank" rel="noopener">https://ithelp.ithome.com.tw/articles/10190235</a>  </li>
+<li><a href="https://www.zhihu.com/question/30315894" target="_blank" rel="noopener">https://www.zhihu.com/question/30315894</a></li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/" data-id="cjhoy1jhx000u5kug08x5m0xf" class="article-share-link">Share</a>
+      
+        <a href="http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vscode/">vscode</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/05/26/Problem_Solving/UVa/UVa-10158-War/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">UVa 10158 - War</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/05/27/Chore/VS-Code-for-C-and-CPP/">VS Code for C and CPP</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/Problem_Solving/UVa/UVa-10158-War/">UVa 10158 - War</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/26/Problem_Solving/UVa/UVa-10528-Major-Scales/">UVa 10528 - Major Scales</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/21/Problem_Solving/UVa/UVa-12908-The-book-thief/">UVa 12908 - The book thief</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/For_Fun/The-Cannon-of-Gintama-by-openCV/">OpenCV 噴射阿姆斯特朗砲繪製練習</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11235-Frequent-values/">UVa 11235 - Frequent values</a>
+          </li>
+        
+          <li>
+            <a href="/2018/05/20/Problem_Solving/UVa/UVa-11223-O-dah-dah-dah/">UVa 11223 - O: dah dah dah!</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/23/Problem_Solving/UVa/UVa-394-Mapmaker/">UVa 394 - Mapmaker</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/13/Problem_Solving/UVa/UVa-10901-Ferry-Loading-III/">UVa 10901 - Ferry Loading III</a>
+          </li>
+        
+          <li>
+            <a href="/2018/04/11/Problem_Solving/UVa/UVa-1730-Sum-of-MSLCM/">UVa 1730 - Sum of MSLCM</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Chore/">Chore</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/For-Fun/">For Fun</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/">Problem Solving</a><span class="category-list-count">258</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/CodeForces/">CodeForces</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/UVa/">UVa</a><span class="category-list-count">253</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Problem-Solving/ZeroJudge/">ZeroJudge</a><span class="category-list-count">4</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/">學習筆記</a><span class="category-list-count">26</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/ML-Hung-yi-Lee/">ML(Hung-yi Lee)</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/Python/">Python</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/學習筆記/機器學習基石/">機器學習基石</a><span class="category-list-count">11</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/心情隨筆/">心情隨筆</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/">讀書手札</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/讀書手札/讀後感/">讀後感</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/04/">April 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a><span class="archive-list-count">40</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">October 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/01/">January 2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">October 2016</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">September 2016</a><span class="archive-list-count">16</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/08/">August 2016</a><span class="archive-list-count">48</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">July 2016</a><span class="archive-list-count">52</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/06/">June 2016</a><span class="archive-list-count">18</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/05/">May 2016</a><span class="archive-list-count">29</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">April 2016</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">January 2016</a><span class="archive-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 NaiveRed<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> and Theme by <a href="https://github.com/hexojs/hexo-theme-landscape" target="_blank">landscape</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'naivered';
+  
+  var disqus_url = 'http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
