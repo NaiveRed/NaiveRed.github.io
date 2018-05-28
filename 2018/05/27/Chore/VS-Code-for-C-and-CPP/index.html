@@ -5,18 +5,18 @@
   
   <title>VS Code for C and CPP | NaiveRed&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。">
+  <meta name="description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。 以下筆記皆以這個為主~">
 <meta name="keywords" content="vscode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="VS Code for C and CPP">
 <meta property="og:url" content="http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/index.html">
 <meta property="og:site_name" content="NaiveRed&#39;s Blog">
-<meta property="og:description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。">
+<meta property="og:description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。 以下筆記皆以這個為主~">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-05-27T15:17:55.926Z">
+<meta property="og:updated_time" content="2018-05-28T03:48:14.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VS Code for C and CPP">
-<meta name="twitter:description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。">
+<meta name="twitter:description" content="Visual Studio Code for C/CPP紀錄一些相關設定和說明。 OS: windows 10Compiler: MinGW-w64Debugger: GDB   先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。 以下筆記皆以這個為主~">
   
     <link rel="alternate" href="/atom.xml" title="NaiveRed&#39;s Blog" type="application/atom+xml">
   
@@ -120,26 +120,20 @@ ga('send', 'pageview');
         <h2 id="Visual-Studio-Code-for-C-CPP"><a href="#Visual-Studio-Code-for-C-CPP" class="headerlink" title="Visual Studio Code for C/CPP"></a>Visual Studio Code for C/CPP</h2><p>紀錄一些相關設定和說明。</p>
 <p>OS: windows 10<br>Compiler: MinGW-w64<br>Debugger: GDB  </p>
 <p>先前使用時因為要對 compile/debug 等多做設定，IntelliSense 部分更是需要設定非常多的 Path。<br>看著教學一步一步也不知道正不正確，基本上就是試誤法，不行就再多個路徑看看。</p>
+<p>以下筆記皆以這個為主~<br><a href="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0" target="_blank" rel="noopener">相關設定檔(gist)</a></p>
 <a id="more"></a>
 <h3 id="c-cpp-properties"><a href="#c-cpp-properties" class="headerlink" title="c_cpp_properties"></a>c_cpp_properties</h3><p><strong>先前的：</strong></p>
 <script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=c_cpp_properties(deprecated).json"></script>
 
-<p>今天重新再用一次發現步驟簡化很多，只要改一點預設的就能跑了。</p>
-<p>也就是 IntelliSense 相關的部分，現在只需要這樣：  </p>
-<script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=c_cpp_properties.json"></script>
-
+<p>今天重新再用一次發現步驟簡化很多，IntelliSense 相關的部分只要改一點預設的就能跑了。</p>
 <blockquote>
 <p>The extension will use that information to determine the system include path and defines so that they don’t need to be added to c_cpp_properties.json. - doc.</p>
 </blockquote>
 <p>如果把 <code>&quot;intelliSenseMode&quot;</code> 換成 <code>&quot;msvc-x64&quot;</code>，那就會將 IntelliSense 等相關功能以 MSVC 的為主。<br>像是對 <code>#include&lt;string&gt;</code> 按右鍵(Go to Definition: F12)，他就會移到 MSCV 的 string file。<br>反之 <code>&quot;clang-x64&quot;</code> 則是 GNU 的。</p>
 <h3 id="tasks"><a href="#tasks" class="headerlink" title="tasks"></a>tasks</h3><p>在這邊進行編譯等動作，並用 predefined variables 讓產生出來的執行檔和程式碼在同一資料夾。  </p>
-<script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=tasks.json"></script>
-
 <h3 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h3><p>要設定這個檔案才能除錯，記得設定正確的路徑，像是 gdb 的。  </p>
 <p>另外如果前面 tasks 所產生出來的執行檔在其他地方，<code>&quot;program&quot;</code> 也要修改成對應的。  </p>
 <p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(tasks 內)執行檔直接產生到當前目錄 &quot;$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br><span class="line"></span><br><span class="line">&quot;cwd&quot;: &quot;$&#123;workspaceFolder&#125;&quot;,</span><br><span class="line">&quot;program&quot;: &quot;$&#123;workspaceFolder&#125;/$&#123;fileBasenameNoExtension&#125;.exe&quot;</span><br></pre></td></tr></table></figure></p>
-<script src="https://gist.github.com/NaiveRed/a2391f01935db3b91456e82e149c70d0.js?file=launch.json"></script>
-
 <h3 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h3><p>記得可以先從 command (F1) 那找需要的檔案產生範本。e.g. F1 -&gt; Tasks …</p>
 <p><strong>重要：</strong> </p>
 <p>設定建議可以搭配官方文件，有些教學文是較久以前寫的難免有誤，或是舊版本使用的方法。</p>
@@ -157,7 +151,7 @@ ga('send', 'pageview');
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/" data-id="cjhoy1jhx000u5kug08x5m0xf" class="article-share-link">Share</a>
+      <a data-url="http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/" data-id="cjhppkx6s000bmsugpnisb05d" class="article-share-link">Share</a>
       
         <a href="http://naivered.github.io/2018/05/27/Chore/VS-Code-for-C-and-CPP/#disqus_thread" class="article-comment-link">Comments</a>
       
